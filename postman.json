@@ -286,6 +286,292 @@
 					]
 				},
 				{
+					"name": "Feature",
+					"item": [
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "title 1",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "description 1",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "address 1",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/user--49/Pictures/imperium-vorago.jpg"
+										},
+										{
+											"key": "price",
+											"value": "99999",
+											"type": "text"
+										},
+										{
+											"key": "is_negotiable",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "from_date",
+											"value": "2022-01-01",
+											"type": "text"
+										},
+										{
+											"key": "to_date",
+											"value": "2022-12-30",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/house/feature",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house",
+										"feature"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house/feature",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house",
+										"feature"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house/feature/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house",
+										"feature",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "destroy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house/feature/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house",
+										"feature",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "title 1",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "description 1",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "address 1",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/user--49/Pictures/imperium-vorago.jpg"
+										},
+										{
+											"key": "price",
+											"value": "99999",
+											"type": "text"
+										},
+										{
+											"key": "is_negotiable",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "from_date",
+											"value": "2022-01-01",
+											"type": "text"
+										},
+										{
+											"key": "to_date",
+											"value": "2022-12-30",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/house/feature/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house",
+										"feature",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "House",
 					"item": [
 						{
@@ -366,6 +652,673 @@
 									"path": [
 										"admin",
 										"house"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "destroy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "title 1",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "description 1",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "address 1",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/user--49/Pictures/imperium-vorago.jpg"
+										},
+										{
+											"key": "price",
+											"value": "99999",
+											"type": "text"
+										},
+										{
+											"key": "is_negotiable",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "from_date",
+											"value": "2022-01-01",
+											"type": "text"
+										},
+										{
+											"key": "to_date",
+											"value": "2022-12-30",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/house/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "JobCategory",
+					"item": [
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"category 1\",\n    \"description\": \"description 1\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": \"0\",\n    \"meta_title\": \"meta_title 1\",\n    \"meta_description\": \"meta_description 1\",\n    \"meta_keyword\": [\"keyword 1\", \"keyword 2\", \"keyword 3\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/job/category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"job",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "category edit",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "description edit",
+											"type": "text"
+										},
+										{
+											"key": "order_level",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "parent_id",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "meta_title",
+											"value": "meta title edit",
+											"type": "text"
+										},
+										{
+											"key": "meta_description",
+											"value": "meta description edit",
+											"type": "text"
+										},
+										{
+											"key": "meta_keyword",
+											"value": "meta keyboard edit",
+											"type": "text"
+										},
+										{
+											"key": "icon",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/job/category/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"job",
+										"category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/job/category/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"job",
+										"category",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house/category/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house",
+										"category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "destroy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house/category/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house",
+										"category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Job",
+					"item": [
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"\",\n    \"availability\": 1,\n    \"sku\": \"sku1\",\n    \"stock\": 0,\n    \"base_price\": 101,\n    \"selected_attribute\": [\n        {\n            \"id\": \"\",\n            \"attribute_id\": 4,\n            \"value_id\": 13\n        },\n        {\n            \"id\": \"\",\n            \"attribute_id\": 5,\n            \"value_id\": 15\n        }\n    ],\n    \"quantity\": {\n        \"1-10\": 101,\n        \"11-22\": 51\n    }\n},\n{\n    \"id\": \"\",\n    \"availability\": 1,\n    \"sku\": \"sku2\",\n    \"stock\": 0,\n    \"base_price\": 201,\n    \"selected_attribute\": [\n        {\n            \"id\": \"\",\n            \"attribute_id\": 4,\n            \"value_id\": 14\n        },\n        {\n            \"id\": \"\",\n            \"attribute_id\": 5,\n            \"value_id\": 16\n        }\n    ],\n    \"quantity\": {\n        \"1-10\": 201,\n        \"11-22\": 151\n    }\n} ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/house/job",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house",
+										"job"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house/job",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house",
+										"job"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "destroy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "title 1",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "description 1",
+											"type": "text"
+										},
+										{
+											"key": "category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "address 1",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/user--49/Pictures/imperium-vorago.jpg"
+										},
+										{
+											"key": "price",
+											"value": "99999",
+											"type": "text"
+										},
+										{
+											"key": "is_negotiable",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "from_date",
+											"value": "2022-01-01",
+											"type": "text"
+										},
+										{
+											"key": "to_date",
+											"value": "2022-12-30",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/house/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house",
+										"1"
 									]
 								}
 							},
@@ -542,7 +1495,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMGUxYmVlYTkxYzVlZmNlNjQ0YmEwNjg3MGI0NWY4NmVhMTRiYThlZTc5ZmU0NWQwMzI5MWMyZmUzNThlOGM3OTNmOGEzODZmMDE0NThiNGQiLCJpYXQiOjE2NTAyNjMxNDMuNzkyODEyLCJuYmYiOjE2NTAyNjMxNDMuNzkyODE0LCJleHAiOjE2ODE3OTkxNDMuNzg3ODc4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.plfKi8hU-DIsVpageWTVG40a5cz4FeudMxOspZueeJhwTsKiQW7yTG78LiB1JHMEfJsLzunin2Lo-ZLBbe3KVPdbTYRJ6JHogmKTYpZC7JXDPza33kfsi6fyAqDFYXnPZYCColyebaHf9l_195YTSNGbwl_tzHPAJc6niPT-tAjF5zjZ72pO6VMQ-CwqtCQ32VbA4azy8B3qm6ta1UBLbk81YuPkxbaIgl2p6cznaWpGOIKx0xUjBeGncLZSLsrWFJCdfewhVXV2QWK42igHlUIn8MkoFAxM_9Nbev8gcpH6Td5aC9INQ_jPAc4NOomvzZpcq_Mvu_MKA_Wi5JTpy_-PwrPys4W61VJws-V7hcBYkLpaz1NklpGMgipSbUlViOfa87ULsWRHLKn3icowmft0s1SC4WTI_rZdwu7_42VZyLdUxywJVC53psAP_JseDodrYNhADWxOxtu4lforiREyeHTP7KeZcBFc9SRA3YfP7Lv6P13FkVGzUOmd0d7itQ9QWvxgCEGVXw1OqBwrYXofzemeiDFHI6yvD1zZv69K2Ab4TAv47fSi4iBZjru7vX8fk_0YtLICXTmXtkCm6MmTnJUtaMsDSdk9JuudtwBNeX9e3-9Zf5FPCl1r5P5Hbb4RG3_I7e2BK4LeYZa184z_mSsw1kgK68SAyvutAfU",
+									"value": "{{client_token}}",
 									"type": "string"
 								}
 							]
