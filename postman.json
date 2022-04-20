@@ -12,7 +12,7 @@
 					"name": "HouseCategory",
 					"item": [
 						{
-							"name": "store",
+							"name": "store - store category of house",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -27,71 +27,29 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "title",
-											"value": "category 1",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "description 1",
-											"type": "text"
-										},
-										{
-											"key": "order_level",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "parent_id",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "status",
-											"value": "0",
-											"type": "text"
-										},
-										{
-											"key": "meta_title",
-											"value": "meta title 1",
-											"type": "text"
-										},
-										{
-											"key": "meta_description",
-											"value": "meta description 1",
-											"type": "text"
-										},
-										{
-											"key": "meta_keyword",
-											"value": "meta keyword 1",
-											"type": "text"
-										},
-										{
-											"key": "icon",
-											"value": "",
-											"type": "text"
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"category 1\",\n    \"icon\": \"\",\n    \"description\": \"description 1\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": \"0\",\n    \"meta_title\": \"meta_title 1\",\n    \"meta_description\": \"meta_description 1\",\n    \"meta_keyword\": [\"keyword 1\", \"keyword 2\", \"keyword 3\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
 										}
-									]
+									}
 								},
 								"url": {
-									"raw": "{{url}}/admin/house/category",
+									"raw": "{{url}}/admin/house-category",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
-										"house",
-										"category"
+										"house-category"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "update",
+							"name": "update - update category of house",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -106,69 +64,22 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "title",
-											"value": "category edit",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "description edit",
-											"type": "text"
-										},
-										{
-											"key": "order_level",
-											"value": "2",
-											"type": "text"
-										},
-										{
-											"key": "parent_id",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "status",
-											"value": "1",
-											"type": "text"
-										},
-										{
-											"key": "meta_title",
-											"value": "meta title edit",
-											"type": "text"
-										},
-										{
-											"key": "meta_description",
-											"value": "meta description edit",
-											"type": "text"
-										},
-										{
-											"key": "meta_keyword",
-											"value": "meta keyboard edit",
-											"type": "text"
-										},
-										{
-											"key": "icon",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "_method",
-											"value": "patch",
-											"type": "text"
+									"mode": "raw",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"category edit\",\n    \"icon\": \"\",\n    \"description\": \"description edit\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": \"0\",\n    \"meta_title\": \"meta_title edit\",\n    \"meta_description\": \"meta_description edit\",\n    \"meta_keyword\": [\"keyword edit\", \"keyword 2\", \"keyword 3\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
 										}
-									]
+									}
 								},
 								"url": {
-									"raw": "{{url}}/admin/house/category/1",
+									"raw": "{{url}}/admin/house-category/1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
-										"house",
-										"category",
+										"house-category",
 										"1"
 									]
 								}
@@ -176,7 +87,7 @@
 							"response": []
 						},
 						{
-							"name": "index",
+							"name": "index - get all category of house",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -198,22 +109,20 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/admin/house/category/",
+									"raw": "{{url}}/admin/house-category",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
-										"house",
-										"category",
-										""
+										"house-category"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "show",
+							"name": "show - get single category od house",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -235,14 +144,13 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/admin/house/category/1",
+									"raw": "{{url}}/admin/house-category/1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
-										"house",
-										"category",
+										"house-category",
 										"1"
 									]
 								}
@@ -250,7 +158,7 @@
 							"response": []
 						},
 						{
-							"name": "destroy",
+							"name": "destroy - delete single category of house",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -269,14 +177,13 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/admin/house/category/1",
+									"raw": "{{url}}/admin/house-category/1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
-										"house",
-										"category",
+										"house-category",
 										"1"
 									]
 								}
@@ -286,10 +193,10 @@
 					]
 				},
 				{
-					"name": "Feature",
+					"name": "HouseFeature",
 					"item": [
 						{
-							"name": "store",
+							"name": "store - store feature of house",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -304,183 +211,29 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "title",
-											"value": "title 1",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "description 1",
-											"type": "text"
-										},
-										{
-											"key": "category_id",
-											"value": "1",
-											"type": "text"
-										},
-										{
-											"key": "address",
-											"value": "address 1",
-											"type": "text"
-										},
-										{
-											"key": "status",
-											"value": "0",
-											"type": "text"
-										},
-										{
-											"key": "image",
-											"type": "file",
-											"src": "/home/user--49/Pictures/imperium-vorago.jpg"
-										},
-										{
-											"key": "price",
-											"value": "99999",
-											"type": "text"
-										},
-										{
-											"key": "is_negotiable",
-											"value": "0",
-											"type": "text"
-										},
-										{
-											"key": "from_date",
-											"value": "2022-01-01",
-											"type": "text"
-										},
-										{
-											"key": "to_date",
-											"value": "2022-12-30",
-											"type": "text"
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"feature 1\",\n    \"category_id\": \n}",
+									"options": {
+										"raw": {
+											"language": "json"
 										}
-									]
+									}
 								},
 								"url": {
-									"raw": "{{url}}/admin/house/feature",
+									"raw": "{{url}}/admin/house-feature",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
-										"house",
-										"feature"
+										"house-feature"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "index",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/house/feature",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house",
-										"feature"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/house/feature/1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house",
-										"feature",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "destroy",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/house/feature/1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house",
-										"feature",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "update",
+							"name": "update - update feature of house",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -555,14 +308,117 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/house/feature/1",
+									"raw": "{{url}}/admin/house-feature/1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
-										"house",
-										"feature",
+										"house-feature",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index - gell all feature of house",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house-feature",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house-feature"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show - get single feature of house",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house-feature/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house-feature",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "destroy - destroy single feature of house",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house-feature/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house-feature",
 										"1"
 									]
 								}
@@ -575,7 +431,7 @@
 					"name": "House",
 					"item": [
 						{
-							"name": "store",
+							"name": "store - store house",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -590,59 +446,13 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "title",
-											"value": "title 1",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "description 1",
-											"type": "text"
-										},
-										{
-											"key": "category_id",
-											"value": "1",
-											"type": "text"
-										},
-										{
-											"key": "address",
-											"value": "address 1",
-											"type": "text"
-										},
-										{
-											"key": "status",
-											"value": "0",
-											"type": "text"
-										},
-										{
-											"key": "image",
-											"type": "file",
-											"src": "/home/user--49/Pictures/imperium-vorago.jpg"
-										},
-										{
-											"key": "price",
-											"value": "99999",
-											"type": "text"
-										},
-										{
-											"key": "is_negotiable",
-											"value": "0",
-											"type": "text"
-										},
-										{
-											"key": "from_date",
-											"value": "2022-01-01",
-											"type": "text"
-										},
-										{
-											"key": "to_date",
-											"value": "2022-12-30",
-											"type": "text"
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"title 1\",\n    \"image\": \"\",\n    \"description\": \"description 1\",\n    \"category_id\": \"1\",\n    \"address\": \"address 1\",\n    \"status\": \"0\",\n    \"price\": \"99999\",\n    \"is_negotiable\": \"0\",\n    \"from_date\": \"2022-01-01\",\n    \"to_date\": \"2022-12-30\",\n    \"meta_title\": \"meta title 1\",\n    \"meta_description\": \"meta description 1\",\n    \"meta_keyword\": [\"keyword 1\", \"keyword 2\", \"keyword 3\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
 										}
-									]
+									}
 								},
 								"url": {
 									"raw": "{{url}}/admin/house",
@@ -658,7 +468,45 @@
 							"response": []
 						},
 						{
-							"name": "index",
+							"name": "update - update house",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"title edit\",\n    \"image\": \"\",\n    \"description\": \"description edit\",\n    \"category_id\": \"1\",\n    \"address\": \"address edit\",\n    \"status\": \"0\",\n    \"price\": \"10000\",\n    \"is_negotiable\": \"0\",\n    \"from_date\": \"2022-01-01\",\n    \"to_date\": \"2022-12-30\",\n    \"meta_title\": \"meta title edit\",\n    \"meta_description\": \"meta description edit\",\n    \"meta_keyword\": [\"keyword edit\", \"keyword 2\", \"keyword 3\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/house/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index - get all house",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -694,7 +542,7 @@
 							"response": []
 						},
 						{
-							"name": "show",
+							"name": "show - get single house",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -730,7 +578,7 @@
 							"response": []
 						},
 						{
-							"name": "destroy",
+							"name": "destroy - delete single house",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -761,95 +609,6 @@
 								}
 							},
 							"response": []
-						},
-						{
-							"name": "update",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "title",
-											"value": "title 1",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "description 1",
-											"type": "text"
-										},
-										{
-											"key": "category_id",
-											"value": "1",
-											"type": "text"
-										},
-										{
-											"key": "address",
-											"value": "address 1",
-											"type": "text"
-										},
-										{
-											"key": "status",
-											"value": "0",
-											"type": "text"
-										},
-										{
-											"key": "image",
-											"type": "file",
-											"src": "/home/user--49/Pictures/imperium-vorago.jpg"
-										},
-										{
-											"key": "price",
-											"value": "99999",
-											"type": "text"
-										},
-										{
-											"key": "is_negotiable",
-											"value": "0",
-											"type": "text"
-										},
-										{
-											"key": "from_date",
-											"value": "2022-01-01",
-											"type": "text"
-										},
-										{
-											"key": "to_date",
-											"value": "2022-12-30",
-											"type": "text"
-										},
-										{
-											"key": "_method",
-											"value": "patch",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/admin/house/1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house",
-										"1"
-									]
-								}
-							},
-							"response": []
 						}
 					]
 				},
@@ -857,7 +616,7 @@
 					"name": "JobCategory",
 					"item": [
 						{
-							"name": "store",
+							"name": "store - store category of job",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -881,219 +640,20 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/admin/job/category",
+									"raw": "{{url}}/admin/job-category",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
-										"job",
-										"category"
+										"job-category"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "update",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "title",
-											"value": "category edit",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "description edit",
-											"type": "text"
-										},
-										{
-											"key": "order_level",
-											"value": "2",
-											"type": "text"
-										},
-										{
-											"key": "parent_id",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "status",
-											"value": "1",
-											"type": "text"
-										},
-										{
-											"key": "meta_title",
-											"value": "meta title edit",
-											"type": "text"
-										},
-										{
-											"key": "meta_description",
-											"value": "meta description edit",
-											"type": "text"
-										},
-										{
-											"key": "meta_keyword",
-											"value": "meta keyboard edit",
-											"type": "text"
-										},
-										{
-											"key": "icon",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "_method",
-											"value": "patch",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/admin/job/category/1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"job",
-										"category",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "index",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/job/category/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"job",
-										"category",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/house/category/1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house",
-										"category",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "destroy",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/house/category/1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house",
-										"category",
-										"1"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Job",
-					"item": [
-						{
-							"name": "store",
+							"name": "update - update category of job",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1109,7 +669,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": \"\",\n    \"availability\": 1,\n    \"sku\": \"sku1\",\n    \"stock\": 0,\n    \"base_price\": 101,\n    \"selected_attribute\": [\n        {\n            \"id\": \"\",\n            \"attribute_id\": 4,\n            \"value_id\": 13\n        },\n        {\n            \"id\": \"\",\n            \"attribute_id\": 5,\n            \"value_id\": 15\n        }\n    ],\n    \"quantity\": {\n        \"1-10\": 101,\n        \"11-22\": 51\n    }\n},\n{\n    \"id\": \"\",\n    \"availability\": 1,\n    \"sku\": \"sku2\",\n    \"stock\": 0,\n    \"base_price\": 201,\n    \"selected_attribute\": [\n        {\n            \"id\": \"\",\n            \"attribute_id\": 4,\n            \"value_id\": 14\n        },\n        {\n            \"id\": \"\",\n            \"attribute_id\": 5,\n            \"value_id\": 16\n        }\n    ],\n    \"quantity\": {\n        \"1-10\": 201,\n        \"11-22\": 151\n    }\n} ",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"category edit\",\n    \"description\": \"description edit\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": \"0\",\n    \"meta_title\": \"meta_title edit\",\n    \"meta_description\": \"meta_description edit\",\n    \"meta_keyword\": [\"keyword edit\", \"keyword 2\", \"keyword 3\"]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1117,85 +677,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/admin/house/job",
+									"raw": "{{url}}/admin/job-category/1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
-										"house",
-										"job"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "index",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/house/job",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house",
-										"job"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/house/1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house",
+										"job-category",
 										"1"
 									]
 								}
@@ -1203,7 +691,78 @@
 							"response": []
 						},
 						{
-							"name": "destroy",
+							"name": "index - get all category of job",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/job-category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"job-category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show - get single category of job",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/job-category/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"job-category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "destroy - delete single category of job",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1222,21 +781,26 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/admin/house/1",
+									"raw": "{{url}}/admin/job-category/1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
-										"house",
+										"job-category",
 										"1"
 									]
 								}
 							},
 							"response": []
-						},
+						}
+					]
+				},
+				{
+					"name": "Job",
+					"item": [
 						{
-							"name": "update",
+							"name": "store -store job",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1251,73 +815,347 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "title",
-											"value": "title 1",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "description 1",
-											"type": "text"
-										},
-										{
-											"key": "category_id",
-											"value": "1",
-											"type": "text"
-										},
-										{
-											"key": "address",
-											"value": "address 1",
-											"type": "text"
-										},
-										{
-											"key": "status",
-											"value": "0",
-											"type": "text"
-										},
-										{
-											"key": "image",
-											"type": "file",
-											"src": "/home/user--49/Pictures/imperium-vorago.jpg"
-										},
-										{
-											"key": "price",
-											"value": "99999",
-											"type": "text"
-										},
-										{
-											"key": "is_negotiable",
-											"value": "0",
-											"type": "text"
-										},
-										{
-											"key": "from_date",
-											"value": "2022-01-01",
-											"type": "text"
-										},
-										{
-											"key": "to_date",
-											"value": "2022-12-30",
-											"type": "text"
-										},
-										{
-											"key": "_method",
-											"value": "patch",
-											"type": "text"
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"job 1\",\n    \"image\": \"\",\n    \"description\": \"description 1\",\n    \"category_id\": 1,\n    \"address\": \"address 1\",\n    \"is_onsite\": 1,\n    \"from_date\": \"2022-01-01\",\n    \"to_date\": \"2022-12-20\",\n    \"experience\": 2,\n    \"level\": 1,\n    \"salary_type\": \"monthly\",\n    \"is_salary_range\": 1,\n    \"salary_range\": {\n        \"min\": 25000,\n        \"max\": 50000\n    },\n    \"salary\": 35000,\n    \"job_time\": \"fulltime\",\n    \"skill\": [\"php\", \"laravel\", \"mysql\", \"etc\"],\n    \"additional_information\": {\n        \"min\": 25000,\n        \"max\": 50000\n    },\n    \"user_id\": 1,\n    \"status\": 1,\n    \"meta_title\": \"meta title 1\",\n    \"meta_description\": \"meta description 1\",\n    \"meta_keyword\": [\"keyword 1\", \"keyword 2\", \"keyword 3\"]\n} ",
+									"options": {
+										"raw": {
+											"language": "json"
 										}
-									]
+									}
 								},
 								"url": {
-									"raw": "{{url}}/admin/house/1",
+									"raw": "{{url}}/admin/job",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
-										"house",
+										"job"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update - update job",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"job edit\",\n    \"image\": \"\",\n    \"description\": \"description edit\",\n    \"category_id\": 1,\n    \"address\": \"address edit\",\n    \"is_onsite\": 1,\n    \"from_date\": \"2022-01-01\",\n    \"to_date\": \"2022-12-20\",\n    \"experience\": 2,\n    \"level\": 1,\n    \"salary_type\": \"monthly\",\n    \"is_salary_range\": 1,\n    \"salary_range\": {\n        \"min\": 25000,\n        \"max\": 50000\n    },\n    \"salary\": 35000,\n    \"job_time\": \"fulltime\",\n    \"skill\": [\"php\", \"laravel\", \"mysql\", \"etc\", \"edit\"],\n    \"additional_information\": {\n        \"min\": 25000,\n        \"max\": 50000\n    },\n    \"user_id\": 1,\n    \"status\": 1,\n    \"meta_title\": \"meta title edit\",\n    \"meta_description\": \"meta description edit\",\n    \"meta_keyword\": [\"keyword edit\", \"keyword 2\", \"keyword 3\"]\n} ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/job/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"job",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index - get all job",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/job",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"job"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show - get single job",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/job/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"job",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "destroy - delete single job",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/job/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"job",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "BusinessCategory",
+					"item": [
+						{
+							"name": "store - store category of business",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"category 1\",\n    \"description\": \"description 1\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": \"0\",\n    \"meta_title\": \"meta_title 1\",\n    \"meta_description\": \"meta_description 1\",\n    \"meta_keyword\": [\"keyword 1\", \"keyword 2\", \"keyword 3\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/business-category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update - update category of business",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"category edit\",\n    \"description\": \"description edit\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": \"0\",\n    \"meta_title\": \"meta_title edit\",\n    \"meta_description\": \"meta_description edit\",\n    \"meta_keyword\": [\"keyword edit\", \"keyword 2\", \"keyword 3\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/business-category/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index - get all category of business",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/business-category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show - get single category of business",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/business-category/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "destroy - delete single category of business",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/business-category/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-category",
 										"1"
 									]
 								}

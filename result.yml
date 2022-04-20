@@ -25,93 +25,36 @@ components:
 tags:
   - name: Admin
   - name: Admin > HouseCategory
-  - name: Admin > Feature
+  - name: Admin > HouseFeature
   - name: Admin > House
   - name: Admin > JobCategory
   - name: Admin > Job
+  - name: Admin > BusinessCategory
   - name: Client
 paths:
-  /admin/house/category:
+  /admin/house-category:
     post:
       tags:
         - Admin > HouseCategory
-      summary: store
+      summary: store - store category of house
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             schema:
               type: object
-              properties:
-                title:
-                  type: string
-                  example: category 1
-                description:
-                  type: string
-                  example: description 1
-                order_level:
-                  type: string
-                parent_id:
-                  type: string
-                status:
-                  type: integer
-                  example: '0'
-                meta_title:
-                  type: string
-                  example: meta title 1
-                meta_description:
-                  type: string
-                  example: meta description 1
+              example:
+                title: category 1
+                icon: ''
+                description: description 1
+                order_level: ''
+                parent_id: ''
+                status: '0'
+                meta_title: meta_title 1
+                meta_description: meta_description 1
                 meta_keyword:
-                  type: string
-                  example: meta keyword 1
-                icon:
-                  type: string
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/house/category/1:
-    post:
-      tags:
-        - Admin > HouseCategory
-      summary: update
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                title:
-                  type: string
-                  example: category edit
-                description:
-                  type: string
-                  example: description edit
-                order_level:
-                  type: integer
-                  example: '2'
-                parent_id:
-                  type: string
-                status:
-                  type: integer
-                  example: '1'
-                meta_title:
-                  type: string
-                  example: meta title edit
-                meta_description:
-                  type: string
-                  example: meta description edit
-                meta_keyword:
-                  type: string
-                  example: meta keyboard edit
-                icon:
-                  type: string
-                _method:
-                  type: string
-                  example: patch
+                  - keyword 1
+                  - keyword 2
+                  - keyword 3
       security:
         - bearerAuth: []
       responses:
@@ -121,8 +64,50 @@ paths:
             application/json: {}
     get:
       tags:
-        - Admin > JobCategory
-      summary: show
+        - Admin > HouseCategory
+      summary: index - get all category of house
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/house-category/1:
+    post:
+      tags:
+        - Admin > HouseCategory
+      summary: update - update category of house
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                _method: patch
+                title: category edit
+                icon: ''
+                description: description edit
+                order_level: ''
+                parent_id: ''
+                status: '0'
+                meta_title: meta_title edit
+                meta_description: meta_description edit
+                meta_keyword:
+                  - keyword edit
+                  - keyword 2
+                  - keyword 3
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > HouseCategory
+      summary: show - get single category od house
       security:
         - bearerAuth: []
       responses:
@@ -132,20 +117,8 @@ paths:
             application/json: {}
     delete:
       tags:
-        - Admin > JobCategory
-      summary: destroy
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/house/category/:
-    get:
-      tags:
         - Admin > HouseCategory
-      summary: index
+      summary: destroy - delete single category of house
       security:
         - bearerAuth: []
       responses:
@@ -153,47 +126,21 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/house/feature:
+  /admin/house-feature:
     post:
       tags:
-        - Admin > Feature
-      summary: store
+        - Admin > HouseFeature
+      summary: store - store feature of house
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             schema:
               type: object
-              properties:
-                title:
-                  type: string
-                  example: title 1
-                description:
-                  type: string
-                  example: description 1
-                category_id:
-                  type: integer
-                  example: '1'
-                address:
-                  type: string
-                  example: address 1
-                status:
-                  type: integer
-                  example: '0'
-                image:
-                  type: string
-                  format: binary
-                price:
-                  type: integer
-                  example: '99999'
-                is_negotiable:
-                  type: integer
-                  example: '0'
-                from_date:
-                  type: string
-                  example: '2022-01-01'
-                to_date:
-                  type: string
-                  example: '2022-12-30'
+              example: |-
+                {
+                    "title": "feature 1",
+                    "category_id": 
+                }
       security:
         - bearerAuth: []
       responses:
@@ -203,8 +150,8 @@ paths:
             application/json: {}
     get:
       tags:
-        - Admin > Feature
-      summary: index
+        - Admin > HouseFeature
+      summary: index - gell all feature of house
       security:
         - bearerAuth: []
       responses:
@@ -212,33 +159,11 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/house/feature/1:
-    get:
-      tags:
-        - Admin > Feature
-      summary: show
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    delete:
-      tags:
-        - Admin > Feature
-      summary: destroy
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
+  /admin/house-feature/1:
     post:
       tags:
-        - Admin > Feature
-      summary: update
+        - Admin > HouseFeature
+      summary: update - update feature of house
       requestBody:
         content:
           multipart/form-data:
@@ -278,6 +203,28 @@ paths:
                 _method:
                   type: string
                   example: patch
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > HouseFeature
+      summary: show - get single feature of house
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > HouseFeature
+      summary: destroy - destroy single feature of house
       security:
         - bearerAuth: []
       responses:
@@ -289,43 +236,86 @@ paths:
     post:
       tags:
         - Admin > House
-      summary: store
+      summary: store - store house
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             schema:
               type: object
-              properties:
-                title:
-                  type: string
-                  example: title 1
-                description:
-                  type: string
-                  example: description 1
-                category_id:
-                  type: integer
-                  example: '1'
-                address:
-                  type: string
-                  example: address 1
-                status:
-                  type: integer
-                  example: '0'
-                image:
-                  type: string
-                  format: binary
-                price:
-                  type: integer
-                  example: '99999'
-                is_negotiable:
-                  type: integer
-                  example: '0'
-                from_date:
-                  type: string
-                  example: '2022-01-01'
-                to_date:
-                  type: string
-                  example: '2022-12-30'
+              example:
+                title: title 1
+                image: ''
+                description: description 1
+                category_id: '1'
+                address: address 1
+                status: '0'
+                price: '99999'
+                is_negotiable: '0'
+                from_date: '2022-01-01'
+                to_date: '2022-12-30'
+                meta_title: meta title 1
+                meta_description: meta description 1
+                meta_keyword:
+                  - keyword 1
+                  - keyword 2
+                  - keyword 3
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/house/1:
+    post:
+      tags:
+        - Admin > House
+      summary: update - update house
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                _method: patch
+                title: title edit
+                image: ''
+                description: description edit
+                category_id: '1'
+                address: address edit
+                status: '0'
+                price: '10000'
+                is_negotiable: '0'
+                from_date: '2022-01-01'
+                to_date: '2022-12-30'
+                meta_title: meta title edit
+                meta_description: meta description edit
+                meta_keyword:
+                  - keyword edit
+                  - keyword 2
+                  - keyword 3
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > House
+      summary: show - get single house
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > House
+      summary: destroy - delete single house
       security:
         - bearerAuth: []
       responses:
@@ -337,7 +327,7 @@ paths:
     get:
       tags:
         - Admin > House
-      summary: index
+      summary: index - get all house
       security:
         - bearerAuth: []
       responses:
@@ -345,84 +335,11 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/house/1:
-    get:
-      tags:
-        - Admin > Job
-      summary: show
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    delete:
-      tags:
-        - Admin > Job
-      summary: destroy
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    post:
-      tags:
-        - Admin > Job
-      summary: update
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                title:
-                  type: string
-                  example: title 1
-                description:
-                  type: string
-                  example: description 1
-                category_id:
-                  type: integer
-                  example: '1'
-                address:
-                  type: string
-                  example: address 1
-                status:
-                  type: integer
-                  example: '0'
-                image:
-                  type: string
-                  format: binary
-                price:
-                  type: integer
-                  example: '99999'
-                is_negotiable:
-                  type: integer
-                  example: '0'
-                from_date:
-                  type: string
-                  example: '2022-01-01'
-                to_date:
-                  type: string
-                  example: '2022-12-30'
-                _method:
-                  type: string
-                  example: patch
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/job/category:
+  /admin/job-category:
     post:
       tags:
         - Admin > JobCategory
-      summary: store
+      summary: store - store category of job
       requestBody:
         content:
           application/json:
@@ -447,57 +364,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/job/category/1:
-    post:
-      tags:
-        - Admin > JobCategory
-      summary: update
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                title:
-                  type: string
-                  example: category edit
-                description:
-                  type: string
-                  example: description edit
-                order_level:
-                  type: integer
-                  example: '2'
-                parent_id:
-                  type: string
-                status:
-                  type: integer
-                  example: '1'
-                meta_title:
-                  type: string
-                  example: meta title edit
-                meta_description:
-                  type: string
-                  example: meta description edit
-                meta_keyword:
-                  type: string
-                  example: meta keyboard edit
-                icon:
-                  type: string
-                _method:
-                  type: string
-                  example: patch
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/job/category/:
     get:
       tags:
         - Admin > JobCategory
-      summary: index
+      summary: index - get all category of job
       security:
         - bearerAuth: []
       responses:
@@ -505,63 +375,102 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/house/job:
+  /admin/job-category/1:
     post:
       tags:
-        - Admin > Job
-      summary: store
+        - Admin > JobCategory
+      summary: update - update category of job
       requestBody:
         content:
           application/json:
             schema:
               type: object
-              example: |-
-                {
-                    "id": "",
-                    "availability": 1,
-                    "sku": "sku1",
-                    "stock": 0,
-                    "base_price": 101,
-                    "selected_attribute": [
-                        {
-                            "id": "",
-                            "attribute_id": 4,
-                            "value_id": 13
-                        },
-                        {
-                            "id": "",
-                            "attribute_id": 5,
-                            "value_id": 15
-                        }
-                    ],
-                    "quantity": {
-                        "1-10": 101,
-                        "11-22": 51
-                    }
-                },
-                {
-                    "id": "",
-                    "availability": 1,
-                    "sku": "sku2",
-                    "stock": 0,
-                    "base_price": 201,
-                    "selected_attribute": [
-                        {
-                            "id": "",
-                            "attribute_id": 4,
-                            "value_id": 14
-                        },
-                        {
-                            "id": "",
-                            "attribute_id": 5,
-                            "value_id": 16
-                        }
-                    ],
-                    "quantity": {
-                        "1-10": 201,
-                        "11-22": 151
-                    }
-                } 
+              example:
+                _method: patch
+                title: category edit
+                description: description edit
+                order_level: ''
+                parent_id: ''
+                status: '0'
+                meta_title: meta_title edit
+                meta_description: meta_description edit
+                meta_keyword:
+                  - keyword edit
+                  - keyword 2
+                  - keyword 3
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > JobCategory
+      summary: show - get single category of job
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > JobCategory
+      summary: destroy - delete single category of job
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/job:
+    post:
+      tags:
+        - Admin > Job
+      summary: store -store job
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: job 1
+                image: ''
+                description: description 1
+                category_id: 1
+                address: address 1
+                is_onsite: 1
+                from_date: '2022-01-01'
+                to_date: '2022-12-20'
+                experience: 2
+                level: 1
+                salary_type: monthly
+                is_salary_range: 1
+                salary_range:
+                  min: 25000
+                  max: 50000
+                salary: 35000
+                job_time: fulltime
+                skill:
+                  - php
+                  - laravel
+                  - mysql
+                  - etc
+                additional_information:
+                  min: 25000
+                  max: 50000
+                user_id: 1
+                status: 1
+                meta_title: meta title 1
+                meta_description: meta description 1
+                meta_keyword:
+                  - keyword 1
+                  - keyword 2
+                  - keyword 3
       security:
         - bearerAuth: []
       responses:
@@ -572,7 +481,174 @@ paths:
     get:
       tags:
         - Admin > Job
-      summary: index
+      summary: index - get all job
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/job/1:
+    post:
+      tags:
+        - Admin > Job
+      summary: update - update job
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                _method: patch
+                title: job edit
+                image: ''
+                description: description edit
+                category_id: 1
+                address: address edit
+                is_onsite: 1
+                from_date: '2022-01-01'
+                to_date: '2022-12-20'
+                experience: 2
+                level: 1
+                salary_type: monthly
+                is_salary_range: 1
+                salary_range:
+                  min: 25000
+                  max: 50000
+                salary: 35000
+                job_time: fulltime
+                skill:
+                  - php
+                  - laravel
+                  - mysql
+                  - etc
+                  - edit
+                additional_information:
+                  min: 25000
+                  max: 50000
+                user_id: 1
+                status: 1
+                meta_title: meta title edit
+                meta_description: meta description edit
+                meta_keyword:
+                  - keyword edit
+                  - keyword 2
+                  - keyword 3
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Job
+      summary: show - get single job
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Job
+      summary: destroy - delete single job
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/business-category:
+    post:
+      tags:
+        - Admin > BusinessCategory
+      summary: store - store category of business
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: category 1
+                description: description 1
+                order_level: ''
+                parent_id: ''
+                status: '0'
+                meta_title: meta_title 1
+                meta_description: meta_description 1
+                meta_keyword:
+                  - keyword 1
+                  - keyword 2
+                  - keyword 3
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > BusinessCategory
+      summary: index - get all category of business
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/business-category/1:
+    post:
+      tags:
+        - Admin > BusinessCategory
+      summary: update - update category of business
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                _method: patch
+                title: category edit
+                description: description edit
+                order_level: ''
+                parent_id: ''
+                status: '0'
+                meta_title: meta_title edit
+                meta_description: meta_description edit
+                meta_keyword:
+                  - keyword edit
+                  - keyword 2
+                  - keyword 3
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > BusinessCategory
+      summary: show - get single category of business
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > BusinessCategory
+      summary: destroy - delete single category of business
       security:
         - bearerAuth: []
       responses:
