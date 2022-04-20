@@ -212,7 +212,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"title\": \"feature 1\",\n    \"category_id\": \n}",
+									"raw": "{\n    \"title\": \"feature 1\",\n    \"house_id\": 1 \n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -428,191 +428,6 @@
 					]
 				},
 				{
-					"name": "House",
-					"item": [
-						{
-							"name": "store - store house",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"title\": \"title 1\",\n    \"image\": \"\",\n    \"description\": \"description 1\",\n    \"category_id\": \"1\",\n    \"address\": \"address 1\",\n    \"status\": \"0\",\n    \"price\": \"99999\",\n    \"is_negotiable\": \"0\",\n    \"from_date\": \"2022-01-01\",\n    \"to_date\": \"2022-12-30\",\n    \"meta_title\": \"meta title 1\",\n    \"meta_description\": \"meta description 1\",\n    \"meta_keyword\": [\"keyword 1\", \"keyword 2\", \"keyword 3\"]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/admin/house",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "update - update house",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"title edit\",\n    \"image\": \"\",\n    \"description\": \"description edit\",\n    \"category_id\": \"1\",\n    \"address\": \"address edit\",\n    \"status\": \"0\",\n    \"price\": \"10000\",\n    \"is_negotiable\": \"0\",\n    \"from_date\": \"2022-01-01\",\n    \"to_date\": \"2022-12-30\",\n    \"meta_title\": \"meta title edit\",\n    \"meta_description\": \"meta description edit\",\n    \"meta_keyword\": [\"keyword edit\", \"keyword 2\", \"keyword 3\"]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/admin/house/1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "index - get all house",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/house/",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show - get single house",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/house/1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "destroy - delete single house",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/house/1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house",
-										"1"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
 					"name": "JobCategory",
 					"item": [
 						{
@@ -788,190 +603,6 @@
 									"path": [
 										"admin",
 										"job-category",
-										"1"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Job",
-					"item": [
-						{
-							"name": "store -store job",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"title\": \"job 1\",\n    \"image\": \"\",\n    \"description\": \"description 1\",\n    \"category_id\": 1,\n    \"address\": \"address 1\",\n    \"is_onsite\": 1,\n    \"from_date\": \"2022-01-01\",\n    \"to_date\": \"2022-12-20\",\n    \"experience\": 2,\n    \"level\": 1,\n    \"salary_type\": \"monthly\",\n    \"is_salary_range\": 1,\n    \"salary_range\": {\n        \"min\": 25000,\n        \"max\": 50000\n    },\n    \"salary\": 35000,\n    \"job_time\": \"fulltime\",\n    \"skill\": [\"php\", \"laravel\", \"mysql\", \"etc\"],\n    \"additional_information\": {\n        \"min\": 25000,\n        \"max\": 50000\n    },\n    \"user_id\": 1,\n    \"status\": 1,\n    \"meta_title\": \"meta title 1\",\n    \"meta_description\": \"meta description 1\",\n    \"meta_keyword\": [\"keyword 1\", \"keyword 2\", \"keyword 3\"]\n} ",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/admin/job",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"job"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "update - update job",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"job edit\",\n    \"image\": \"\",\n    \"description\": \"description edit\",\n    \"category_id\": 1,\n    \"address\": \"address edit\",\n    \"is_onsite\": 1,\n    \"from_date\": \"2022-01-01\",\n    \"to_date\": \"2022-12-20\",\n    \"experience\": 2,\n    \"level\": 1,\n    \"salary_type\": \"monthly\",\n    \"is_salary_range\": 1,\n    \"salary_range\": {\n        \"min\": 25000,\n        \"max\": 50000\n    },\n    \"salary\": 35000,\n    \"job_time\": \"fulltime\",\n    \"skill\": [\"php\", \"laravel\", \"mysql\", \"etc\", \"edit\"],\n    \"additional_information\": {\n        \"min\": 25000,\n        \"max\": 50000\n    },\n    \"user_id\": 1,\n    \"status\": 1,\n    \"meta_title\": \"meta title edit\",\n    \"meta_description\": \"meta description edit\",\n    \"meta_keyword\": [\"keyword edit\", \"keyword 2\", \"keyword 3\"]\n} ",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/admin/job/1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"job",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "index - get all job",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/job",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"job"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show - get single job",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/job/1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"job",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "destroy - delete single job",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/job/1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"job",
 										"1"
 									]
 								}
@@ -1242,6 +873,375 @@
 		{
 			"name": "Client",
 			"item": [
+				{
+					"name": "House",
+					"item": [
+						{
+							"name": "store - store house",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"title 1\",\n    \"image\": \"\",\n    \"description\": \"description 1\",\n    \"category_id\": \"1\",\n    \"address\": \"address 1\",\n    \"status\": \"0\",\n    \"price\": \"99999\",\n    \"is_negotiable\": \"0\",\n    \"from_date\": \"2022-01-01\",\n    \"to_date\": \"2022-12-30\",\n    \"meta_title\": \"meta title 1\",\n    \"meta_description\": \"meta description 1\",\n    \"meta_keyword\": [\"keyword 1\", \"keyword 2\", \"keyword 3\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/client/house",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"house"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update - update house",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"title edit\",\n    \"image\": \"\",\n    \"description\": \"description edit\",\n    \"category_id\": \"1\",\n    \"address\": \"address edit\",\n    \"status\": \"0\",\n    \"price\": \"10000\",\n    \"is_negotiable\": \"0\",\n    \"from_date\": \"2022-01-01\",\n    \"to_date\": \"2022-12-30\",\n    \"meta_title\": \"meta title edit\",\n    \"meta_description\": \"meta description edit\",\n    \"meta_keyword\": [\"keyword edit\", \"keyword 2\", \"keyword 3\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/client/house/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"house",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index - get all house",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/client/house/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"house",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show - get single house",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/client/house/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"house",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "destroy - delete single house",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/client/house/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"house",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Job",
+					"item": [
+						{
+							"name": "store -store job",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"job 1\",\n    \"image\": \"\",\n    \"description\": \"description 1\",\n    \"category_id\": 1,\n    \"address\": \"address 1\",\n    \"is_onsite\": 1,\n    \"from_date\": \"2022-01-01\",\n    \"to_date\": \"2022-12-20\",\n    \"experience\": 2,\n    \"level\": 1,\n    \"salary_type\": \"monthly\",\n    \"is_salary_range\": 1,\n    \"salary_range\": {\n        \"min\": 25000,\n        \"max\": 50000\n    },\n    \"salary\": 35000,\n    \"job_time\": \"fulltime\",\n    \"skill\": [\"php\", \"laravel\", \"mysql\", \"etc\"],\n    \"additional_information\": {\n        \"min\": 25000,\n        \"max\": 50000\n    },\n    \"user_id\": 1,\n    \"status\": 1,\n    \"meta_title\": \"meta title 1\",\n    \"meta_description\": \"meta description 1\",\n    \"meta_keyword\": [\"keyword 1\", \"keyword 2\", \"keyword 3\"]\n} ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/client/job",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"job"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update - update job",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"job edit\",\n    \"image\": \"\",\n    \"description\": \"description edit\",\n    \"category_id\": 1,\n    \"address\": \"address edit\",\n    \"is_onsite\": 1,\n    \"from_date\": \"2022-01-01\",\n    \"to_date\": \"2022-12-20\",\n    \"experience\": 2,\n    \"level\": 1,\n    \"salary_type\": \"monthly\",\n    \"is_salary_range\": 1,\n    \"salary_range\": {\n        \"min\": 25000,\n        \"max\": 50000\n    },\n    \"salary\": 35000,\n    \"job_time\": \"fulltime\",\n    \"skill\": [\"php\", \"laravel\", \"mysql\", \"etc\", \"edit\"],\n    \"additional_information\": {\n        \"min\": 25000,\n        \"max\": 50000\n    },\n    \"user_id\": 1,\n    \"status\": 1,\n    \"meta_title\": \"meta title edit\",\n    \"meta_description\": \"meta description edit\",\n    \"meta_keyword\": [\"keyword edit\", \"keyword 2\", \"keyword 3\"]\n} ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/client/job/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"job",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index - get all job",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/client/job",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"job"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show - get single job",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/client/job/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"job",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "destroy - delete single job",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/client/job/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"job",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
 				{
 					"name": "login",
 					"request": {

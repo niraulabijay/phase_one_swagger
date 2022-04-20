@@ -26,11 +26,11 @@ tags:
   - name: Admin
   - name: Admin > HouseCategory
   - name: Admin > HouseFeature
-  - name: Admin > House
   - name: Admin > JobCategory
-  - name: Admin > Job
   - name: Admin > BusinessCategory
   - name: Client
+  - name: Client > House
+  - name: Client > Job
 paths:
   /admin/house-category:
     post:
@@ -136,11 +136,9 @@ paths:
           application/json:
             schema:
               type: object
-              example: |-
-                {
-                    "title": "feature 1",
-                    "category_id": 
-                }
+              example:
+                title: feature 1
+                house_id: 1
       security:
         - bearerAuth: []
       responses:
@@ -225,109 +223,6 @@ paths:
       tags:
         - Admin > HouseFeature
       summary: destroy - destroy single feature of house
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/house:
-    post:
-      tags:
-        - Admin > House
-      summary: store - store house
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                title: title 1
-                image: ''
-                description: description 1
-                category_id: '1'
-                address: address 1
-                status: '0'
-                price: '99999'
-                is_negotiable: '0'
-                from_date: '2022-01-01'
-                to_date: '2022-12-30'
-                meta_title: meta title 1
-                meta_description: meta description 1
-                meta_keyword:
-                  - keyword 1
-                  - keyword 2
-                  - keyword 3
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/house/1:
-    post:
-      tags:
-        - Admin > House
-      summary: update - update house
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                _method: patch
-                title: title edit
-                image: ''
-                description: description edit
-                category_id: '1'
-                address: address edit
-                status: '0'
-                price: '10000'
-                is_negotiable: '0'
-                from_date: '2022-01-01'
-                to_date: '2022-12-30'
-                meta_title: meta title edit
-                meta_description: meta description edit
-                meta_keyword:
-                  - keyword edit
-                  - keyword 2
-                  - keyword 3
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    get:
-      tags:
-        - Admin > House
-      summary: show - get single house
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    delete:
-      tags:
-        - Admin > House
-      summary: destroy - delete single house
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/house/:
-    get:
-      tags:
-        - Admin > House
-      summary: index - get all house
       security:
         - bearerAuth: []
       responses:
@@ -420,143 +315,6 @@ paths:
       tags:
         - Admin > JobCategory
       summary: destroy - delete single category of job
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/job:
-    post:
-      tags:
-        - Admin > Job
-      summary: store -store job
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                title: job 1
-                image: ''
-                description: description 1
-                category_id: 1
-                address: address 1
-                is_onsite: 1
-                from_date: '2022-01-01'
-                to_date: '2022-12-20'
-                experience: 2
-                level: 1
-                salary_type: monthly
-                is_salary_range: 1
-                salary_range:
-                  min: 25000
-                  max: 50000
-                salary: 35000
-                job_time: fulltime
-                skill:
-                  - php
-                  - laravel
-                  - mysql
-                  - etc
-                additional_information:
-                  min: 25000
-                  max: 50000
-                user_id: 1
-                status: 1
-                meta_title: meta title 1
-                meta_description: meta description 1
-                meta_keyword:
-                  - keyword 1
-                  - keyword 2
-                  - keyword 3
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    get:
-      tags:
-        - Admin > Job
-      summary: index - get all job
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/job/1:
-    post:
-      tags:
-        - Admin > Job
-      summary: update - update job
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                _method: patch
-                title: job edit
-                image: ''
-                description: description edit
-                category_id: 1
-                address: address edit
-                is_onsite: 1
-                from_date: '2022-01-01'
-                to_date: '2022-12-20'
-                experience: 2
-                level: 1
-                salary_type: monthly
-                is_salary_range: 1
-                salary_range:
-                  min: 25000
-                  max: 50000
-                salary: 35000
-                job_time: fulltime
-                skill:
-                  - php
-                  - laravel
-                  - mysql
-                  - etc
-                  - edit
-                additional_information:
-                  min: 25000
-                  max: 50000
-                user_id: 1
-                status: 1
-                meta_title: meta title edit
-                meta_description: meta description edit
-                meta_keyword:
-                  - keyword edit
-                  - keyword 2
-                  - keyword 3
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    get:
-      tags:
-        - Admin > Job
-      summary: show - get single job
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    delete:
-      tags:
-        - Admin > Job
-      summary: destroy - delete single job
       security:
         - bearerAuth: []
       responses:
@@ -697,6 +455,246 @@ paths:
           schema:
             type: string
           example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/house:
+    post:
+      tags:
+        - Client > House
+      summary: store - store house
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: title 1
+                image: ''
+                description: description 1
+                category_id: '1'
+                address: address 1
+                status: '0'
+                price: '99999'
+                is_negotiable: '0'
+                from_date: '2022-01-01'
+                to_date: '2022-12-30'
+                meta_title: meta title 1
+                meta_description: meta description 1
+                meta_keyword:
+                  - keyword 1
+                  - keyword 2
+                  - keyword 3
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/house/1:
+    post:
+      tags:
+        - Client > House
+      summary: update - update house
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                _method: patch
+                title: title edit
+                image: ''
+                description: description edit
+                category_id: '1'
+                address: address edit
+                status: '0'
+                price: '10000'
+                is_negotiable: '0'
+                from_date: '2022-01-01'
+                to_date: '2022-12-30'
+                meta_title: meta title edit
+                meta_description: meta description edit
+                meta_keyword:
+                  - keyword edit
+                  - keyword 2
+                  - keyword 3
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Client > House
+      summary: show - get single house
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Client > House
+      summary: destroy - delete single house
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/house/:
+    get:
+      tags:
+        - Client > House
+      summary: index - get all house
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/job:
+    post:
+      tags:
+        - Client > Job
+      summary: store -store job
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: job 1
+                image: ''
+                description: description 1
+                category_id: 1
+                address: address 1
+                is_onsite: 1
+                from_date: '2022-01-01'
+                to_date: '2022-12-20'
+                experience: 2
+                level: 1
+                salary_type: monthly
+                is_salary_range: 1
+                salary_range:
+                  min: 25000
+                  max: 50000
+                salary: 35000
+                job_time: fulltime
+                skill:
+                  - php
+                  - laravel
+                  - mysql
+                  - etc
+                additional_information:
+                  min: 25000
+                  max: 50000
+                user_id: 1
+                status: 1
+                meta_title: meta title 1
+                meta_description: meta description 1
+                meta_keyword:
+                  - keyword 1
+                  - keyword 2
+                  - keyword 3
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Client > Job
+      summary: index - get all job
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/job/1:
+    post:
+      tags:
+        - Client > Job
+      summary: update - update job
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                _method: patch
+                title: job edit
+                image: ''
+                description: description edit
+                category_id: 1
+                address: address edit
+                is_onsite: 1
+                from_date: '2022-01-01'
+                to_date: '2022-12-20'
+                experience: 2
+                level: 1
+                salary_type: monthly
+                is_salary_range: 1
+                salary_range:
+                  min: 25000
+                  max: 50000
+                salary: 35000
+                job_time: fulltime
+                skill:
+                  - php
+                  - laravel
+                  - mysql
+                  - etc
+                  - edit
+                additional_information:
+                  min: 25000
+                  max: 50000
+                user_id: 1
+                status: 1
+                meta_title: meta title edit
+                meta_description: meta description edit
+                meta_keyword:
+                  - keyword edit
+                  - keyword 2
+                  - keyword 3
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Client > Job
+      summary: show - get single job
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Client > Job
+      summary: destroy - delete single job
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Successful response
