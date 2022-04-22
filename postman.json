@@ -28,7 +28,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"title\": \"category 1\",\n    \"icon\": \"\",\n    \"description\": \"description 1\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": \"0\",\n    \"meta_title\": \"meta_title 1\",\n    \"meta_description\": \"meta_description 1\",\n    \"meta_keyword\": [\"keyword 1\", \"keyword 2\", \"keyword 3\"]\n}",
+									"raw": "{\n    \"title\": \"category 1\",\n    \"icon\": \"\",\n    \"description\": \"description 1\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": 0\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -65,7 +65,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"category edit\",\n    \"icon\": \"\",\n    \"description\": \"description edit\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": \"0\",\n    \"meta_title\": \"meta_title edit\",\n    \"meta_description\": \"meta_description edit\",\n    \"meta_keyword\": [\"keyword edit\", \"keyword 2\", \"keyword 3\"]\n}",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"category edit\",\n    \"icon\": \"\",\n    \"description\": \"description edit\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": 0\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -447,7 +447,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"title\": \"category 1\",\n    \"description\": \"description 1\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": \"0\",\n    \"meta_title\": \"meta_title 1\",\n    \"meta_description\": \"meta_description 1\",\n    \"meta_keyword\": [\"keyword 1\", \"keyword 2\", \"keyword 3\"]\n}",
+									"raw": "{\n    \"title\": \"category 1\",\n    \"icon\": \"\",\n    \"description\": \"description 1\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": 0\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -484,7 +484,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"category edit\",\n    \"description\": \"description edit\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": \"0\",\n    \"meta_title\": \"meta_title edit\",\n    \"meta_description\": \"meta_description edit\",\n    \"meta_keyword\": [\"keyword edit\", \"keyword 2\", \"keyword 3\"]\n}",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"category edit\",\n    \"icon\": \"\",\n    \"description\": \"description edit\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": 0\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -816,7 +816,7 @@
 								},
 								{
 									"key": "password",
-									"value": "asdasdasd",
+									"value": "1234",
 									"type": "text"
 								}
 							]
@@ -884,7 +884,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{admin_token}}",
+											"value": "{{client_token}}",
 											"type": "string"
 										}
 									]
@@ -893,7 +893,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"title\": \"title 1\",\n    \"image\": \"\",\n    \"description\": \"description 1\",\n    \"category_id\": \"1\",\n    \"address\": \"address 1\",\n    \"status\": \"0\",\n    \"price\": \"99999\",\n    \"is_negotiable\": \"0\",\n    \"from_date\": \"2022-01-01\",\n    \"to_date\": \"2022-12-30\",\n    \"meta_title\": \"meta title 1\",\n    \"meta_description\": \"meta description 1\",\n    \"meta_keyword\": [\"keyword 1\", \"keyword 2\", \"keyword 3\"]\n}",
+									"raw": "{\n    \"house_category_id\": 1,\n    \"title\": \"title 1\",\n    \"image\": \"\",\n    \"description\": \"description 1\",\n    \"address\": \"address 1\",\n    \"available_from\": \"2022-01-01\",\n    \"expiry_date\": \"2022-12-01\",\n    \"price\": \"99999\",\n    \"is_negotiable\": \"0\",\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"type\": \"buy\",\n    \"status_id\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -921,7 +921,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{admin_token}}",
+											"value": "{{client_token}}",
 											"type": "string"
 										}
 									]
@@ -930,7 +930,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"title edit\",\n    \"image\": \"\",\n    \"description\": \"description edit\",\n    \"category_id\": \"1\",\n    \"address\": \"address edit\",\n    \"status\": \"0\",\n    \"price\": \"10000\",\n    \"is_negotiable\": \"0\",\n    \"from_date\": \"2022-01-01\",\n    \"to_date\": \"2022-12-30\",\n    \"meta_title\": \"meta title edit\",\n    \"meta_description\": \"meta description edit\",\n    \"meta_keyword\": [\"keyword edit\", \"keyword 2\", \"keyword 3\"]\n}",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"house_category_id\": 1,\n    \"title\": \"title 1\",\n    \"image\": \"\",\n    \"description\": \"description 1\",\n    \"address\": \"address 1\",\n    \"available_from\": \"2022-01-01\",\n    \"expiry_date\": \"2022-12-01\",\n    \"price\": \"99999\",\n    \"is_negotiable\": \"0\",\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"type\": \"buy\",\n    \"status_id\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -938,14 +938,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/client/house/1",
+									"raw": "{{url}}/client/house/2",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"client",
 										"house",
-										"1"
+										"2"
 									]
 								}
 							},
@@ -962,7 +962,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{admin_token}}",
+											"value": "{{client_token}}",
 											"type": "string"
 										}
 									]
@@ -998,7 +998,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{admin_token}}",
+											"value": "{{client_token}}",
 											"type": "string"
 										}
 									]
@@ -1031,7 +1031,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{admin_token}}",
+											"value": "{{client_token}}",
 											"type": "string"
 										}
 									]
@@ -1069,7 +1069,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{admin_token}}",
+											"value": "{{client_token}}",
 											"type": "string"
 										}
 									]
@@ -1078,7 +1078,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"title\": \"job 1\",\n    \"image\": \"\",\n    \"description\": \"description 1\",\n    \"category_id\": 1,\n    \"address\": \"address 1\",\n    \"is_onsite\": 1,\n    \"from_date\": \"2022-01-01\",\n    \"to_date\": \"2022-12-20\",\n    \"experience\": 2,\n    \"level\": 1,\n    \"salary_type\": \"monthly\",\n    \"is_salary_range\": 1,\n    \"salary_range\": {\n        \"min\": 25000,\n        \"max\": 50000\n    },\n    \"salary\": 35000,\n    \"job_time\": \"fulltime\",\n    \"skill\": [\"php\", \"laravel\", \"mysql\", \"etc\"],\n    \"additional_information\": {\n        \"min\": 25000,\n        \"max\": 50000\n    },\n    \"user_id\": 1,\n    \"status\": 1,\n    \"meta_title\": \"meta title 1\",\n    \"meta_description\": \"meta description 1\",\n    \"meta_keyword\": [\"keyword 1\", \"keyword 2\", \"keyword 3\"]\n} ",
+									"raw": "{\n    \"job_category_id\": 1,\n    \"title\": \"job 1\",\n    \"image\": \"\",\n    \"description\": \"description 1\",\n    \"skills\": \"skill description\",\n    \"benefits\": \"benefit description\",\n    \"requirements\": \"requirement description\",\n    \"additional_information\": \"additional informtion\",\n    \"address\": \"\",\n    \"is_offsite\": 1,\n    \"is_part_time\": 0,\n    \"available_from\": \"2022-01-01\",\n    \"expiry_date\": \"2022-12-20\",\n    \"experience\": 2,\n    \"level\": \"mid-level\",\n    \"salary_type\": \"monthly\",\n    \"is_salary_negotiable\": 1,\n    \"salary\": 35000,\n    \"is_salary_visible\": 1,\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"status_id\": 1\n} ",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1106,7 +1106,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{admin_token}}",
+											"value": "{{client_token}}",
 											"type": "string"
 										}
 									]
@@ -1115,7 +1115,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"job edit\",\n    \"image\": \"\",\n    \"description\": \"description edit\",\n    \"category_id\": 1,\n    \"address\": \"address edit\",\n    \"is_onsite\": 1,\n    \"from_date\": \"2022-01-01\",\n    \"to_date\": \"2022-12-20\",\n    \"experience\": 2,\n    \"level\": 1,\n    \"salary_type\": \"monthly\",\n    \"is_salary_range\": 1,\n    \"salary_range\": {\n        \"min\": 25000,\n        \"max\": 50000\n    },\n    \"salary\": 35000,\n    \"job_time\": \"fulltime\",\n    \"skill\": [\"php\", \"laravel\", \"mysql\", \"etc\", \"edit\"],\n    \"additional_information\": {\n        \"min\": 25000,\n        \"max\": 50000\n    },\n    \"user_id\": 1,\n    \"status\": 1,\n    \"meta_title\": \"meta title edit\",\n    \"meta_description\": \"meta description edit\",\n    \"meta_keyword\": [\"keyword edit\", \"keyword 2\", \"keyword 3\"]\n} ",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"job_category_id\": 1,\n    \"title\": \"job edit\",\n    \"image\": \"\",\n    \"description\": \"description edit\",\n    \"skills\": \"skill description edit\",\n    \"benefits\": \"benefit description edit\",\n    \"requirements\": \"requirement description edit\",\n    \"additional_information\": \"additional informtion edit\",\n    \"address\": \"\",\n    \"is_offsite\": 1,\n    \"is_part_time\": 0,\n    \"available_from\": \"2022-01-01\",\n    \"expiry_date\": \"2022-12-20\",\n    \"experience\": 2,\n    \"level\": \"mid-level\",\n    \"salary_type\": \"monthly\",\n    \"is_salary_negotiable\": 1,\n    \"salary\": 35000,\n    \"is_salary_visible\": 1,\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"status_id\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1147,7 +1147,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{admin_token}}",
+											"value": "{{client_token}}",
 											"type": "string"
 										}
 									]
@@ -1182,7 +1182,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{admin_token}}",
+											"value": "{{client_token}}",
 											"type": "string"
 										}
 									]
@@ -1215,7 +1215,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{admin_token}}",
+											"value": "{{client_token}}",
 											"type": "string"
 										}
 									]
@@ -1235,6 +1235,468 @@
 										"client",
 										"job",
 										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Business",
+					"item": [
+						{
+							"name": "index- No auth required",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/business",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show- No auth required",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/business/:business_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business",
+										":business_id"
+									],
+									"variable": [
+										{
+											"key": "business_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "business_category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "New Business",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "312113",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "adljw@emialasd.comasdw",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/business",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "business_category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "New Businessasdw",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "312113",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "adljw@emial.com",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/business/:business_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business",
+										":business_id"
+									],
+									"variable": [
+										{
+											"key": "business_id",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "destroy",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/business/:business_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business",
+										":business_id"
+									],
+									"variable": [
+										{
+											"key": "business_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Business Copy",
+					"item": [
+						{
+							"name": "index- No auth required",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/business-category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business-category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show- No auth required",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/business-category/:business_category_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business-category",
+										":business_category_id"
+									],
+									"variable": [
+										{
+											"key": "business_category_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "asldjwa",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "laskjdlkajda\ndjasdjasd",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/business-category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "aaa",
+											"type": "text"
+										},
+										{
+											"key": "status_id",
+											"value": "12",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/business-category/:business_category_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-category",
+										":business_category_id"
+									],
+									"variable": [
+										{
+											"key": "business_category_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "destroy",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/business-category/:business_category_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business-category",
+										":business_category_id"
+									],
+									"variable": [
+										{
+											"key": "business_category_id",
+											"value": null
+										}
 									]
 								}
 							},

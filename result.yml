@@ -22,6 +22,9 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
+    noauthAuth:
+      type: http
+      scheme: noauth
 tags:
   - name: Admin
   - name: Admin > HouseCategory
@@ -31,6 +34,8 @@ tags:
   - name: Client
   - name: Client > House
   - name: Client > Job
+  - name: Client > Business
+  - name: Client > Business Copy
 paths:
   /admin/house-category:
     post:
@@ -48,13 +53,7 @@ paths:
                 description: description 1
                 order_level: ''
                 parent_id: ''
-                status: '0'
-                meta_title: meta_title 1
-                meta_description: meta_description 1
-                meta_keyword:
-                  - keyword 1
-                  - keyword 2
-                  - keyword 3
+                status: 0
       security:
         - bearerAuth: []
       responses:
@@ -90,13 +89,7 @@ paths:
                 description: description edit
                 order_level: ''
                 parent_id: ''
-                status: '0'
-                meta_title: meta_title edit
-                meta_description: meta_description edit
-                meta_keyword:
-                  - keyword edit
-                  - keyword 2
-                  - keyword 3
+                status: 0
       security:
         - bearerAuth: []
       responses:
@@ -242,16 +235,11 @@ paths:
               type: object
               example:
                 title: category 1
+                icon: ''
                 description: description 1
                 order_level: ''
                 parent_id: ''
-                status: '0'
-                meta_title: meta_title 1
-                meta_description: meta_description 1
-                meta_keyword:
-                  - keyword 1
-                  - keyword 2
-                  - keyword 3
+                status: 0
       security:
         - bearerAuth: []
       responses:
@@ -283,16 +271,11 @@ paths:
               example:
                 _method: patch
                 title: category edit
+                icon: ''
                 description: description edit
                 order_level: ''
                 parent_id: ''
-                status: '0'
-                meta_title: meta_title edit
-                meta_description: meta_description edit
-                meta_keyword:
-                  - keyword edit
-                  - keyword 2
-                  - keyword 3
+                status: 0
       security:
         - bearerAuth: []
       responses:
@@ -325,27 +308,30 @@ paths:
   /admin/business-category:
     post:
       tags:
-        - Admin > BusinessCategory
-      summary: store - store category of business
+        - Client > Business Copy
+      summary: store
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                title: category 1
-                description: description 1
-                order_level: ''
-                parent_id: ''
-                status: '0'
-                meta_title: meta_title 1
-                meta_description: meta_description 1
-                meta_keyword:
-                  - keyword 1
-                  - keyword 2
-                  - keyword 3
+              properties:
+                title:
+                  type: string
+                  example: asldjwa
+                description:
+                  type: string
+                  example: |-
+                    laskjdlkajda
+                    djasdjasd
       security:
-        - bearerAuth: []
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
@@ -429,8 +415,8 @@ paths:
                   type: string
                   example: admin@admin.com
                 password:
-                  type: string
-                  example: asdasdasd
+                  type: integer
+                  example: '1234'
       parameters:
         - name: Accept
           in: header
@@ -471,22 +457,20 @@ paths:
             schema:
               type: object
               example:
+                house_category_id: 1
                 title: title 1
                 image: ''
                 description: description 1
-                category_id: '1'
                 address: address 1
-                status: '0'
+                available_from: '2022-01-01'
+                expiry_date: '2022-12-01'
                 price: '99999'
                 is_negotiable: '0'
-                from_date: '2022-01-01'
-                to_date: '2022-12-30'
-                meta_title: meta title 1
-                meta_description: meta description 1
-                meta_keyword:
-                  - keyword 1
-                  - keyword 2
-                  - keyword 3
+                place_id: ''
+                longitude: ''
+                latitude: ''
+                type: buy
+                status_id: 1
       security:
         - bearerAuth: []
       responses:
@@ -494,7 +478,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /client/house/1:
+  /client/house/2:
     post:
       tags:
         - Client > House
@@ -506,22 +490,20 @@ paths:
               type: object
               example:
                 _method: patch
-                title: title edit
+                house_category_id: 1
+                title: title 1
                 image: ''
-                description: description edit
-                category_id: '1'
-                address: address edit
-                status: '0'
-                price: '10000'
+                description: description 1
+                address: address 1
+                available_from: '2022-01-01'
+                expiry_date: '2022-12-01'
+                price: '99999'
                 is_negotiable: '0'
-                from_date: '2022-01-01'
-                to_date: '2022-12-30'
-                meta_title: meta title edit
-                meta_description: meta description edit
-                meta_keyword:
-                  - keyword edit
-                  - keyword 2
-                  - keyword 3
+                place_id: ''
+                longitude: ''
+                latitude: ''
+                type: buy
+                status_id: 1
       security:
         - bearerAuth: []
       responses:
@@ -529,6 +511,19 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /client/house/:
+    get:
+      tags:
+        - Client > House
+      summary: index - get all house
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/house/1:
     get:
       tags:
         - Client > House
@@ -551,18 +546,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /client/house/:
-    get:
-      tags:
-        - Client > House
-      summary: index - get all house
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /client/job:
     post:
       tags:
@@ -574,39 +557,29 @@ paths:
             schema:
               type: object
               example:
+                job_category_id: 1
                 title: job 1
                 image: ''
                 description: description 1
-                category_id: 1
-                address: address 1
-                is_onsite: 1
-                from_date: '2022-01-01'
-                to_date: '2022-12-20'
+                skills: skill description
+                benefits: benefit description
+                requirements: requirement description
+                additional_information: additional informtion
+                address: ''
+                is_offsite: 1
+                is_part_time: 0
+                available_from: '2022-01-01'
+                expiry_date: '2022-12-20'
                 experience: 2
-                level: 1
+                level: mid-level
                 salary_type: monthly
-                is_salary_range: 1
-                salary_range:
-                  min: 25000
-                  max: 50000
+                is_salary_negotiable: 1
                 salary: 35000
-                job_time: fulltime
-                skill:
-                  - php
-                  - laravel
-                  - mysql
-                  - etc
-                additional_information:
-                  min: 25000
-                  max: 50000
-                user_id: 1
-                status: 1
-                meta_title: meta title 1
-                meta_description: meta description 1
-                meta_keyword:
-                  - keyword 1
-                  - keyword 2
-                  - keyword 3
+                is_salary_visible: 1
+                place_id: ''
+                longitude: ''
+                latitude: ''
+                status_id: 1
       security:
         - bearerAuth: []
       responses:
@@ -637,40 +610,29 @@ paths:
               type: object
               example:
                 _method: patch
+                job_category_id: 1
                 title: job edit
                 image: ''
                 description: description edit
-                category_id: 1
-                address: address edit
-                is_onsite: 1
-                from_date: '2022-01-01'
-                to_date: '2022-12-20'
+                skills: skill description edit
+                benefits: benefit description edit
+                requirements: requirement description edit
+                additional_information: additional informtion edit
+                address: ''
+                is_offsite: 1
+                is_part_time: 0
+                available_from: '2022-01-01'
+                expiry_date: '2022-12-20'
                 experience: 2
-                level: 1
+                level: mid-level
                 salary_type: monthly
-                is_salary_range: 1
-                salary_range:
-                  min: 25000
-                  max: 50000
+                is_salary_negotiable: 1
                 salary: 35000
-                job_time: fulltime
-                skill:
-                  - php
-                  - laravel
-                  - mysql
-                  - etc
-                  - edit
-                additional_information:
-                  min: 25000
-                  max: 50000
-                user_id: 1
-                status: 1
-                meta_title: meta title edit
-                meta_description: meta description edit
-                meta_keyword:
-                  - keyword edit
-                  - keyword 2
-                  - keyword 3
+                is_salary_visible: 1
+                place_id: ''
+                longitude: ''
+                latitude: ''
+                status_id: 1
       security:
         - bearerAuth: []
       responses:
@@ -695,6 +657,252 @@ paths:
       summary: destroy - delete single job
       security:
         - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business:
+    get:
+      tags:
+        - Client > Business
+      summary: index- No auth required
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Client > Business
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                business_category_id:
+                  type: integer
+                  example: '1'
+                title:
+                  type: string
+                  example: New Business
+                phone:
+                  type: integer
+                  example: '312113'
+                email:
+                  type: string
+                  example: adljw@emialasd.comasdw
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business/{business_id}:
+    get:
+      tags:
+        - Client > Business
+      summary: show- No auth required
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: business_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Client > Business
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                business_category_id:
+                  type: integer
+                  example: '1'
+                title:
+                  type: string
+                  example: New Businessasdw
+                phone:
+                  type: integer
+                  example: '312113'
+                email:
+                  type: string
+                  example: adljw@emial.com
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: business_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Client > Business
+      summary: destroy
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: business_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business-category:
+    get:
+      tags:
+        - Client > Business Copy
+      summary: index- No auth required
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business-category/{business_category_id}:
+    get:
+      tags:
+        - Client > Business Copy
+      summary: show- No auth required
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: business_category_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Client > Business Copy
+      summary: destroy
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: business_category_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/business-category/{business_category_id}:
+    post:
+      tags:
+        - Client > Business Copy
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: aaa
+                status_id:
+                  type: integer
+                  example: '12'
+                _method:
+                  type: string
+                  example: put
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: business_category_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
