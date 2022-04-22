@@ -29,13 +29,14 @@ tags:
   - name: Admin
   - name: Admin > HouseCategory
   - name: Admin > HouseFeature
+  - name: Admin > HouseAmenity
   - name: Admin > JobCategory
   - name: Admin > BusinessCategory
   - name: Client
   - name: Client > House
   - name: Client > Job
   - name: Client > Business
-  - name: Client > Business Copy
+  - name: Client > Business Category
 paths:
   /admin/house-category:
     post:
@@ -56,6 +57,12 @@ paths:
                 status: 0
       security:
         - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
@@ -72,7 +79,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/house-category/1:
+  /admin/house-category/{house_category_id}:
     post:
       tags:
         - Admin > HouseCategory
@@ -92,6 +99,12 @@ paths:
                 status: 0
       security:
         - bearerAuth: []
+      parameters:
+        - name: house_category_id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -103,6 +116,17 @@ paths:
       summary: show - get single category od house
       security:
         - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: house_category_id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -114,6 +138,17 @@ paths:
       summary: destroy - delete single category of house
       security:
         - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: house_category_id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -131,7 +166,6 @@ paths:
               type: object
               example:
                 title: feature 1
-                house_id: 1
       security:
         - bearerAuth: []
       responses:
@@ -150,52 +184,28 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/house-feature/1:
+  /admin/house-feature/{house_feature_id}:
     post:
       tags:
         - Admin > HouseFeature
       summary: update - update feature of house
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             schema:
               type: object
-              properties:
-                title:
-                  type: string
-                  example: title 1
-                description:
-                  type: string
-                  example: description 1
-                category_id:
-                  type: integer
-                  example: '1'
-                address:
-                  type: string
-                  example: address 1
-                status:
-                  type: integer
-                  example: '0'
-                image:
-                  type: string
-                  format: binary
-                price:
-                  type: integer
-                  example: '99999'
-                is_negotiable:
-                  type: integer
-                  example: '0'
-                from_date:
-                  type: string
-                  example: '2022-01-01'
-                to_date:
-                  type: string
-                  example: '2022-12-30'
-                _method:
-                  type: string
-                  example: patch
+              example:
+                _method: patch
+                title: feature 1
       security:
         - bearerAuth: []
+      parameters:
+        - name: house_feature_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -207,6 +217,13 @@ paths:
       summary: show - get single feature of house
       security:
         - bearerAuth: []
+      parameters:
+        - name: house_feature_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -218,6 +235,106 @@ paths:
       summary: destroy - destroy single feature of house
       security:
         - bearerAuth: []
+      parameters:
+        - name: house_feature_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/house-amenity:
+    post:
+      tags:
+        - Admin > HouseAmenity
+      summary: store - store amenity of house
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: amenity 1
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > HouseAmenity
+      summary: index - gell all amenity of house
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/house-amenity/{house_amenity_id}:
+    post:
+      tags:
+        - Admin > HouseAmenity
+      summary: update - update amenity of house
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                _method: patch
+                title: amenity 1
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: house_amenity_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > HouseAmenity
+      summary: show - get single amenity of house
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: house_amenity_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > HouseAmenity
+      summary: destroy - destroy single amenity of house
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: house_amenity_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -238,8 +355,8 @@ paths:
                 icon: ''
                 description: description 1
                 order_level: ''
-                parent_id: ''
-                status: 0
+                parent_id: 2
+                status: 1
       security:
         - bearerAuth: []
       responses:
@@ -258,7 +375,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/job-category/1:
+  /admin/job-category/{job_category_id}:
     post:
       tags:
         - Admin > JobCategory
@@ -278,6 +395,12 @@ paths:
                 status: 0
       security:
         - bearerAuth: []
+      parameters:
+        - name: job_category_id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -289,6 +412,12 @@ paths:
       summary: show - get single category of job
       security:
         - bearerAuth: []
+      parameters:
+        - name: job_category_id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -300,6 +429,12 @@ paths:
       summary: destroy - delete single category of job
       security:
         - bearerAuth: []
+      parameters:
+        - name: job_category_id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -308,7 +443,7 @@ paths:
   /admin/business-category:
     post:
       tags:
-        - Client > Business Copy
+        - Client > Business Category
       summary: store
       requestBody:
         content:
@@ -471,6 +606,17 @@ paths:
                 latitude: ''
                 type: buy
                 status_id: 1
+                feature:
+                  '1':
+                    value: 754 sq.ft.
+                  '2':
+                    value: 2 beds
+                  '3':
+                    value: 2 bath
+                amenity:
+                  - 1
+                  - 2
+                  - 3
       security:
         - bearerAuth: []
       responses:
@@ -478,40 +624,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /client/house/2:
-    post:
-      tags:
-        - Client > House
-      summary: update - update house
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                _method: patch
-                house_category_id: 1
-                title: title 1
-                image: ''
-                description: description 1
-                address: address 1
-                available_from: '2022-01-01'
-                expiry_date: '2022-12-01'
-                price: '99999'
-                is_negotiable: '0'
-                place_id: ''
-                longitude: ''
-                latitude: ''
-                type: buy
-                status_id: 1
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /client/house/:
     get:
       tags:
         - Client > House
@@ -523,13 +635,49 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /client/house/1:
-    get:
+  /client/house/{house_id}:
+    post:
       tags:
         - Client > House
-      summary: show - get single house
+      summary: update - update house
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                _method: PUT
+                house_category_id: 1
+                title: title edit
+                image: ''
+                description: description edit
+                address: address edit
+                available_from: '2022-01-01'
+                expiry_date: '2022-12-01'
+                price: '99999'
+                is_negotiable: '0'
+                place_id: ''
+                longitude: ''
+                latitude: ''
+                type: buy
+                status_id: 1
+                feature:
+                  '1':
+                    value: 1000 sq.ft.
+                  '2':
+                    value: 6 beds
+                  '3':
+                    value: 6 bath
+                amenity: []
       security:
         - bearerAuth: []
+      parameters:
+        - name: house_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -539,6 +687,41 @@ paths:
       tags:
         - Client > House
       summary: destroy - delete single house
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: house_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/my-houses/:
+    get:
+      tags:
+        - Client > House
+      summary: index- get my houses
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/house/house_id:
+    get:
+      tags:
+        - Client > House
+      summary: show - get single house
       security:
         - bearerAuth: []
       responses:
@@ -582,6 +765,12 @@ paths:
                 status_id: 1
       security:
         - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
@@ -598,7 +787,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /client/job/1:
+  /client/job/{job_id}:
     post:
       tags:
         - Client > Job
@@ -611,7 +800,7 @@ paths:
               example:
                 _method: patch
                 job_category_id: 1
-                title: job edit
+                title: job editasdw
                 image: ''
                 description: description edit
                 skills: skill description edit
@@ -635,6 +824,12 @@ paths:
                 status_id: 1
       security:
         - bearerAuth: []
+      parameters:
+        - name: job_id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -646,6 +841,12 @@ paths:
       summary: show - get single job
       security:
         - bearerAuth: []
+      parameters:
+        - name: job_id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -657,6 +858,12 @@ paths:
       summary: destroy - delete single job
       security:
         - bearerAuth: []
+      parameters:
+        - name: job_id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -808,7 +1015,7 @@ paths:
   /api/business-category:
     get:
       tags:
-        - Client > Business Copy
+        - Client > Business Category
       summary: index- No auth required
       security:
         - noauthAuth: []
@@ -826,7 +1033,7 @@ paths:
   /api/business-category/{business_category_id}:
     get:
       tags:
-        - Client > Business Copy
+        - Client > Business Category
       summary: show- No auth required
       security:
         - noauthAuth: []
@@ -849,7 +1056,7 @@ paths:
             application/json: {}
     delete:
       tags:
-        - Client > Business Copy
+        - Client > Business Category
       summary: destroy
       security:
         - noauthAuth: []
@@ -872,7 +1079,7 @@ paths:
   /admin/business-category/{business_category_id}:
     post:
       tags:
-        - Client > Business Copy
+        - Client > Business Category
       summary: update
       requestBody:
         content:
@@ -923,8 +1130,8 @@ paths:
                   type: string
                   example: user@user.com
                 password:
-                  type: string
-                  example: asdasdasd
+                  type: integer
+                  example: '1234'
       parameters:
         - name: Accept
           in: header
@@ -951,8 +1158,8 @@ paths:
                   type: string
                   example: user@user.com
                 password:
-                  type: string
-                  example: asdasdasd
+                  type: integer
+                  example: '1234'
                 name:
                   type: string
                   example: hello world
