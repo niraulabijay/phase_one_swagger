@@ -245,15 +245,27 @@
 									]
 								},
 								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"title\": \"feature 1\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
 									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Title 1",
+											"type": "text"
+										},
+										{
+											"key": "icon",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/User-Profile-PNG.png"
+										}
+									]
 								},
 								"url": {
 									"raw": "{{url}}/admin/house-feature",
@@ -282,15 +294,32 @@
 									]
 								},
 								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"feature 1\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
 									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "title edit",
+											"type": "text"
+										},
+										{
+											"key": "icon",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/273889000_374725621163341_2730958899611252790_n.jpg"
+										}
+									]
 								},
 								"url": {
 									"raw": "{{url}}/admin/house-feature/:house_feature_id",
@@ -305,7 +334,7 @@
 									"variable": [
 										{
 											"key": "house_feature_id",
-											"value": "1"
+											"value": "2"
 										}
 									]
 								}
@@ -449,13 +478,19 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"title\": \"amenity 1\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "amenity 1",
+											"type": "text"
+										},
+										{
+											"key": "icon",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/User-Profile-PNG.png"
 										}
-									}
+									]
 								},
 								"url": {
 									"raw": "{{url}}/admin/house-amenity",
@@ -486,13 +521,24 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"amenity 1\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "amenity edit",
+											"type": "text"
+										},
+										{
+											"key": "icon",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/275286870_1139439920135839_3556744240985979091_n.jpg"
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
 										}
-									}
+									]
 								},
 								"url": {
 									"raw": "{{url}}/admin/house-amenity/:house_amenity_id",
@@ -507,84 +553,7 @@
 									"variable": [
 										{
 											"key": "house_amenity_id",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "index - gell all amenity of house",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/house-amenity",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house-amenity"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show - get single amenity of house",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/house-amenity/:house_amenity_id",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house-amenity",
-										":house_amenity_id"
-									],
-									"variable": [
-										{
-											"key": "house_amenity_id",
-											"value": "1"
+											"value": "4"
 										}
 									]
 								}
@@ -1113,15 +1082,67 @@
 									]
 								},
 								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"house_category_id\": 1,\n    \"title\": \"title 1\",\n    \"image\": \"\",\n    \"description\": \"description 1\",\n    \"address\": \"address 1\",\n    \"available_from\": \"2022-01-01\",\n    \"expiry_date\": \"2022-12-01\",\n    \"price\": \"99999\",\n    \"is_negotiable\": \"0\",\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"type\": \"buy\",\n    \"status_id\": 1,\n    \"feature\": {\n        \"1\": {\n            \"value\": \"754 sq.ft.\"\n        },\n        \"2\": {\n            \"value\": \"2 beds\"\n        },\n        \"3\": {\n            \"value\": \"2 bath\"\n        }\n    },\n    \"amenity\": [1, 2, 3]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
 									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "house_category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "saldkjw",
+											"type": "text"
+										},
+										{
+											"key": "expiry_date",
+											"value": "2022-05-04",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "1234",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "alsjdwlkdja",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "buy",
+											"type": "text"
+										},
+										{
+											"key": "status_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "feature_image",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/User-Profile-PNG.png"
+										},
+										{
+											"key": "gallery[]",
+											"type": "file",
+											"src": [
+												"/C:/Users/Leon Schiffer/Downloads/273889000_374725621163341_2730958899611252790_n.jpg",
+												"/C:/Users/Leon Schiffer/Downloads/734452_458950354174251_2127541172_n.jpg",
+												"/C:/Users/Leon Schiffer/Downloads/1509796_581026518633300_719248165_n.jpg",
+												"/C:/Users/Leon Schiffer/Downloads/273787219_1016002872339795_4465151817164593349_n.jpg"
+											]
+										}
+									]
 								},
 								"url": {
 									"raw": "{{url}}/client/house",
@@ -1152,13 +1173,63 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"_method\": \"PUT\",\n    \"house_category_id\": 1,\n    \"title\": \"title edit\",\n    \"image\": \"\",\n    \"description\": \"description edit\",\n    \"address\": \"address edit\",\n    \"available_from\": \"2022-01-01\",\n    \"expiry_date\": \"2022-12-01\",\n    \"price\": \"99999\",\n    \"is_negotiable\": \"0\",\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"type\": \"buy\",\n    \"status_id\": 1,\n    \"feature\": {\n        \"1\": {\n            \"value\": \"1000 sq.ft.\"\n        },\n        \"2\": {\n            \"value\": \"6 beds\"\n        },\n        \"3\": {\n            \"value\": \"6 bath\"\n        }\n    },\n    \"amenity\": []\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "house_category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "saldkjw",
+											"type": "text"
+										},
+										{
+											"key": "expiry_date",
+											"value": "2022-05-04",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "1234",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "alsjdwlkdja",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "buy",
+											"type": "text"
+										},
+										{
+											"key": "status_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "feature_image",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/User-Profile-PNG.png"
+										},
+										{
+											"key": "gallery[]",
+											"type": "file",
+											"src": [
+												"/C:/Users/Leon Schiffer/Downloads/273889000_374725621163341_2730958899611252790_n.jpg",
+												"/C:/Users/Leon Schiffer/Downloads/734452_458950354174251_2127541172_n.jpg",
+												"/C:/Users/Leon Schiffer/Downloads/1509796_581026518633300_719248165_n.jpg"
+											]
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
 										}
-									}
+									]
 								},
 								"url": {
 									"raw": "{{url}}/client/house/:house_id",
@@ -1173,7 +1244,7 @@
 									"variable": [
 										{
 											"key": "house_id",
-											"value": "1"
+											"value": "4"
 										}
 									]
 								}
@@ -1274,45 +1345,6 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/client/house/house_id",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"client",
-										"house",
-										"house_id"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "destroy - delete single house",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{client_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
 									"raw": "{{url}}/client/house/:house_id",
 									"host": [
 										"{{url}}"
@@ -1325,7 +1357,50 @@
 									"variable": [
 										{
 											"key": "house_id",
-											"value": null
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete image- delete a single image from gallery",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/client/house/:image_id/delete-image",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"house",
+										":image_id",
+										"delete-image"
+									],
+									"variable": [
+										{
+											"key": "image_id",
+											"value": "95"
 										}
 									]
 								}
@@ -1654,8 +1729,29 @@
 										},
 										{
 											"key": "email",
-											"value": "adljw@emialasd.comasdw",
+											"value": "adljw@email.comasdw",
 											"type": "text"
+										},
+										{
+											"key": "banner",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/273802368_499434038261243_5731622466241175426_n.jpg"
+										},
+										{
+											"key": "profile_picture",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/User-Profile-PNG.png"
+										},
+										{
+											"key": "gallery[]",
+											"type": "file",
+											"src": [
+												"/C:/Users/Leon Schiffer/Downloads/273889000_374725621163341_2730958899611252790_n.jpg",
+												"/C:/Users/Leon Schiffer/Downloads/734452_458950354174251_2127541172_n.jpg",
+												"/C:/Users/Leon Schiffer/Downloads/1509796_581026518633300_719248165_n.jpg",
+												"/C:/Users/Leon Schiffer/Downloads/273787219_1016002872339795_4465151817164593349_n.jpg",
+												"/C:/Users/Leon Schiffer/Downloads/No-Image-Placeholder.svg.png"
+											]
 										}
 									]
 								},
@@ -1995,6 +2091,124 @@
 									"variable": [
 										{
 											"key": "business_category_id",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "HouseAmenity",
+					"item": [
+						{
+							"name": "index - gell all amenity of house",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house-amenity",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house-amenity"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show - get single amenity of house",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house-amenity/:house_amenity_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house-amenity",
+										":house_amenity_id"
+									],
+									"variable": [
+										{
+											"key": "house_amenity_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Media",
+					"item": [
+						{
+							"name": "destroy - delete single house",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/media/:image_id ",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"media",
+										":image_id "
+									],
+									"variable": [
+										{
+											"key": "image_id ",
 											"value": null
 										}
 									]

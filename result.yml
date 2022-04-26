@@ -37,6 +37,8 @@ tags:
   - name: Client > Job
   - name: Client > Business
   - name: Client > Business Category
+  - name: Client > HouseAmenity
+  - name: Client > Media
 paths:
   /admin/house-category:
     post:
@@ -161,13 +163,24 @@ paths:
       summary: store - store feature of house
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                title: feature 1
+              properties:
+                title:
+                  type: string
+                  example: Title 1
+                icon:
+                  type: string
+                  format: binary
       security:
         - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
@@ -191,21 +204,33 @@ paths:
       summary: update - update feature of house
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                _method: patch
-                title: feature 1
+              properties:
+                _method:
+                  type: string
+                  example: PUT
+                title:
+                  type: string
+                  example: title edit
+                icon:
+                  type: string
+                  format: binary
       security:
         - bearerAuth: []
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: house_feature_id
           in: path
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -254,11 +279,16 @@ paths:
       summary: store - store amenity of house
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                title: amenity 1
+              properties:
+                title:
+                  type: string
+                  example: amenity 1
+                icon:
+                  type: string
+                  format: binary
       security:
         - bearerAuth: []
       responses:
@@ -268,7 +298,7 @@ paths:
             application/json: {}
     get:
       tags:
-        - Admin > HouseAmenity
+        - Client > HouseAmenity
       summary: index - gell all amenity of house
       security:
         - bearerAuth: []
@@ -284,12 +314,37 @@ paths:
       summary: update - update amenity of house
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                _method: patch
-                title: amenity 1
+              properties:
+                title:
+                  type: string
+                  example: amenity edit
+                icon:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: PUT
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: house_amenity_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '4'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > HouseAmenity
+      summary: destroy - destroy single amenity of house
       security:
         - bearerAuth: []
       parameters:
@@ -306,29 +361,16 @@ paths:
             application/json: {}
     get:
       tags:
-        - Admin > HouseAmenity
+        - Client > HouseAmenity
       summary: show - get single amenity of house
       security:
         - bearerAuth: []
       parameters:
-        - name: house_amenity_id
-          in: path
+        - name: Accept
+          in: header
           schema:
-            type: integer
-          required: true
-          example: '1'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    delete:
-      tags:
-        - Admin > HouseAmenity
-      summary: destroy - destroy single amenity of house
-      security:
-        - bearerAuth: []
-      parameters:
+            type: string
+          example: application/json
         - name: house_amenity_id
           in: path
           schema:
@@ -588,37 +630,45 @@ paths:
       summary: store - store house
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                house_category_id: 1
-                title: title 1
-                image: ''
-                description: description 1
-                address: address 1
-                available_from: '2022-01-01'
-                expiry_date: '2022-12-01'
-                price: '99999'
-                is_negotiable: '0'
-                place_id: ''
-                longitude: ''
-                latitude: ''
-                type: buy
-                status_id: 1
-                feature:
-                  '1':
-                    value: 754 sq.ft.
-                  '2':
-                    value: 2 beds
-                  '3':
-                    value: 2 bath
-                amenity:
-                  - 1
-                  - 2
-                  - 3
+              properties:
+                house_category_id:
+                  type: integer
+                  example: '1'
+                title:
+                  type: string
+                  example: saldkjw
+                expiry_date:
+                  type: string
+                  example: '2022-05-04'
+                price:
+                  type: integer
+                  example: '1234'
+                address:
+                  type: string
+                  example: alsjdwlkdja
+                type:
+                  type: string
+                  example: buy
+                status_id:
+                  type: integer
+                  example: '1'
+                feature_image:
+                  type: string
+                  format: binary
+                gallery[]:
+                  type: string
+                  format: binary
       security:
         - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
@@ -642,33 +692,40 @@ paths:
       summary: update - update house
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                _method: PUT
-                house_category_id: 1
-                title: title edit
-                image: ''
-                description: description edit
-                address: address edit
-                available_from: '2022-01-01'
-                expiry_date: '2022-12-01'
-                price: '99999'
-                is_negotiable: '0'
-                place_id: ''
-                longitude: ''
-                latitude: ''
-                type: buy
-                status_id: 1
-                feature:
-                  '1':
-                    value: 1000 sq.ft.
-                  '2':
-                    value: 6 beds
-                  '3':
-                    value: 6 bath
-                amenity: []
+              properties:
+                house_category_id:
+                  type: integer
+                  example: '1'
+                title:
+                  type: string
+                  example: saldkjw
+                expiry_date:
+                  type: string
+                  example: '2022-05-04'
+                price:
+                  type: integer
+                  example: '1234'
+                address:
+                  type: string
+                  example: alsjdwlkdja
+                type:
+                  type: string
+                  example: buy
+                status_id:
+                  type: integer
+                  example: '1'
+                feature_image:
+                  type: string
+                  format: binary
+                gallery[]:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: PUT
       security:
         - bearerAuth: []
       parameters:
@@ -677,29 +734,25 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '4'
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-    delete:
+    get:
       tags:
         - Client > House
-      summary: destroy - delete single house
+      summary: show - get single house
       security:
         - bearerAuth: []
       parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
         - name: house_id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
+          example: '4'
       responses:
         '200':
           description: Successful response
@@ -717,13 +770,20 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /client/house/house_id:
+  /client/house/{image_id}/delete-image:
     get:
       tags:
         - Client > House
-      summary: show - get single house
+      summary: delete image- delete a single image from gallery
       security:
         - bearerAuth: []
+      parameters:
+        - name: image_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '95'
       responses:
         '200':
           description: Successful response
@@ -908,7 +968,16 @@ paths:
                   example: '312113'
                 email:
                   type: string
-                  example: adljw@emialasd.comasdw
+                  example: adljw@email.comasdw
+                banner:
+                  type: string
+                  format: binary
+                profile_picture:
+                  type: string
+                  format: binary
+                gallery[]:
+                  type: string
+                  format: binary
       security:
         - noauthAuth: []
       parameters:
@@ -1110,6 +1179,22 @@ paths:
             type: integer
           required: true
           example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/media/{image_id}:
+    delete:
+      tags:
+        - Client > Media
+      summary: destroy - delete single house
+      parameters:
+        - name: image_id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
