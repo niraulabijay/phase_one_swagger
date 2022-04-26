@@ -257,13 +257,13 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": "Title 1",
+											"value": "Title one",
 											"type": "text"
 										},
 										{
 											"key": "icon",
-											"type": "file",
-											"src": []
+											"value": "",
+											"type": "text"
 										}
 									]
 								},
@@ -316,8 +316,8 @@
 										},
 										{
 											"key": "icon",
-											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/273889000_374725621163341_2730958899611252790_n.jpg"
+											"value": "",
+											"type": "text"
 										}
 									]
 								},
