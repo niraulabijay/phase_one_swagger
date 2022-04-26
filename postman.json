@@ -262,8 +262,8 @@
 										},
 										{
 											"key": "icon",
-											"value": "",
-											"type": "text"
+											"type": "file",
+											"src": []
 										}
 									]
 								},
