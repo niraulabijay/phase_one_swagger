@@ -262,8 +262,8 @@
 										},
 										{
 											"key": "icon",
-											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/User-Profile-PNG.png"
+											"value": "",
+											"type": "text"
 										}
 									]
 								},

@@ -172,7 +172,6 @@ paths:
                   example: Title 1
                 icon:
                   type: string
-                  format: binary
       security:
         - bearerAuth: []
       parameters:
