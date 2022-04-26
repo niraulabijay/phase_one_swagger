@@ -169,7 +169,7 @@ paths:
               properties:
                 title:
                   type: string
-                  example: Title 1
+                  example: Title one
                 icon:
                   type: string
       security:
@@ -215,7 +215,6 @@ paths:
                   example: title edit
                 icon:
                   type: string
-                  format: binary
       security:
         - bearerAuth: []
       parameters:
