@@ -262,8 +262,8 @@
 										},
 										{
 											"key": "icon",
-											"value": "",
-											"type": "text"
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/User-Profile-PNG.png"
 										}
 									]
 								},
@@ -980,6 +980,302 @@
 										"admin",
 										"business-category",
 										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ads",
+					"item": [
+						{
+							"name": "get ads by category",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/ad/:ad_category/category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"ad",
+										":ad_category",
+										"category"
+									],
+									"variable": [
+										{
+											"key": "ad_category",
+											"value": "all",
+											"description": "put value 'all' if you want get ads from all categories"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "title 1",
+											"type": "text"
+										},
+										{
+											"key": "ad_category",
+											"value": "Homepage",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/User-Profile-PNG.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/ad",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ad"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "title 1 edited",
+											"type": "text"
+										},
+										{
+											"key": "ad_category",
+											"value": "Homepage",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/277991288_1941080382766230_1979025273366638522_n.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/ad/:ad_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ad",
+										":ad_id"
+									],
+									"variable": [
+										{
+											"key": "ad_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/ad/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ad",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "destroy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/ad/:ad_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ad",
+										":ad_id"
+									],
+									"variable": [
+										{
+											"key": "ad_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ad Category",
+					"item": [
+						{
+							"name": "index",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/ad-category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ad-category"
 									]
 								}
 							},
@@ -2210,6 +2506,95 @@
 										{
 											"key": "image_id ",
 											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ads",
+					"item": [
+						{
+							"name": "get ads by category",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/ad/:ad_category/category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"ad",
+										":ad_category",
+										"category"
+									],
+									"variable": [
+										{
+											"key": "ad_category",
+											"value": "all",
+											"description": "put value 'all' if you want get ads from all categories"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/ad/:ad_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"ad",
+										":ad_id"
+									],
+									"variable": [
+										{
+											"key": "ad_id",
+											"value": "2"
 										}
 									]
 								}

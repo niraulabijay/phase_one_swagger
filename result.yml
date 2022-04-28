@@ -32,6 +32,8 @@ tags:
   - name: Admin > HouseAmenity
   - name: Admin > JobCategory
   - name: Admin > BusinessCategory
+  - name: Admin > Ads
+  - name: Admin > Ad Category
   - name: Client
   - name: Client > House
   - name: Client > Job
@@ -39,6 +41,7 @@ tags:
   - name: Client > Business Category
   - name: Client > HouseAmenity
   - name: Client > Media
+  - name: Client > Ads
 paths:
   /admin/house-category:
     post:
@@ -172,6 +175,7 @@ paths:
                   example: Title one
                 icon:
                   type: string
+                  format: binary
       security:
         - bearerAuth: []
       parameters:
@@ -570,6 +574,154 @@ paths:
       summary: destroy - delete single category of business
       security:
         - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/ad/{ad_category}/category:
+    get:
+      tags:
+        - Client > Ads
+      summary: get ads by category
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ad_category
+          in: path
+          schema:
+            type: string
+          required: true
+          description: put value 'all' if you want get ads from all categories
+          example: all
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/ad:
+    post:
+      tags:
+        - Admin > Ads
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: title 1
+                ad_category:
+                  type: string
+                  example: Homepage
+                image:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/ad/{ad_id}:
+    post:
+      tags:
+        - Admin > Ads
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: title 1 edited
+                ad_category:
+                  type: string
+                  example: Homepage
+                _method:
+                  type: string
+                  example: PUT
+                image:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ad_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Ads
+      summary: destroy
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: ad_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/ad/1:
+    get:
+      tags:
+        - Admin > Ads
+      summary: show
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/ad-category:
+    get:
+      tags:
+        - Admin > Ad Category
+      summary: index
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
@@ -1193,6 +1345,30 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/ad/{ad_id}:
+    get:
+      tags:
+        - Client > Ads
+      summary: show
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ad_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
       responses:
         '200':
           description: Successful response
