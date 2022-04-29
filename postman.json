@@ -621,7 +621,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"title\": \"category 1\",\n    \"icon\": \"\",\n    \"description\": \"description 1\",\n    \"order_level\": \"\",\n    \"parent_id\": 2,\n    \"status\": 1\n}",
+									"raw": "{\n    \"title\": \"category 1\",\n    \"icon\": \"\",\n    \"description\": \"description 1\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1906,6 +1906,34 @@
 											"key": "job_id",
 											"value": null
 										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index - get all job (no auth required)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/client/all-job",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"all-job"
 									]
 								}
 							},

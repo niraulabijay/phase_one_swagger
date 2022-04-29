@@ -399,7 +399,7 @@ paths:
                 icon: ''
                 description: description 1
                 order_level: ''
-                parent_id: 2
+                parent_id: ''
                 status: 1
       security:
         - bearerAuth: []
@@ -1074,6 +1074,18 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/all-job:
+    get:
+      tags:
+        - Client > Job
+      summary: index - get all job (no auth required)
+      security:
+        - noauthAuth: []
       responses:
         '200':
           description: Successful response
