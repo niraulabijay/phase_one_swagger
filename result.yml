@@ -41,6 +41,7 @@ tags:
   - name: Client > Business Category
   - name: Client > Media
   - name: Client > Ads
+  - name: Public
 paths:
   /admin/house-category:
     post:
@@ -72,17 +73,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-    get:
-      tags:
-        - Admin > HouseCategory
-      summary: index - get all category of house
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /admin/house-category/{house_category_id}:
     post:
       tags:
@@ -103,29 +93,6 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: house_category_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '1'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    get:
-      tags:
-        - Admin > HouseCategory
-      summary: show - get single category of house
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
         - name: house_category_id
           in: path
           schema:
@@ -190,17 +157,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-    get:
-      tags:
-        - Admin > HouseFeature
-      summary: index - gell all feature of house
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /admin/house-feature/{house_feature_id}:
     post:
       tags:
@@ -239,24 +195,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-    get:
-      tags:
-        - Admin > HouseFeature
-      summary: show - get single feature of house
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: house_feature_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '1'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
     delete:
       tags:
         - Admin > HouseFeature
@@ -269,7 +207,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -299,17 +237,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-    get:
-      tags:
-        - Admin > HouseAmenity
-      summary: index - gell all amenity of house
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /admin/house-amenity/{house_amenity_id}:
     post:
       tags:
@@ -330,24 +257,6 @@ paths:
                 _method:
                   type: string
                   example: PUT
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: house_amenity_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '1'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    get:
-      tags:
-        - Admin > HouseAmenity
-      summary: show - get single amenity of house
       security:
         - bearerAuth: []
       parameters:
@@ -404,17 +313,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-    get:
-      tags:
-        - Admin > JobCategory
-      summary: index - get all category of job
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /admin/job-category/{job_category_id}:
     post:
       tags:
@@ -433,24 +331,6 @@ paths:
                 order_level: ''
                 parent_id: ''
                 status: 1
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: job_category_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '1'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    get:
-      tags:
-        - Admin > JobCategory
-      summary: show - get single category of job
       security:
         - bearerAuth: []
       parameters:
@@ -486,41 +366,27 @@ paths:
   /admin/business-category:
     post:
       tags:
-        - Client > Business Category
-      summary: store
+        - Admin > BusinessCategory
+      summary: store - store category of business
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             schema:
               type: object
-              properties:
-                title:
-                  type: string
-                  example: asldjwa
-                description:
-                  type: string
-                  example: |-
-                    laskjdlkajda
-                    djasdjasd
+              example:
+                title: category 1
+                description: description 1
+                order_level: ''
+                parent_id: ''
+                status_id: 1
       security:
-        - noauthAuth: []
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
           schema:
             type: string
           example: application/json
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    get:
-      tags:
-        - Admin > BusinessCategory
-      summary: index - get all category of business
-      security:
-        - bearerAuth: []
       responses:
         '200':
           description: Successful response
@@ -542,13 +408,7 @@ paths:
                 description: description edit
                 order_level: ''
                 parent_id: ''
-                status: '0'
-                meta_title: meta_title edit
-                meta_description: meta_description edit
-                meta_keyword:
-                  - keyword edit
-                  - keyword 2
-                  - keyword 3
+                status_id: 1
       security:
         - bearerAuth: []
       responses:
@@ -556,48 +416,20 @@ paths:
           description: Successful response
           content:
             application/json: {}
-    get:
-      tags:
-        - Admin > BusinessCategory
-      summary: show - get single category of business
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
+  /admin/business-category/{business_category_id}:
     delete:
       tags:
         - Admin > BusinessCategory
       summary: destroy - delete single category of business
       security:
         - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/ad/{ad_category}/category:
-    get:
-      tags:
-        - Client > Ads
-      summary: get ads by category
-      security:
-        - noauthAuth: []
       parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-        - name: ad_category
+        - name: business_category_id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
-          description: put value 'all' if you want get ads from all categories
-          example: all
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -672,7 +504,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '3'
       responses:
         '200':
           description: Successful response
@@ -690,19 +522,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/ad/1:
-    get:
-      tags:
-        - Admin > Ads
-      summary: show
-      security:
-        - bearerAuth: []
+          example: '5'
       responses:
         '200':
           description: Successful response
@@ -829,17 +649,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-    get:
-      tags:
-        - Client > House
-      summary: index - get all house
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /client/house/{house_id}:
     post:
       tags:
@@ -889,25 +698,29 @@ paths:
           schema:
             type: integer
           required: true
-          example: '4'
+          example: '2'
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-    get:
+    delete:
       tags:
         - Client > House
-      summary: show - get single house
+      summary: delete- delete a single house
       security:
         - bearerAuth: []
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: house_id
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
       responses:
         '200':
           description: Successful response
@@ -920,25 +733,6 @@ paths:
       summary: index- get my houses
       security:
         - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /client/house/{image_id}/delete-image:
-    get:
-      tags:
-        - Client > House
-      summary: delete image- delete a single image from gallery
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: image_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '95'
       responses:
         '200':
           description: Successful response
@@ -991,17 +785,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-    get:
-      tags:
-        - Client > Job
-      summary: index - get all job
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /client/job/{job_id}:
     post:
       tags:
@@ -1043,25 +826,9 @@ paths:
         - name: job_id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    get:
-      tags:
-        - Client > Job
-      summary: show - get single job
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: job_id
-          in: path
-          schema:
-            type: string
-          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1077,31 +844,46 @@ paths:
         - name: job_id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /api/business:
+  /api/job:
     get:
       tags:
-        - Client > Business
-      summary: index- No auth required
+        - Public
+      summary: get all job (no auth required)
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/job/{job_id}:
+    get:
+      tags:
+        - Public
+      summary: get single job (no auth requried)
       security:
         - noauthAuth: []
       parameters:
-        - name: Accept
-          in: header
+        - name: job_id
+          in: path
           schema:
-            type: string
-          example: application/json
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
+  /client/business:
     post:
       tags:
         - Client > Business
@@ -1123,7 +905,7 @@ paths:
                   example: '312113'
                 email:
                   type: string
-                  example: adljw@email.comasdw
+                  example: awdadljw@email.comasdw
                 banner:
                   type: string
                   format: binary
@@ -1149,30 +931,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/business/{business_id}:
-    get:
-      tags:
-        - Client > Business
-      summary: show- No auth required
-      security:
-        - noauthAuth: []
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-        - name: business_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '2'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
+  /client/business/{business_id}:
     post:
       tags:
         - Client > Business
@@ -1209,8 +968,9 @@ paths:
         - name: business_id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1242,16 +1002,10 @@ paths:
   /api/business-category:
     get:
       tags:
-        - Client > Business Category
-      summary: index- No auth required
+        - Public
+      summary: get all business category (no auth required)
       security:
-        - noauthAuth: []
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
+        - bearerAuth: []
       responses:
         '200':
           description: Successful response
@@ -1260,77 +1014,11 @@ paths:
   /api/business-category/{business_category_id}:
     get:
       tags:
-        - Client > Business Category
-      summary: show- No auth required
-      security:
-        - noauthAuth: []
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-        - name: business_category_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '1'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    delete:
-      tags:
-        - Client > Business Category
-      summary: destroy
-      security:
-        - noauthAuth: []
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-        - name: business_category_id
-          in: path
-          schema:
-            type: string
-          required: true
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/business-category/{business_category_id}:
-    post:
-      tags:
-        - Client > Business Category
-      summary: update
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                title:
-                  type: string
-                  example: aaa
-                status_id:
-                  type: integer
-                  example: '12'
-                _method:
-                  type: string
-                  example: put
+        - Public
+      summary: get single business category (no auth required)
       security:
         - bearerAuth: []
       parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
         - name: business_category_id
           in: path
           schema:
@@ -1342,12 +1030,17 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/media/{image_id}:
+  /client/media/{image_id}:
     delete:
       tags:
         - Client > Media
       summary: destroy - delete single house
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: image_id
           in: path
           schema:
@@ -1358,11 +1051,11 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/ad/{ad_id}:
+  /client/ad/{ad_category}/category:
     get:
       tags:
         - Client > Ads
-      summary: show
+      summary: get ads by category
       security:
         - noauthAuth: []
       parameters:
@@ -1371,12 +1064,13 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: ad_id
+        - name: ad_category
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '2'
+          description: put value 'all' if you want get ads from all categories
+          example: all
       responses:
         '200':
           description: Successful response
@@ -1464,42 +1158,105 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/all-house-category:
+  /api/house-category:
     get:
       tags:
-        - default
+        - Public
       summary: get all house category (no auth required)
       security:
         - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /api/all-house-feature:
+  /api/house-category/{house_category_id}:
     get:
       tags:
-        - default
+        - Public
+      summary: get single house category (no auth required) Copy
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: house_category_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/house-feature:
+    get:
+      tags:
+        - Public
       summary: get all feature (no auth required)
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /api/all-house-amenity:
+  /api/house-feature/{house_feature_id}:
     get:
       tags:
-        - default
+        - Public
+      summary: get single feature (no auth required) Copy
+      parameters:
+        - name: house_feature_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/house-amenity:
+    get:
+      tags:
+        - Public
       summary: get all amenity (no auth required)
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /api/all-house:
+  /api/house-amenity/{house_amenity_id}:
     get:
       tags:
-        - default
+        - Public
+      summary: get single amenity (no auth required) Copy
+      parameters:
+        - name: house_amenity_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/house:
+    get:
+      tags:
+        - Public
       summary: get all house (no auth required)
       security:
         - noauthAuth: []
@@ -1508,10 +1265,48 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/all-job-category:
+  /api/house/{house_id}:
     get:
       tags:
-        - default
+        - Public
+      summary: get single house (no auth requried)
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: house_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/job-category/{job_category_id}:
+    get:
+      tags:
+        - Public
+      summary: get single job category (no auth required)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: job_category_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/job-category:
+    get:
+      tags:
+        - Public
       summary: get all job category (no auth required)
       security:
         - bearerAuth: []
@@ -1520,13 +1315,80 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/all-job:
+  /api/business:
     get:
       tags:
-        - default
-      summary: get all job (no auth required)
+        - Public
+      summary: get all business (no auth required)
       security:
         - noauthAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business/{business_id}:
+    get:
+      tags:
+        - Public
+      summary: get single business (no auth requried)
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: business_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/ad:
+    get:
+      tags:
+        - Public
+      summary: get ads by category
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ad_category
+          in: query
+          schema:
+            type: string
+          description: 'remove this parameter if you all ads '
+          example: homepage
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/ad/{ad_id}:
+    get:
+      tags:
+        - Public
+      summary: get single ad
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ad_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
       responses:
         '200':
           description: Successful response

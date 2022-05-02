@@ -99,89 +99,6 @@
 							"response": []
 						},
 						{
-							"name": "index - get all category of house",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/house-category",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house-category"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show - get single category of house",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/house-category/:house_category_id",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house-category",
-										":house_category_id"
-									],
-									"variable": [
-										{
-											"key": "house_category_id",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "destroy - delete single category of house",
 							"request": {
 								"auth": {
@@ -342,83 +259,6 @@
 							"response": []
 						},
 						{
-							"name": "index - gell all feature of house",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/house-feature",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house-feature"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show - get single feature of house",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/house-feature/:house_feature_id",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house-feature",
-										":house_feature_id"
-									],
-									"variable": [
-										{
-											"key": "house_feature_id",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "destroy - destroy single feature of house",
 							"request": {
 								"auth": {
@@ -450,7 +290,7 @@
 									"variable": [
 										{
 											"key": "house_feature_id",
-											"value": "1"
+											"value": "2"
 										}
 									]
 								}
@@ -539,83 +379,6 @@
 											"type": "text"
 										}
 									]
-								},
-								"url": {
-									"raw": "{{url}}/admin/house-amenity/:house_amenity_id",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house-amenity",
-										":house_amenity_id"
-									],
-									"variable": [
-										{
-											"key": "house_amenity_id",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "index - gell all amenity of house",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/house-amenity",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"house-amenity"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show - get single amenity of house",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
 								},
 								"url": {
 									"raw": "{{url}}/admin/house-amenity/:house_amenity_id",
@@ -763,83 +526,6 @@
 							"response": []
 						},
 						{
-							"name": "index - get all category of job",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/job-category",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"job-category"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show - get single category of job",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/job-category/:job_category_id",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"job-category",
-										":job_category_id"
-									],
-									"variable": [
-										{
-											"key": "job_category_id",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "destroy - delete single category of job",
 							"request": {
 								"auth": {
@@ -897,10 +583,16 @@
 									]
 								},
 								"method": "POST",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"title\": \"category 1\",\n    \"description\": \"description 1\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": \"0\",\n    \"meta_title\": \"meta_title 1\",\n    \"meta_description\": \"meta_description 1\",\n    \"meta_keyword\": [\"keyword 1\", \"keyword 2\", \"keyword 3\"]\n}",
+									"raw": "{\n    \"title\": \"category 1\",\n    \"description\": \"description 1\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status_id\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -937,83 +629,12 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"category edit\",\n    \"description\": \"description edit\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": \"0\",\n    \"meta_title\": \"meta_title edit\",\n    \"meta_description\": \"meta_description edit\",\n    \"meta_keyword\": [\"keyword edit\", \"keyword 2\", \"keyword 3\"]\n}",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"category edit\",\n    \"description\": \"description edit\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status_id\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
-								},
-								"url": {
-									"raw": "{{url}}/admin/business-category/1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"business-category",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "index - get all category of business",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/business-category",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"business-category"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show - get single category of business",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
 								},
 								"url": {
 									"raw": "{{url}}/admin/business-category/1",
@@ -1049,14 +670,20 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/admin/business-category/1",
+									"raw": "{{url}}/admin/business-category/:business_category_id",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"business-category",
-										"1"
+										":business_category_id"
+									],
+									"variable": [
+										{
+											"key": "business_category_id",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -1067,56 +694,6 @@
 				{
 					"name": "Ads",
 					"item": [
-						{
-							"name": "get ads by category",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/api/ad/:ad_category/category",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"ad",
-										":ad_category",
-										"category"
-									],
-									"variable": [
-										{
-											"key": "ad_category",
-											"value": "all",
-											"description": "put value 'all' if you want get ads from all categories"
-										}
-									]
-								}
-							},
-							"response": []
-						},
 						{
 							"name": "store",
 							"request": {
@@ -1230,44 +807,8 @@
 									"variable": [
 										{
 											"key": "ad_id",
-											"value": "1"
+											"value": "3"
 										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/admin/ad/1",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"ad",
-										"1"
 									]
 								}
 							},
@@ -1305,7 +846,7 @@
 									"variable": [
 										{
 											"key": "ad_id",
-											"value": "1"
+											"value": "5"
 										}
 									]
 								}
@@ -1625,43 +1166,8 @@
 									"variable": [
 										{
 											"key": "house_id",
-											"value": "4"
+											"value": "2"
 										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "index - get all house",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{client_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/client/house",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"client",
-										"house"
 									]
 								}
 							},
@@ -1704,10 +1210,7 @@
 							"response": []
 						},
 						{
-							"name": "show - get single house",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
+							"name": "delete- delete a single house",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1719,8 +1222,14 @@
 										}
 									]
 								},
-								"method": "GET",
-								"header": [],
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"body": {
 									"mode": "formdata",
 									"formdata": []
@@ -1738,50 +1247,7 @@
 									"variable": [
 										{
 											"key": "house_id",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "delete image- delete a single image from gallery",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{client_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/client/house/:image_id/delete-image",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"client",
-										"house",
-										":image_id",
-										"delete-image"
-									],
-									"variable": [
-										{
-											"key": "image_id",
-											"value": "95"
+											"value": null
 										}
 									]
 								}
@@ -1873,7 +1339,7 @@
 									"variable": [
 										{
 											"key": "job_id",
-											"value": null
+											"value": "1"
 										}
 									]
 								}
@@ -1903,12 +1369,12 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/client/job",
+									"raw": "{{url}}/api/job",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"client",
+										"api",
 										"job"
 									]
 								}
@@ -1932,25 +1398,31 @@
 									]
 								},
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"body": {
 									"mode": "formdata",
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/client/job/:job_id",
+									"raw": "{{url}}/api/job/:job_id",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"client",
+										"api",
 										"job",
 										":job_id"
 									],
 									"variable": [
 										{
 											"key": "job_id",
-											"value": null
+											"value": "1"
 										}
 									]
 								}
@@ -1989,7 +1461,7 @@
 									"variable": [
 										{
 											"key": "job_id",
-											"value": null
+											"value": "1"
 										}
 									]
 								}
@@ -2001,81 +1473,6 @@
 				{
 					"name": "Business",
 					"item": [
-						{
-							"name": "index- No auth required",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/api/business",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"business"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show- No auth required",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/api/business/:business_id",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"business",
-										":business_id"
-									],
-									"variable": [
-										{
-											"key": "business_id",
-											"value": "2"
-										}
-									]
-								}
-							},
-							"response": []
-						},
 						{
 							"name": "store",
 							"request": {
@@ -2110,7 +1507,7 @@
 										},
 										{
 											"key": "email",
-											"value": "adljw@email.comasdw",
+											"value": "awdadljw@email.comasdw",
 											"type": "text"
 										},
 										{
@@ -2142,12 +1539,12 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/api/business",
+									"raw": "{{url}}/client/business",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"api",
+										"client",
 										"business"
 									]
 								}
@@ -2206,19 +1603,19 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/api/business/:business_id",
+									"raw": "{{url}}/client/business/:business_id",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"api",
+										"client",
 										"business",
 										":business_id"
 									],
 									"variable": [
 										{
 											"key": "business_id",
-											"value": null
+											"value": "1"
 										}
 									]
 								}
@@ -2244,12 +1641,12 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/business/:business_id",
+									"raw": "{{url}}/client/business/:business_id",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"api",
+										"client",
 										"business",
 										":business_id"
 									],
@@ -2342,147 +1739,6 @@
 								}
 							},
 							"response": []
-						},
-						{
-							"name": "store",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "title",
-											"value": "asldjwa",
-											"type": "text"
-										},
-										{
-											"key": "description",
-											"value": "laskjdlkajda\ndjasdjasd",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/admin/business-category",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"business-category"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "update",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "title",
-											"value": "aaa",
-											"type": "text"
-										},
-										{
-											"key": "status_id",
-											"value": "12",
-											"type": "text"
-										},
-										{
-											"key": "_method",
-											"value": "put",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/admin/business-category/:business_category_id",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"business-category",
-										":business_category_id"
-									],
-									"variable": [
-										{
-											"key": "business_category_id",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "destroy",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/api/business-category/:business_category_id",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"business-category",
-										":business_category_id"
-									],
-									"variable": [
-										{
-											"key": "business_category_id",
-											"value": null
-										}
-									]
-								}
-							},
-							"response": []
 						}
 					]
 				},
@@ -2493,21 +1749,27 @@
 							"name": "destroy - delete single house",
 							"request": {
 								"method": "DELETE",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
-									"raw": "{{url}}/api/media/:image_id ",
+									"raw": "{{url}}/client/media/:image_id ",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"api",
+										"client",
 										"media",
 										":image_id "
 									],
 									"variable": [
 										{
 											"key": "image_id ",
-											"value": null
+											"value": "2"
 										}
 									]
 								}
@@ -2541,12 +1803,12 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/ad/:ad_category/category",
+									"raw": "{{url}}/client/ad/:ad_category/category",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"api",
+										"client",
 										"ad",
 										":ad_category",
 										"category"
@@ -2556,47 +1818,6 @@
 											"key": "ad_category",
 											"value": "all",
 											"description": "put value 'all' if you want get ads from all categories"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/api/ad/:ad_id",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"ad",
-										":ad_id"
-									],
-									"variable": [
-										{
-											"key": "ad_id",
-											"value": "2"
 										}
 									]
 								}
@@ -2730,173 +1951,623 @@
 			]
 		},
 		{
-			"name": "get all house category (no auth required)",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
-				"url": {
-					"raw": "{{url}}/api/all-house-category",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"all-house-category"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get all feature (no auth required)",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
-				"url": {
-					"raw": "{{url}}/api/all-house-feature",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"all-house-feature"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get all amenity (no auth required)",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
-				"url": {
-					"raw": "{{url}}/api/all-house-amenity",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"all-house-amenity"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get all house (no auth required)",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
-				"url": {
-					"raw": "{{url}}/api/all-house",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"all-house"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get all job category (no auth required)",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{admin_token}}",
-							"type": "string"
+			"name": "Public",
+			"item": [
+				{
+					"name": "get all house category (no auth required)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/house-category",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"house-category"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
+				{
+					"name": "get single house category (no auth required) Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/house-category/:house_category_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"house-category",
+								":house_category_id"
+							],
+							"variable": [
+								{
+									"key": "house_category_id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{url}}/api/all-job-category",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"all-job-category"
-					]
+				{
+					"name": "get all feature (no auth required)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/house-feature",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"house-feature"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single feature (no auth required) Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/house-feature/:house_feature_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"house-feature",
+								":house_feature_id"
+							],
+							"variable": [
+								{
+									"key": "house_feature_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all amenity (no auth required)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/house-amenity",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"house-amenity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single amenity (no auth required) Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/house-amenity/:house_amenity_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"house-amenity",
+								":house_amenity_id"
+							],
+							"variable": [
+								{
+									"key": "house_amenity_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all house (no auth required)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/house",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"house"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single house (no auth requried)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/house/:house_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"house",
+								":house_id"
+							],
+							"variable": [
+								{
+									"key": "house_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single job category (no auth required)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/job-category/:job_category_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"job-category",
+								":job_category_id"
+							],
+							"variable": [
+								{
+									"key": "job_category_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all job category (no auth required)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/job-category",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"job-category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all job (no auth required)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/job",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"job"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single job (no auth requried)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/job/:job_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"job",
+								":job_id"
+							],
+							"variable": [
+								{
+									"key": "job_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all business category (no auth required)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/business-category",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"business-category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single business category (no auth required)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/business-category/:business_category_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"business-category",
+								":business_category_id"
+							],
+							"variable": [
+								{
+									"key": "business_category_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all business (no auth required)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/business",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"business"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single business (no auth requried)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/business/:business_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"business",
+								":business_id"
+							],
+							"variable": [
+								{
+									"key": "business_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get ads by category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/ad?ad_category=homepage",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ad"
+							],
+							"query": [
+								{
+									"key": "ad_category",
+									"value": "homepage",
+									"description": "remove this parameter if you all ads "
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single ad",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/ad/:ad_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ad",
+								":ad_id"
+							],
+							"variable": [
+								{
+									"key": "ad_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "get all job (no auth required)",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
-				"url": {
-					"raw": "{{url}}/api/all-job",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"all-job"
-					]
-				}
-			},
-			"response": []
+			]
 		}
 	]
 }
