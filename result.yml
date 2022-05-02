@@ -39,7 +39,6 @@ tags:
   - name: Client > Job
   - name: Client > Business
   - name: Client > Business Category
-  - name: Client > HouseAmenity
   - name: Client > Media
   - name: Client > Ads
 paths:
@@ -59,7 +58,7 @@ paths:
                 description: description 1
                 order_level: ''
                 parent_id: ''
-                status: 0
+                status_id: 1
       security:
         - bearerAuth: []
       parameters:
@@ -97,19 +96,19 @@ paths:
               example:
                 _method: patch
                 title: category edit
-                icon: ''
                 description: description edit
                 order_level: ''
                 parent_id: ''
-                status: 0
+                status_id: 1
       security:
         - bearerAuth: []
       parameters:
         - name: house_category_id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -118,7 +117,7 @@ paths:
     get:
       tags:
         - Admin > HouseCategory
-      summary: show - get single category od house
+      summary: show - get single category of house
       security:
         - bearerAuth: []
       parameters:
@@ -130,8 +129,9 @@ paths:
         - name: house_category_id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -152,8 +152,9 @@ paths:
         - name: house_category_id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -232,7 +233,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '2'
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -300,7 +301,7 @@ paths:
             application/json: {}
     get:
       tags:
-        - Client > HouseAmenity
+        - Admin > HouseAmenity
       summary: index - gell all amenity of house
       security:
         - bearerAuth: []
@@ -337,16 +338,16 @@ paths:
           schema:
             type: integer
           required: true
-          example: '4'
+          example: '1'
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-    delete:
+    get:
       tags:
         - Admin > HouseAmenity
-      summary: destroy - destroy single amenity of house
+      summary: show - get single amenity of house
       security:
         - bearerAuth: []
       parameters:
@@ -361,18 +362,13 @@ paths:
           description: Successful response
           content:
             application/json: {}
-    get:
+    delete:
       tags:
-        - Client > HouseAmenity
-      summary: show - get single amenity of house
+        - Admin > HouseAmenity
+      summary: destroy - destroy single amenity of house
       security:
         - bearerAuth: []
       parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
         - name: house_amenity_id
           in: path
           schema:
@@ -400,7 +396,7 @@ paths:
                 description: description 1
                 order_level: ''
                 parent_id: ''
-                status: 1
+                status_id: 1
       security:
         - bearerAuth: []
       responses:
@@ -436,15 +432,16 @@ paths:
                 description: description edit
                 order_level: ''
                 parent_id: ''
-                status: 0
+                status: 1
       security:
         - bearerAuth: []
       parameters:
         - name: job_category_id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -460,8 +457,9 @@ paths:
         - name: job_category_id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -477,8 +475,9 @@ paths:
         - name: job_category_id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -811,6 +810,12 @@ paths:
                 gallery[]:
                   type: string
                   format: binary
+                feature[]:
+                  type: integer
+                  example: '1'
+                amenity[]:
+                  type: integer
+                  example: '1'
       security:
         - bearerAuth: []
       parameters:
@@ -902,7 +907,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '4'
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1079,18 +1084,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /client/all-job:
-    get:
-      tags:
-        - Client > Job
-      summary: index - get all job (no auth required)
-      security:
-        - noauthAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /api/business:
     get:
       tags:
@@ -1140,6 +1133,9 @@ paths:
                 gallery[]:
                   type: string
                   format: binary
+                description:
+                  type: string
+                  example: description
       security:
         - noauthAuth: []
       parameters:
@@ -1463,6 +1459,74 @@ paths:
           schema:
             type: string
           example: XMLHttpRequest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/all-house-category:
+    get:
+      tags:
+        - default
+      summary: get all house category (no auth required)
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/all-house-feature:
+    get:
+      tags:
+        - default
+      summary: get all feature (no auth required)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/all-house-amenity:
+    get:
+      tags:
+        - default
+      summary: get all amenity (no auth required)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/all-house:
+    get:
+      tags:
+        - default
+      summary: get all house (no auth required)
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/all-job-category:
+    get:
+      tags:
+        - default
+      summary: get all job category (no auth required)
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/all-job:
+    get:
+      tags:
+        - default
+      summary: get all job (no auth required)
+      security:
+        - noauthAuth: []
       responses:
         '200':
           description: Successful response
