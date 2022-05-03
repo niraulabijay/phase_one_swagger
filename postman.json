@@ -2566,6 +2566,24 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "get all status (active and inactive)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/status",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"status"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

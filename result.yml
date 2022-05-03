@@ -1394,3 +1394,13 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/status:
+    get:
+      tags:
+        - Public
+      summary: get all status (active and inactive)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
