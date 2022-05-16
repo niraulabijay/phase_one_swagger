@@ -1363,7 +1363,13 @@
 									]
 								},
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"body": {
 									"mode": "formdata",
 									"formdata": []
@@ -1400,7 +1406,7 @@
 								"method": "GET",
 								"header": [
 									{
-										"key": "Accept",
+										"key": "Content-Type",
 										"value": "application/json",
 										"type": "text"
 									}
