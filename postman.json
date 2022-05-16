@@ -860,6 +860,9 @@
 					"item": [
 						{
 							"name": "index",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1172,6 +1175,9 @@
 						},
 						{
 							"name": "index- get my houses",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1342,6 +1348,9 @@
 						},
 						{
 							"name": "index - get all job",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1374,6 +1383,9 @@
 						},
 						{
 							"name": "show - get single job",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1659,6 +1671,9 @@
 					"item": [
 						{
 							"name": "index- No auth required",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"auth": {
 									"type": "noauth"
@@ -1690,6 +1705,9 @@
 						},
 						{
 							"name": "show- No auth required",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"auth": {
 									"type": "noauth"
@@ -1769,6 +1787,9 @@
 					"item": [
 						{
 							"name": "get ads by category",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"auth": {
 									"type": "noauth"
