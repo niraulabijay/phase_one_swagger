@@ -905,7 +905,7 @@ paths:
                   example: '312113'
                 email:
                   type: string
-                  example: awdadljw@email.comasdw
+                  example: awdaasdddwaljw@email.comasdw
                 banner:
                   type: string
                   format: binary
@@ -970,7 +970,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '15'
       responses:
         '200':
           description: Successful response

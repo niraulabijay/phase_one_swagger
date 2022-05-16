@@ -1507,18 +1507,20 @@
 										},
 										{
 											"key": "email",
-											"value": "awdadljw@email.comasdw",
+											"value": "awdaasdddwaljw@email.comasdw",
 											"type": "text"
 										},
 										{
 											"key": "banner",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/273802368_499434038261243_5731622466241175426_n.jpg"
+											"src": "/C:/Users/Leon Schiffer/Downloads/273802368_499434038261243_5731622466241175426_n.jpg",
+											"disabled": true
 										},
 										{
 											"key": "profile_picture",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/User-Profile-PNG.png"
+											"src": [],
+											"disabled": true
 										},
 										{
 											"key": "gallery[]",
@@ -1529,12 +1531,14 @@
 												"/C:/Users/Leon Schiffer/Downloads/1509796_581026518633300_719248165_n.jpg",
 												"/C:/Users/Leon Schiffer/Downloads/273787219_1016002872339795_4465151817164593349_n.jpg",
 												"/C:/Users/Leon Schiffer/Downloads/No-Image-Placeholder.svg.png"
-											]
+											],
+											"disabled": true
 										},
 										{
 											"key": "description",
 											"value": "description",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										}
 									]
 								},
@@ -1615,7 +1619,7 @@
 									"variable": [
 										{
 											"key": "business_id",
-											"value": "1"
+											"value": "15"
 										}
 									]
 								}
