@@ -599,43 +599,27 @@ paths:
       summary: store - store house
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             schema:
               type: object
-              properties:
-                house_category_id:
-                  type: integer
-                  example: '1'
-                title:
-                  type: string
-                  example: saldkjw
-                expiry_date:
-                  type: string
-                  example: '2022-05-04'
-                price:
-                  type: integer
-                  example: '1234'
-                address:
-                  type: string
-                  example: alsjdwlkdja
-                type:
-                  type: string
-                  example: buy
-                status_id:
-                  type: integer
-                  example: '1'
-                feature_image:
-                  type: string
-                  format: binary
-                gallery[]:
-                  type: string
-                  format: binary
-                feature[]:
-                  type: integer
-                  example: '1'
-                amenity[]:
-                  type: integer
-                  example: '1'
+              example:
+                house_category_id: 1
+                title: house 1
+                expiry_date: '2022-10-10'
+                price: '123456'
+                address: address 1
+                type: buy
+                status_id: '1'
+                feature_image: ''
+                gallery: []
+                feature:
+                  - id: 1
+                    value: value 1
+                  - id: 2
+                    value: value 2
+                amenity:
+                  - 1
+                  - 2
       security:
         - bearerAuth: []
       parameters:
@@ -785,6 +769,17 @@ paths:
           description: Successful response
           content:
             application/json: {}
+    get:
+      tags:
+        - Client > Job
+      summary: index - get all jobs
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /client/job/{job_id}:
     post:
       tags:
@@ -834,13 +829,18 @@ paths:
           description: Successful response
           content:
             application/json: {}
-    delete:
+    get:
       tags:
         - Client > Job
-      summary: destroy - delete single job
+      summary: show - get single job
       security:
         - bearerAuth: []
       parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: job_id
           in: path
           schema:
@@ -852,25 +852,12 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/job:
-    get:
+    delete:
       tags:
-        - Public
-      summary: get all job (no auth required)
+        - Client > Job
+      summary: destroy - delete single job
       security:
-        - noauthAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/job/{job_id}:
-    get:
-      tags:
-        - Public
-      summary: get single job (no auth requried)
-      security:
-        - noauthAuth: []
+        - bearerAuth: []
       parameters:
         - name: job_id
           in: path
@@ -1310,6 +1297,37 @@ paths:
       summary: get all job category (no auth required)
       security:
         - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/job:
+    get:
+      tags:
+        - Public
+      summary: get all job (no auth required)
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/job/{job_id}:
+    get:
+      tags:
+        - Public
+      summary: get single job (no auth requried)
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: job_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
