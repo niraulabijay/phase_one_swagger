@@ -1293,6 +1293,34 @@
 							"response": []
 						},
 						{
+							"name": "index - get all jobs",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/job",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"job"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "show - get single job",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1374,34 +1402,6 @@
 											"key": "job_id",
 											"value": "1"
 										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "index - get all jobs",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{client_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/client/job",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"client",
-										"job"
 									]
 								}
 							},
