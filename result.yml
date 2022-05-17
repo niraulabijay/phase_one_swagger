@@ -829,29 +829,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-    get:
-      tags:
-        - Client > Job
-      summary: show - get single job
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: Content-Type
-          in: header
-          schema:
-            type: string
-          example: application/json
-        - name: job_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '1'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
     delete:
       tags:
         - Client > Job

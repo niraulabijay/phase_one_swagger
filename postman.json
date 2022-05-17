@@ -1293,82 +1293,6 @@
 							"response": []
 						},
 						{
-							"name": "index - get all jobs",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{client_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/client/job",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"client",
-										"job"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show - get single job",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{client_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/client/job/:job_id",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"client",
-										"job",
-										":job_id"
-									],
-									"variable": [
-										{
-											"key": "job_id",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "destroy - delete single job",
 							"request": {
 								"auth": {
@@ -1402,6 +1326,34 @@
 											"key": "job_id",
 											"value": "1"
 										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index - get all jobs",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/job",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"job"
 									]
 								}
 							},
