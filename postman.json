@@ -2,7 +2,8 @@
 	"info": {
 		"_postman_id": "0ba3eaca-232a-472a-bd67-44aa8f889281",
 		"name": "Phase One",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16179347"
 	},
 	"item": [
 		{
@@ -142,6 +143,94 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "index - get all category of house",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/house-category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house-category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show - get single category of house",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house-category/:house_category_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house-category",
+										":house_category_id"
+									],
+									"variable": [
+										{
+											"key": "house_category_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -174,13 +263,13 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": "Title one",
+											"value": "feature 1",
 											"type": "text"
 										},
 										{
 											"key": "icon",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/User-Profile-PNG.png"
+											"src": "/home/user--49/Pictures/images.jpeg"
 										}
 									]
 								},
@@ -228,7 +317,7 @@
 										},
 										{
 											"key": "title",
-											"value": "title edit",
+											"value": "feature edit",
 											"type": "text"
 										},
 										{
@@ -273,6 +362,94 @@
 								},
 								"method": "DELETE",
 								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house-feature/:house_feature_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house-feature",
+										":house_feature_id"
+									],
+									"variable": [
+										{
+											"key": "house_feature_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index - get all feature of house",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/house-feature",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house-feature"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show - get single feature of house",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"body": {
 									"mode": "formdata",
 									"formdata": []
@@ -438,6 +615,94 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "index - get all amenity of house",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/house-amenity",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house-amenity"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show - get single amenity of house",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house-amenity/:house_amenity_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house-amenity",
+										":house_amenity_id"
+									],
+									"variable": [
+										{
+											"key": "house_amenity_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -563,6 +828,94 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "index - get all category of job",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/job-category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"job-category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show - get single category of job",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/job-category/:job_category_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"job-category",
+										":job_category_id"
+									],
+									"variable": [
+										{
+											"key": "job_category_id",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -665,6 +1018,94 @@
 								},
 								"method": "DELETE",
 								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/business-category/:business_category_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-category",
+										":business_category_id"
+									],
+									"variable": [
+										{
+											"key": "business_category_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index - get all category of business",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/business-category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show - get single category of job Copy",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"body": {
 									"mode": "formdata",
 									"formdata": []
@@ -1005,7 +1446,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"house_category_id\": 1,\n    \"title\": \"house 1\",\n    \"expiry_date\": \"2022-10-10\",\n    \"price\": \"123456\",\n    \"address\": \"address 1\",\n    \"type\": \"buy\",\n    \"status_id\": \"1\",\n    \"feature_image\": \"\",\n    \"gallery\": [],\n    \"feature\": [\n        {\n            \"id\": 1,\n            \"value\": \"value 1\"\n        },\n        {\n            \"id\": 2,\n            \"value\": \"value 2\"\n        }\n    ],\n    \"amenity\": [1, 2]\n} \n",
+									"raw": "{\n    \"house_category_id\": 1,\n    \"title\": \"house 1\",\n    \"description\": \"description 1\",\n    \"address\": \"address 1\",\n    \"available_from\": \"\",\n    \"expiry_date\": \"2022-10-10\",\n    \"price\": \"123456\",\n    \"is_negotiable\": 0,\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"type\": \"buy\",\n    \"status_id\": \"1\",\n    \"feature_image\": \"\",\n    \"gallery\": [],\n    \"feature\": [\n        {\n            \"id\": 1,\n            \"value\": \"value 1\"\n        },\n        {\n            \"id\": 2,\n            \"value\": \"value 2\"\n        }\n    ],\n    \"amenity\": [1, 2]\n} \n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1041,63 +1482,13 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "house_category_id",
-											"value": "1",
-											"type": "text"
-										},
-										{
-											"key": "title",
-											"value": "saldkjw",
-											"type": "text"
-										},
-										{
-											"key": "expiry_date",
-											"value": "2022-05-04",
-											"type": "text"
-										},
-										{
-											"key": "price",
-											"value": "1234",
-											"type": "text"
-										},
-										{
-											"key": "address",
-											"value": "alsjdwlkdja",
-											"type": "text"
-										},
-										{
-											"key": "type",
-											"value": "buy",
-											"type": "text"
-										},
-										{
-											"key": "status_id",
-											"value": "1",
-											"type": "text"
-										},
-										{
-											"key": "feature_image",
-											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/User-Profile-PNG.png"
-										},
-										{
-											"key": "gallery[]",
-											"type": "file",
-											"src": [
-												"/C:/Users/Leon Schiffer/Downloads/273889000_374725621163341_2730958899611252790_n.jpg",
-												"/C:/Users/Leon Schiffer/Downloads/734452_458950354174251_2127541172_n.jpg",
-												"/C:/Users/Leon Schiffer/Downloads/1509796_581026518633300_719248165_n.jpg"
-											]
-										},
-										{
-											"key": "_method",
-											"value": "PUT",
-											"type": "text"
+									"mode": "raw",
+									"raw": "{\n    \"_method\": \"put\",\n    \"house_category_id\": 1,\n    \"title\": \"house 1\",\n    \"description\": \"description 1\",\n    \"address\": \"address 1\",\n    \"available_from\": \"\",\n    \"expiry_date\": \"2022-10-10\",\n    \"price\": \"123456\",\n    \"is_negotiable\": 0,\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"type\": \"buy\",\n    \"status_id\": \"1\",\n    \"feature_image\": \"\",\n    \"gallery\": [],\n    \"feature\": [\n        {\n            \"id\": 1,\n            \"value\": \"value 1\"\n        },\n        {\n            \"id\": 2,\n            \"value\": \"value 2\"\n        }\n    ],\n    \"amenity\": [1, 2]\n} \n",
+									"options": {
+										"raw": {
+											"language": "json"
 										}
-									]
+									}
 								},
 								"url": {
 									"raw": "{{url}}/client/house/:house_id",
@@ -1112,7 +1503,7 @@
 									"variable": [
 										{
 											"key": "house_id",
-											"value": "2"
+											"value": "1"
 										}
 									]
 								}
@@ -1156,7 +1547,42 @@
 							"response": []
 						},
 						{
-							"name": "delete- delete a single house",
+							"name": "show - get single house",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/house/:house_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"house",
+										":house_id"
+									],
+									"variable": [
+										{
+											"key": "house_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete- delete single house",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1193,7 +1619,7 @@
 									"variable": [
 										{
 											"key": "house_id",
-											"value": null
+											"value": "1"
 										}
 									]
 								}
@@ -1293,6 +1719,69 @@
 							"response": []
 						},
 						{
+							"name": "index - get all jobs",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/job",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"job"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show - get single job",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/job/:job_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"job",
+										":job_id"
+									],
+									"variable": [
+										{
+											"key": "job_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "destroy - delete single job",
 							"request": {
 								"auth": {
@@ -1326,34 +1815,6 @@
 											"key": "job_id",
 											"value": "1"
 										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "index - get all jobs",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{client_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/client/job",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"client",
-										"job"
 									]
 								}
 							},
