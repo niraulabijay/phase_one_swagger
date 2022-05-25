@@ -1348,6 +1348,16 @@
 						{
 							"name": "get client list",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [
 									{
@@ -1357,7 +1367,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/client-list?active=&limit=",
+									"raw": "{{url}}/admin/client-list?active=0&limit=",
 									"host": [
 										"{{url}}"
 									],
@@ -1368,7 +1378,7 @@
 									"query": [
 										{
 											"key": "active",
-											"value": "",
+											"value": "0",
 											"description": "values: 0 or 1, you can leave it empty to return all users instead"
 										},
 										{
@@ -1717,7 +1727,7 @@
 								},
 								{
 									"key": "password",
-									"value": "1234",
+									"value": "Asd@360",
 									"type": "text"
 								}
 							]
@@ -3243,7 +3253,7 @@
 								},
 								{
 									"key": "password",
-									"value": "1234",
+									"value": "P@ssw0rd",
 									"type": "text"
 								}
 							]
@@ -3300,6 +3310,54 @@
 							"path": [
 								"api",
 								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change-password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{client_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "old_password",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "P@ssw0rd",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "P@ssw0rd",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/client/change-password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"client",
+								"change-password"
 							]
 						}
 					},

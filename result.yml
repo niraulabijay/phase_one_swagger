@@ -731,6 +731,8 @@ paths:
       tags:
         - Admin > Client
       summary: get client list
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -740,8 +742,9 @@ paths:
         - name: active
           in: query
           schema:
-            type: string
+            type: integer
           description: 'values: 0 or 1, you can leave it empty to return all users instead'
+          example: '0'
         - name: limit
           in: query
           schema:
@@ -931,8 +934,8 @@ paths:
                   type: string
                   example: admin@admin.com
                 password:
-                  type: integer
-                  example: '1234'
+                  type: string
+                  example: Asd@360
       parameters:
         - name: Accept
           in: header
@@ -1829,8 +1832,8 @@ paths:
                   type: string
                   example: user@user.com
                 password:
-                  type: integer
-                  example: '1234'
+                  type: string
+                  example: P@ssw0rd
       parameters:
         - name: Accept
           in: header
@@ -1868,6 +1871,33 @@ paths:
           schema:
             type: string
           example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/change-password:
+    post:
+      tags:
+        - Client
+      summary: change-password
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                old_password:
+                  type: integer
+                  example: '1234'
+                password:
+                  type: string
+                  example: P@ssw0rd
+                password_confirmation:
+                  type: string
+                  example: P@ssw0rd
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Successful response
