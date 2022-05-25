@@ -379,7 +379,7 @@
 									"variable": [
 										{
 											"key": "house_feature_id",
-											"value": "2"
+											"value": "1"
 										}
 									]
 								}
@@ -697,7 +697,7 @@
 									"variable": [
 										{
 											"key": "house_amenity_id",
-											"value": "1"
+											"value": "2"
 										}
 									]
 								}
@@ -910,7 +910,7 @@
 									"variable": [
 										{
 											"key": "job_category_id",
-											"value": null
+											"value": "2"
 										}
 									]
 								}
@@ -945,7 +945,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"title\": \"category 1\",\n    \"description\": \"description 1\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status_id\": 1\n}",
+									"raw": "{\n    \"title\": \"business 1\",\n    \"description\": \"description 1\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status_id\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1343,6 +1343,360 @@
 					]
 				},
 				{
+					"name": "Client",
+					"item": [
+						{
+							"name": "get client list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/client-list?active=&limit=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"client-list"
+									],
+									"query": [
+										{
+											"key": "active",
+											"value": "",
+											"description": "values: 0 or 1, you can leave it empty to return all users instead"
+										},
+										{
+											"key": "limit",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Password",
+					"item": [
+						{
+							"name": "change password",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "old_password",
+											"value": "1234",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Asd@360",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Asd@360",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/change-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "SiteSetting",
+					"item": [
+						{
+							"name": "store",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "full_address_1",
+											"value": "ajdlwaj",
+											"type": "text"
+										},
+										{
+											"key": "full_address_2",
+											"value": "laskjdw",
+											"type": "text"
+										},
+										{
+											"key": "primary_mobile",
+											"value": "1231",
+											"type": "text"
+										},
+										{
+											"key": "company_logo",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/User-Profile-PNG.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/site-setting",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"site-setting"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Blog",
+					"item": [
+						{
+							"name": "store - store blog",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"blog 1\",\n    \"image\": \"\",\n    \"description\": \"blog description 1\",\n    \"meta_title\": \"blog meta title 1\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description 1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/blog",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"blog"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update - update blog",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"blog edit\",\n    \"image\": \"\",\n    \"description\": \"blog description edit\",\n    \"meta_title\": \"blog meta title edit\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description edit\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/blog/:blog_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"blog",
+										":blog_id"
+									],
+									"variable": [
+										{
+											"key": "blog_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "destroy - destroy blog",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/admin/blog/:blog_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"blog",
+										":blog_id"
+									],
+									"variable": [
+										{
+											"key": "blog_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index - get all blog",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/blog",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"blog"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show - get single blog",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/blog/:blog_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"blog",
+										":blog_id"
+									],
+									"variable": [
+										{
+											"key": "blog_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "login",
 					"request": {
 						"method": "POST",
@@ -1446,7 +1800,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"house_category_id\": 1,\n    \"title\": \"house 1\",\n    \"description\": \"description 1\",\n    \"address\": \"address 1\",\n    \"available_from\": \"\",\n    \"expiry_date\": \"2022-10-10\",\n    \"price\": \"123456\",\n    \"is_negotiable\": 0,\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"type\": \"buy\",\n    \"status_id\": \"1\",\n    \"feature_image\": \"\",\n    \"gallery\": [],\n    \"feature\": [\n        {\n            \"id\": 1,\n            \"value\": \"value 1\"\n        },\n        {\n            \"id\": 2,\n            \"value\": \"value 2\"\n        }\n    ],\n    \"amenity\": [1, 2]\n} \n",
+									"raw": "{\n    \"house_category_id\": 1,\n    \"title\": \"house 1\",\n    \"description\": \"description 1\",\n    \"address\": \"address 1\",\n    \"available_from\": \"\",\n    \"expiry_date\": \"2022-10-10\",\n    \"price\": \"123456\",\n    \"is_negotiable\": 0,\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"type\": \"buy\",\n    \"status_id\": \"1\",\n    \"feature_image\": \"\",\n    \"gallery\": [],\n    \"feature\": [\n        {\n            \"id\": 2,\n            \"value\": \"value 2\"\n        },\n        {\n            \"id\": 3,\n            \"value\": \"value 3\"\n        }\n    ],\n    \"amenity\": [1, 2]\n} \n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1691,7 +2045,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"job_category_id\": 1,\n    \"title\": \"job editasdw\",\n    \"image\": \"\",\n    \"description\": \"description edit\",\n    \"skills\": \"skill description edit\",\n    \"benefits\": \"benefit description edit\",\n    \"requirements\": \"requirement description edit\",\n    \"additional_information\": \"additional informtion edit\",\n    \"address\": \"\",\n    \"is_offsite\": 1,\n    \"is_part_time\": 0,\n    \"available_from\": \"2022-01-01\",\n    \"expiry_date\": \"2022-12-20\",\n    \"experience\": 2,\n    \"level\": \"mid-level\",\n    \"salary_type\": \"monthly\",\n    \"is_salary_negotiable\": 1,\n    \"salary\": 35000,\n    \"is_salary_visible\": 1,\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"status_id\": 1\n}",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"job_category_id\": 1,\n    \"title\": \"job edit\",\n    \"image\": \"\",\n    \"description\": \"description edit\",\n    \"skills\": \"skill description edit\",\n    \"benefits\": \"benefit description edit\",\n    \"requirements\": \"requirement description edit\",\n    \"additional_information\": \"additional informtion edit\",\n    \"address\": \"\",\n    \"is_offsite\": 1,\n    \"is_part_time\": 0,\n    \"available_from\": \"2022-01-01\",\n    \"expiry_date\": \"2022-12-20\",\n    \"experience\": 2,\n    \"level\": \"mid-level\",\n    \"salary_type\": \"monthly\",\n    \"is_salary_negotiable\": 1,\n    \"salary\": 35000,\n    \"is_salary_visible\": 1,\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"status_id\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1711,7 +2065,7 @@
 									"variable": [
 										{
 											"key": "job_id",
-											"value": "1"
+											"value": "39"
 										}
 									]
 								}
@@ -1774,7 +2128,7 @@
 									"variable": [
 										{
 											"key": "job_id",
-											"value": "2"
+											"value": "1"
 										}
 									]
 								}
@@ -1849,7 +2203,7 @@
 										},
 										{
 											"key": "title",
-											"value": "New Business",
+											"value": "business 1",
 											"type": "text"
 										},
 										{
@@ -1859,7 +2213,7 @@
 										},
 										{
 											"key": "email",
-											"value": "awdaasdddwaljw@email.comasdw",
+											"value": "aswemail@email.com",
 											"type": "text"
 										},
 										{
@@ -1891,6 +2245,12 @@
 											"value": "description",
 											"type": "text",
 											"disabled": true
+										},
+										{
+											"key": "optional_phone",
+											"value": "",
+											"description": "nullable",
+											"type": "text"
 										}
 									]
 								},
@@ -1971,7 +2331,7 @@
 									"variable": [
 										{
 											"key": "business_id",
-											"value": "15"
+											"value": "1"
 										}
 									]
 								}
@@ -2010,6 +2370,69 @@
 										{
 											"key": "business_id",
 											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index - get all business",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/business",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"business"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show - get single business",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/business/:business_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"business",
+										":business_id"
+									],
+									"variable": [
+										{
+											"key": "business_id",
+											"value": "2"
 										}
 									]
 								}
@@ -2183,6 +2606,623 @@
 					]
 				},
 				{
+					"name": "JobInquiry",
+					"item": [
+						{
+							"name": "store -store job inquiry",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "fullname",
+											"value": "fullname 2",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "fullname2@email.com",
+											"type": "text"
+										},
+										{
+											"key": "contact_number",
+											"value": "9876543210",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "inquiry description",
+											"type": "text"
+										},
+										{
+											"key": "resume",
+											"type": "file",
+											"src": "/home/user--49/Pictures/Black.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/client/job-inquiry/:job_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"job-inquiry",
+										":job_id"
+									],
+									"variable": [
+										{
+											"key": "job_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index - get all job inquiries",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/job-inquiry",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"job-inquiry"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show - get single job inquiry",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/job-inquiry/:job_inquiry_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"job-inquiry",
+										":job_inquiry_id"
+									],
+									"variable": [
+										{
+											"key": "job_inquiry_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "HouseInquiry",
+					"item": [
+						{
+							"name": "store -store house inquiry",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "fullname",
+											"value": "fullname 1",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "fullname1@email.com",
+											"type": "text"
+										},
+										{
+											"key": "contact_number",
+											"value": "9876543210",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "inquiry description",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/client/house-inquiry/:house_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"house-inquiry",
+										":house_id"
+									],
+									"variable": [
+										{
+											"key": "house_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index - get all house inquiries",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/house-inquiry",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"house-inquiry"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show - get single job inquiry",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/house-inquiry/:house_inquiry_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"house-inquiry",
+										":house_inquiry_id"
+									],
+									"variable": [
+										{
+											"key": "house_inquiry_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "User Profile",
+					"item": [
+						{
+							"name": "update or create profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "fullname",
+											"value": "fullname 1",
+											"description": "required",
+											"type": "text"
+										},
+										{
+											"key": "dob",
+											"value": "2022-01-01",
+											"description": "nullable",
+											"type": "text"
+										},
+										{
+											"key": "marital_status",
+											"value": "single",
+											"description": "nullable",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/user--49/Pictures/vianet.png"
+										},
+										{
+											"key": "location",
+											"value": "location 1",
+											"description": "nullable",
+											"type": "text"
+										},
+										{
+											"key": "mobile",
+											"value": "9876543210",
+											"description": "nullable",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"description": "nullable",
+											"type": "text"
+										},
+										{
+											"key": "website",
+											"value": "website1.com",
+											"description": "nullable",
+											"type": "text"
+										},
+										{
+											"key": "about_me",
+											"value": "i am fullname",
+											"description": "nullable",
+											"type": "text"
+										},
+										{
+											"key": "short_bio",
+											"value": "this is my bio",
+											"description": "nullable",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/client/user-profile",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"user-profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get user profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/user-profile",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"user-profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Blog",
+					"item": [
+						{
+							"name": "store - store blog",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"blog 1\",\n    \"image\": \"\",\n    \"description\": \"blog description 1\",\n    \"meta_title\": \"blog meta title 1\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description 1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/client/blog",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"blog"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update - update blog",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"blog edit\",\n    \"image\": \"\",\n    \"description\": \"blog description edit\",\n    \"meta_title\": \"blog meta title edit\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description edit\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/client/blog/:blog_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"blog",
+										":blog_id"
+									],
+									"variable": [
+										{
+											"key": "blog_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "destroy - destroy blog",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/client/blog/:blog_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"blog",
+										":blog_id"
+									],
+									"variable": [
+										{
+											"key": "blog_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index - get all blog",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/client/blog",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"blog"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show - get single blog",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/client/blog/:blog_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"blog",
+										":blog_id"
+									],
+									"variable": [
+										{
+											"key": "blog_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "login",
 					"request": {
 						"method": "POST",
@@ -2309,6 +3349,124 @@
 		{
 			"name": "Public",
 			"item": [
+				{
+					"name": "News Letter",
+					"item": [
+						{
+							"name": "subscribe",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "grgbishal360@gmail.comas",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/subscribe-newsletter",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"subscribe-newsletter"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "check if email is already subscribed",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/newsletter/:news_letter",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"newsletter",
+										":news_letter"
+									],
+									"variable": [
+										{
+											"key": "news_letter",
+											"value": "leon.schiffer360@gmail.com"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "SiteSetting",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/site-setting",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"site-setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/site-setting/:key",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"site-setting",
+										":key"
+									],
+									"variable": [
+										{
+											"key": "key",
+											"value": "full_address_1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
 				{
 					"name": "get all house category (no auth required)",
 					"protocolProfileBehavior": {
@@ -2874,8 +4032,7 @@
 							"query": [
 								{
 									"key": "ad_category",
-									"value": "homepage",
-									"description": "remove this parameter if you all ads "
+									"value": "homepage"
 								}
 							]
 						}
@@ -2940,8 +4097,44 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "homepage data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/homepage",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"homepage"
+							]
+						}
+					},
+					"response": []
 				}
 			]
+		},
+		{
+			"name": "test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/admin/blog",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"admin",
+						"blog"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

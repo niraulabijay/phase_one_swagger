@@ -34,6 +34,10 @@ tags:
   - name: Admin > BusinessCategory
   - name: Admin > Ads
   - name: Admin > Ad Category
+  - name: Admin > Client
+  - name: Admin > Password
+  - name: Admin > SiteSetting
+  - name: Admin > Blog
   - name: Client
   - name: Client > House
   - name: Client > Job
@@ -41,7 +45,13 @@ tags:
   - name: Client > Business Category
   - name: Client > Media
   - name: Client > Ads
+  - name: Client > JobInquiry
+  - name: Client > HouseInquiry
+  - name: Client > User Profile
+  - name: Client > Blog
   - name: Public
+  - name: Public > News Letter
+  - name: Public > SiteSetting
 paths:
   /admin/house-category:
     post:
@@ -252,7 +262,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '2'
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -385,7 +395,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -491,8 +501,9 @@ paths:
         - name: job_category_id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -509,7 +520,7 @@ paths:
             schema:
               type: object
               example:
-                title: category 1
+                title: business 1
                 description: description 1
                 order_level: ''
                 parent_id: ''
@@ -715,6 +726,196 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/client-list:
+    get:
+      tags:
+        - Admin > Client
+      summary: get client list
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: active
+          in: query
+          schema:
+            type: string
+          description: 'values: 0 or 1, you can leave it empty to return all users instead'
+        - name: limit
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/change-password:
+    post:
+      tags:
+        - Admin > Password
+      summary: change password
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                old_password:
+                  type: integer
+                  example: '1234'
+                password:
+                  type: string
+                  example: Asd@360
+                password_confirmation:
+                  type: string
+                  example: Asd@360
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/site-setting:
+    post:
+      tags:
+        - Admin > SiteSetting
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                full_address_1:
+                  type: string
+                  example: ajdlwaj
+                full_address_2:
+                  type: string
+                  example: laskjdw
+                primary_mobile:
+                  type: integer
+                  example: '1231'
+                company_logo:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/blog:
+    post:
+      tags:
+        - Admin > Blog
+      summary: store - store blog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: blog 1
+                image: ''
+                description: blog description 1
+                meta_title: blog meta title 1
+                meta_key:
+                  - meta key 1
+                  - meta key 2
+                meta_description: blog meta description 1
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - default
+      summary: test
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/blog/{blog_id}:
+    post:
+      tags:
+        - Admin > Blog
+      summary: update - update blog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                _method: patch
+                title: blog edit
+                image: ''
+                description: blog description edit
+                meta_title: blog meta title edit
+                meta_key:
+                  - meta key 1
+                  - meta key 2
+                meta_description: blog meta description edit
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: blog_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Blog
+      summary: destroy - destroy blog
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: blog_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Blog
+      summary: show - get single blog
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: blog_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/login:
     post:
       tags:
@@ -788,10 +989,10 @@ paths:
                 feature_image: ''
                 gallery: []
                 feature:
-                  - id: 1
-                    value: value 1
                   - id: 2
                     value: value 2
+                  - id: 3
+                    value: value 3
                 amenity:
                   - 1
                   - 2
@@ -981,7 +1182,7 @@ paths:
               example:
                 _method: patch
                 job_category_id: 1
-                title: job editasdw
+                title: job edit
                 image: ''
                 description: description edit
                 skills: skill description edit
@@ -1011,7 +1212,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '39'
       responses:
         '200':
           description: Successful response
@@ -1029,7 +1230,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '2'
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1069,13 +1270,13 @@ paths:
                   example: '1'
                 title:
                   type: string
-                  example: New Business
+                  example: business 1
                 phone:
                   type: integer
                   example: '312113'
                 email:
                   type: string
-                  example: awdaasdddwaljw@email.comasdw
+                  example: aswemail@email.com
                 banner:
                   type: string
                   format: binary
@@ -1088,6 +1289,9 @@ paths:
                 description:
                   type: string
                   example: description
+                optional_phone:
+                  type: string
+                  description: nullable
       security:
         - noauthAuth: []
       parameters:
@@ -1096,6 +1300,17 @@ paths:
           schema:
             type: string
           example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Client > Business
+      summary: index - get all business
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Successful response
@@ -1140,7 +1355,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '15'
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1164,6 +1379,24 @@ paths:
             type: integer
           required: true
           example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Client > Business
+      summary: show - get single business
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: business_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -1246,6 +1479,341 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /client/job-inquiry/{job_id}:
+    post:
+      tags:
+        - Client > JobInquiry
+      summary: store -store job inquiry
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                fullname:
+                  type: string
+                  example: fullname 2
+                email:
+                  type: string
+                  example: fullname2@email.com
+                contact_number:
+                  type: integer
+                  example: '9876543210'
+                description:
+                  type: string
+                  example: inquiry description
+                resume:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: job_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/job-inquiry:
+    get:
+      tags:
+        - Client > JobInquiry
+      summary: index - get all job inquiries
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/job-inquiry/{job_inquiry_id}:
+    get:
+      tags:
+        - Client > JobInquiry
+      summary: show - get single job inquiry
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: job_inquiry_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/house-inquiry/{house_id}:
+    post:
+      tags:
+        - Client > HouseInquiry
+      summary: store -store house inquiry
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                fullname:
+                  type: string
+                  example: fullname 1
+                email:
+                  type: string
+                  example: fullname1@email.com
+                contact_number:
+                  type: integer
+                  example: '9876543210'
+                description:
+                  type: string
+                  example: inquiry description
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: house_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/house-inquiry:
+    get:
+      tags:
+        - Client > HouseInquiry
+      summary: index - get all house inquiries
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/house-inquiry/{house_inquiry_id}:
+    get:
+      tags:
+        - Client > HouseInquiry
+      summary: show - get single job inquiry
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: house_inquiry_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/user-profile:
+    post:
+      tags:
+        - Client > User Profile
+      summary: update or create profile
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                fullname:
+                  type: string
+                  description: required
+                  example: fullname 1
+                dob:
+                  type: string
+                  description: nullable
+                  example: '2022-01-01'
+                marital_status:
+                  type: string
+                  description: nullable
+                  example: single
+                image:
+                  type: string
+                  format: binary
+                location:
+                  type: string
+                  description: nullable
+                  example: location 1
+                mobile:
+                  type: integer
+                  description: nullable
+                  example: '9876543210'
+                gender:
+                  type: string
+                  description: nullable
+                  example: male
+                website:
+                  type: string
+                  description: nullable
+                  example: website1.com
+                about_me:
+                  type: string
+                  description: nullable
+                  example: i am fullname
+                short_bio:
+                  type: string
+                  description: nullable
+                  example: this is my bio
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Client > User Profile
+      summary: get user profile
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/blog:
+    post:
+      tags:
+        - Client > Blog
+      summary: store - store blog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: blog 1
+                image: ''
+                description: blog description 1
+                meta_title: blog meta title 1
+                meta_key:
+                  - meta key 1
+                  - meta key 2
+                meta_description: blog meta description 1
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Client > Blog
+      summary: index - get all blog
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/blog/{blog_id}:
+    post:
+      tags:
+        - Client > Blog
+      summary: update - update blog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                _method: patch
+                title: blog edit
+                image: ''
+                description: blog description edit
+                meta_title: blog meta title edit
+                meta_key:
+                  - meta key 1
+                  - meta key 2
+                meta_description: blog meta description edit
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: blog_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Client > Blog
+      summary: destroy - destroy blog
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: blog_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Client > Blog
+      summary: show - get single blog
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: blog_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/login:
     post:
       tags:
@@ -1323,6 +1891,80 @@ paths:
           schema:
             type: string
           example: XMLHttpRequest
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/subscribe-newsletter:
+    post:
+      tags:
+        - Public > News Letter
+      summary: subscribe
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: grgbishal360@gmail.comas
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/newsletter/{news_letter}:
+    get:
+      tags:
+        - Public > News Letter
+      summary: check if email is already subscribed
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: news_letter
+          in: path
+          schema:
+            type: string
+          required: true
+          example: leon.schiffer360@gmail.com
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/site-setting:
+    get:
+      tags:
+        - Public > SiteSetting
+      summary: index
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/site-setting/{key}:
+    get:
+      tags:
+        - Public > SiteSetting
+      summary: show
+      parameters:
+        - name: key
+          in: path
+          schema:
+            type: string
+          required: true
+          example: full_address_1
       responses:
         '200':
           description: Successful response
@@ -1564,7 +2206,6 @@ paths:
           in: query
           schema:
             type: string
-          description: 'remove this parameter if you all ads '
           example: homepage
       responses:
         '200':
@@ -1600,6 +2241,16 @@ paths:
       tags:
         - Public
       summary: get all status (active and inactive)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/homepage:
+    get:
+      tags:
+        - Public
+      summary: homepage data
       responses:
         '200':
           description: Successful response
