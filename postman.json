@@ -1685,19 +1685,19 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/admin/blog/:blog_id",
+									"raw": "{{url}}/admin/blog/:blog_slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"blog",
-										":blog_id"
+										":blog_slug"
 									],
 									"variable": [
 										{
-											"key": "blog_id",
-											"value": "2"
+											"key": "blog_slug",
+											"value": null
 										}
 									]
 								}
@@ -3096,7 +3096,7 @@
 									"variable": [
 										{
 											"key": "blog_id",
-											"value": "1"
+											"value": null
 										}
 									]
 								}
@@ -3211,19 +3211,19 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/client/blog/:blog_id",
+									"raw": "{{url}}/client/blog/:blog_slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"client",
 										"blog",
-										":blog_id"
+										":blog_slug"
 									],
 									"variable": [
 										{
-											"key": "blog_id",
-											"value": "2"
+											"key": "blog_slug",
+											"value": null
 										}
 									]
 								}
@@ -4182,13 +4182,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/admin/blog",
+					"raw": "{{url}}/api/test",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"admin",
-						"blog"
+						"api",
+						"test"
 					]
 				}
 			},

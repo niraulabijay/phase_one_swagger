@@ -837,8 +837,10 @@ paths:
             application/json: {}
     get:
       tags:
-        - default
-      summary: test
+        - Admin > Blog
+      summary: index - get all blog
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Successful response
@@ -896,6 +898,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/blog/{blog_slug}:
     get:
       tags:
         - Admin > Blog
@@ -908,12 +911,11 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: blog_id
+        - name: blog_slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '2'
       responses:
         '200':
           description: Successful response
@@ -1768,9 +1770,8 @@ paths:
         - name: blog_id
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1794,6 +1795,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /client/blog/{blog_slug}:
     get:
       tags:
         - Client > Blog
@@ -1806,12 +1808,11 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: blog_id
+        - name: blog_slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '2'
       responses:
         '200':
           description: Successful response
@@ -2281,6 +2282,16 @@ paths:
       tags:
         - Public
       summary: homepage data
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/test:
+    get:
+      tags:
+        - default
+      summary: test
       responses:
         '200':
           description: Successful response
