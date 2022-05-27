@@ -27,6 +27,9 @@ components:
       scheme: noauth
 tags:
   - name: Admin
+  - name: Admin > House
+  - name: Admin > Business
+  - name: Admin > Job
   - name: Admin > HouseCategory
   - name: Admin > HouseFeature
   - name: Admin > HouseAmenity
@@ -38,6 +41,7 @@ tags:
   - name: Admin > Password
   - name: Admin > SiteSetting
   - name: Admin > Blog
+  - name: Admin > Newsletter
   - name: Client
   - name: Client > House
   - name: Client > Job
@@ -49,10 +53,83 @@ tags:
   - name: Client > HouseInquiry
   - name: Client > User Profile
   - name: Client > Blog
+  - name: Client > Business Review
+  - name: Client > House Review
   - name: Public
   - name: Public > News Letter
   - name: Public > SiteSetting
+  - name: Public > Business
+  - name: Public > House
+  - name: Public > Job
 paths:
+  /admin/house:
+    get:
+      tags:
+        - Admin > House
+      summary: get all house (no auth required) Copy
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: limit
+          in: query
+          schema:
+            type: string
+        - name: active
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/business:
+    get:
+      tags:
+        - Admin > Business
+      summary: get all business for admin only
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
+        - name: active
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/job:
+    get:
+      tags:
+        - Admin > Job
+      summary: get all jobs for admin only
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
+        - name: active
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/house-category:
     post:
       tags:
@@ -71,7 +148,7 @@ paths:
                 parent_id: ''
                 status_id: 1
       security:
-        - bearerAuth: []
+        - noauthAuth: []
       parameters:
         - name: Accept
           in: header
@@ -543,7 +620,7 @@ paths:
         - Admin > BusinessCategory
       summary: index - get all category of business
       security:
-        - bearerAuth: []
+        - noauthAuth: []
       responses:
         '200':
           description: Successful response
@@ -921,6 +998,52 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/newsletter/{news_letter}:
+    get:
+      tags:
+        - Admin > Newsletter
+      summary: check if email is already subscribed
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: news_letter
+          in: path
+          schema:
+            type: string
+          required: true
+          example: leon.schiffer360@gmail.com
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/newsletter:
+    get:
+      tags:
+        - Admin > Newsletter
+      summary: index- get all subscribed users
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: limit
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/login:
     post:
       tags:
@@ -936,8 +1059,8 @@ paths:
                   type: string
                   example: admin@admin.com
                 password:
-                  type: string
-                  example: Asd@360
+                  type: integer
+                  example: '1234'
       parameters:
         - name: Accept
           in: header
@@ -1104,13 +1227,18 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /client/my-houses/:
+  /client/my-houses:
     get:
       tags:
         - Client > House
       summary: index- get my houses
       security:
         - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -1166,9 +1294,14 @@ paths:
     get:
       tags:
         - Client > Job
-      summary: index - get all jobs
+      summary: index - get my jobs
       security:
         - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -1281,7 +1414,7 @@ paths:
                   example: '312113'
                 email:
                   type: string
-                  example: aswemail@email.com
+                  example: asa@email.comasw
                 banner:
                   type: string
                   format: binary
@@ -1298,7 +1431,7 @@ paths:
                   type: string
                   description: nullable
       security:
-        - noauthAuth: []
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -1313,9 +1446,14 @@ paths:
     get:
       tags:
         - Client > Business
-      summary: index - get all business
+      summary: index - get my businesses
       security:
         - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -1410,7 +1548,7 @@ paths:
   /api/business-category:
     get:
       tags:
-        - Public
+        - Public > Business
       summary: get all business category (no auth required)
       security:
         - bearerAuth: []
@@ -1422,7 +1560,7 @@ paths:
   /api/business-category/{business_category_id}:
     get:
       tags:
-        - Public
+        - Public > Business
       summary: get single business category (no auth required)
       security:
         - bearerAuth: []
@@ -1818,6 +1956,68 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /client/business-review/{business_id}:
+    post:
+      tags:
+        - Client > Business Review
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                star:
+                  type: integer
+                  example: '4'
+                description:
+                  type: string
+                  example: review for business description 1
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: business_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/house-review/{house_id}:
+    post:
+      tags:
+        - Client > House Review
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                star:
+                  type: integer
+                  example: '4'
+                description:
+                  type: string
+                  example: review for house description 1
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: house_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/login:
     post:
       tags:
@@ -1833,8 +2033,8 @@ paths:
                   type: string
                   example: user@user.com
                 password:
-                  type: string
-                  example: P@ssw0rd
+                  type: integer
+                  example: '1234'
       parameters:
         - name: Accept
           in: header
@@ -1940,35 +2140,13 @@ paths:
               properties:
                 email:
                   type: string
-                  example: grgbishal360@gmail.comas
+                  example: leon.schiffer360@gmail.com
       parameters:
         - name: Accept
           in: header
           schema:
             type: string
           example: application/json
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/newsletter/{news_letter}:
-    get:
-      tags:
-        - Public > News Letter
-      summary: check if email is already subscribed
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-        - name: news_letter
-          in: path
-          schema:
-            type: string
-          required: true
-          example: leon.schiffer360@gmail.com
       responses:
         '200':
           description: Successful response
@@ -2001,10 +2179,47 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/business:
+    get:
+      tags:
+        - Public > Business
+      summary: get all active business (no auth required)
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business/{business_id}:
+    get:
+      tags:
+        - Public > Business
+      summary: get single business (no auth requried)
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: business_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/house-category:
     get:
       tags:
-        - Public
+        - Public > House
       summary: get all house category (no auth required)
       security:
         - noauthAuth: []
@@ -2022,7 +2237,7 @@ paths:
   /api/house-category/{house_category_id}:
     get:
       tags:
-        - Public
+        - Public > House
       summary: get single house category (no auth required) Copy
       security:
         - noauthAuth: []
@@ -2037,6 +2252,114 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/house:
+    get:
+      tags:
+        - Public > House
+      summary: get all active house (no auth required)
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: limit
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/house/{house_id}:
+    get:
+      tags:
+        - Public > House
+      summary: get single house (no auth requried)
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: house_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/job-category:
+    get:
+      tags:
+        - Public > Job
+      summary: get all job category (no auth required)
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/job:
+    get:
+      tags:
+        - Public > Job
+      summary: get all active jobs (no auth required)
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/job/{job_id}:
+    get:
+      tags:
+        - Public > Job
+      summary: get single job (no auth requried)
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: job_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/job-category/{job_category_id}:
+    get:
+      tags:
+        - Public > Job
+      summary: get single job category (no auth required)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: job_category_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -2091,130 +2414,6 @@ paths:
             type: integer
           required: true
           example: '1'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/house:
-    get:
-      tags:
-        - Public
-      summary: get all house (no auth required)
-      security:
-        - noauthAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/house/{house_id}:
-    get:
-      tags:
-        - Public
-      summary: get single house (no auth requried)
-      security:
-        - noauthAuth: []
-      parameters:
-        - name: house_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '1'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/job-category/{job_category_id}:
-    get:
-      tags:
-        - Public
-      summary: get single job category (no auth required)
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: job_category_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '1'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/job-category:
-    get:
-      tags:
-        - Public
-      summary: get all job category (no auth required)
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/job:
-    get:
-      tags:
-        - Public
-      summary: get all job (no auth required)
-      security:
-        - noauthAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/job/{job_id}:
-    get:
-      tags:
-        - Public
-      summary: get single job (no auth requried)
-      security:
-        - noauthAuth: []
-      parameters:
-        - name: job_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '1'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/business:
-    get:
-      tags:
-        - Public
-      summary: get all business (no auth required)
-      security:
-        - noauthAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/business/{business_id}:
-    get:
-      tags:
-        - Public
-      summary: get single business (no auth requried)
-      security:
-        - noauthAuth: []
-      parameters:
-        - name: business_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '2'
       responses:
         '200':
           description: Successful response

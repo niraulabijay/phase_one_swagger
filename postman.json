@@ -10,10 +10,13 @@
 			"name": "Admin",
 			"item": [
 				{
-					"name": "HouseCategory",
+					"name": "House",
 					"item": [
 						{
-							"name": "store - store category of house",
+							"name": "get all house (no auth required) Copy",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -24,6 +27,152 @@
 											"type": "string"
 										}
 									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/house?limit=&active",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": ""
+										},
+										{
+											"key": "active",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Business",
+					"item": [
+						{
+							"name": "get all business for admin only",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/business?limit=&active",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": ""
+										},
+										{
+											"key": "active",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Job",
+					"item": [
+						{
+							"name": "get all jobs for admin only",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/job?limit=&active=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"job"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": ""
+										},
+										{
+											"key": "active",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "HouseCategory",
+					"item": [
+						{
+							"name": "store - store category of house",
+							"request": {
+								"auth": {
+									"type": "noauth"
 								},
 								"method": "POST",
 								"header": [
@@ -1049,14 +1198,7 @@
 							},
 							"request": {
 								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
+									"type": "noauth"
 								},
 								"method": "GET",
 								"header": [],
@@ -1707,6 +1849,92 @@
 					]
 				},
 				{
+					"name": "Newsletter",
+					"item": [
+						{
+							"name": "check if email is already subscribed",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/newsletter/:news_letter",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"newsletter",
+										":news_letter"
+									],
+									"variable": [
+										{
+											"key": "news_letter",
+											"value": "leon.schiffer360@gmail.com"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index- get all subscribed users",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/newsletter?limit",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"newsletter"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "login",
 					"request": {
 						"method": "POST",
@@ -1727,7 +1955,7 @@
 								},
 								{
 									"key": "password",
-									"value": "Asd@360",
+									"value": "1234",
 									"type": "text"
 								}
 							]
@@ -1897,14 +2125,19 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/client/my-houses/",
+									"raw": "{{url}}/client/my-houses?limit=",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"client",
-										"my-houses",
-										""
+										"my-houses"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -2083,7 +2316,7 @@
 							"response": []
 						},
 						{
-							"name": "index - get all jobs",
+							"name": "index - get my jobs",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -2098,13 +2331,19 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/client/job",
+									"raw": "{{url}}/client/job?limit=",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"client",
 										"job"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -2193,7 +2432,14 @@
 							"name": "store",
 							"request": {
 								"auth": {
-									"type": "noauth"
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
 								},
 								"method": "POST",
 								"header": [
@@ -2223,7 +2469,7 @@
 										},
 										{
 											"key": "email",
-											"value": "aswemail@email.com",
+											"value": "asa@email.comasw",
 											"type": "text"
 										},
 										{
@@ -2387,7 +2633,7 @@
 							"response": []
 						},
 						{
-							"name": "index - get all business",
+							"name": "index - get my businesses",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -2402,13 +2648,19 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/client/business",
+									"raw": "{{url}}/client/business?limit=",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"client",
 										"business"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -3233,6 +3485,116 @@
 					]
 				},
 				{
+					"name": "Business Review",
+					"item": [
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "star",
+											"value": "4",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "review for business description 1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/client/business-review/:business_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"business-review",
+										":business_id"
+									],
+									"variable": [
+										{
+											"key": "business_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "House Review",
+					"item": [
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "star",
+											"value": "4",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "review for house description 1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/client/house-review/:house_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"house-review",
+										":house_id"
+									],
+									"variable": [
+										{
+											"key": "house_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "login",
 					"request": {
 						"method": "POST",
@@ -3253,7 +3615,7 @@
 								},
 								{
 									"key": "password",
-									"value": "P@ssw0rd",
+									"value": "1234",
 									"type": "text"
 								}
 							]
@@ -3426,7 +3788,7 @@
 									"formdata": [
 										{
 											"key": "email",
-											"value": "grgbishal360@gmail.comas",
+											"value": "leon.schiffer360@gmail.com",
 											"type": "text"
 										}
 									]
@@ -3439,37 +3801,6 @@
 									"path": [
 										"api",
 										"subscribe-newsletter"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "check if email is already subscribed",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{url}}/admin/newsletter/:news_letter",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"newsletter",
-										":news_letter"
-									],
-									"variable": [
-										{
-											"key": "news_letter",
-											"value": "leon.schiffer360@gmail.com"
-										}
 									]
 								}
 							},
@@ -3526,79 +3857,461 @@
 					]
 				},
 				{
-					"name": "get all house category (no auth required)",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
+					"name": "Business",
+					"item": [
+						{
+							"name": "get all business category (no auth required)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/business-category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business-category"
+									]
+								}
+							},
+							"response": []
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
+						{
+							"name": "get single business category (no auth required)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/business-category/:business_category_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business-category",
+										":business_category_id"
+									],
+									"variable": [
+										{
+											"key": "business_category_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "{{url}}/api/house-category",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"house-category"
-							]
+						{
+							"name": "get all active business (no auth required)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/business?limit=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single business (no auth requried)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/business/:business_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business",
+										":business_id"
+									],
+									"variable": [
+										{
+											"key": "business_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "get single house category (no auth required) Copy",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "{{url}}/api/house-category/:house_category_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"house-category",
-								":house_category_id"
-							],
-							"variable": [
-								{
-									"key": "house_category_id",
-									"value": null
+					"name": "House",
+					"item": [
+						{
+							"name": "get all house category (no auth required)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/house-category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"house-category"
+									]
 								}
-							]
+							},
+							"response": []
+						},
+						{
+							"name": "get single house category (no auth required) Copy",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/house-category/:house_category_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"house-category",
+										":house_category_id"
+									],
+									"variable": [
+										{
+											"key": "house_category_id",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all active house (no auth required)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/house?limit=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"house"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single house (no auth requried)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/house/:house_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"house",
+										":house_id"
+									],
+									"variable": [
+										{
+											"key": "house_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
+				},
+				{
+					"name": "Job",
+					"item": [
+						{
+							"name": "get all job category (no auth required)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/job-category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"job-category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all active jobs (no auth required)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/job?limit=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"job"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single job (no auth requried)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/job/:job_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"job",
+										":job_id"
+									],
+									"variable": [
+										{
+											"key": "job_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single job category (no auth required)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/job-category/:job_category_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"job-category",
+										":job_category_id"
+									],
+									"variable": [
+										{
+											"key": "job_category_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				},
 				{
 					"name": "get all feature (no auth required)",
@@ -3708,349 +4421,6 @@
 								{
 									"key": "house_amenity_id",
 									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get all house (no auth required)",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "{{url}}/api/house",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"house"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get single house (no auth requried)",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "{{url}}/api/house/:house_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"house",
-								":house_id"
-							],
-							"variable": [
-								{
-									"key": "house_id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get single job category (no auth required)",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{admin_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "{{url}}/api/job-category/:job_category_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"job-category",
-								":job_category_id"
-							],
-							"variable": [
-								{
-									"key": "job_category_id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get all job category (no auth required)",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{admin_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "{{url}}/api/job-category",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"job-category"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get all job (no auth required)",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "{{url}}/api/job",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"job"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get single job (no auth requried)",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "{{url}}/api/job/:job_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"job",
-								":job_id"
-							],
-							"variable": [
-								{
-									"key": "job_id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get all business category (no auth required)",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{admin_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "{{url}}/api/business-category",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"business-category"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get single business category (no auth required)",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{admin_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "{{url}}/api/business-category/:business_category_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"business-category",
-								":business_category_id"
-							],
-							"variable": [
-								{
-									"key": "business_category_id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get all business (no auth required)",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "{{url}}/api/business",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"business"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get single business (no auth requried)",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "{{url}}/api/business/:business_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"business",
-								":business_id"
-							],
-							"variable": [
-								{
-									"key": "business_id",
-									"value": "2"
 								}
 							]
 						}
