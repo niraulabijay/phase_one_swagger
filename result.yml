@@ -84,6 +84,16 @@ paths:
           in: query
           schema:
             type: string
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          description: the key by which you want to order (like title, created_at, etc)
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          description: 'the order which you want to sort by (values: asc, desc)'
       responses:
         '200':
           description: Successful response
@@ -126,6 +136,16 @@ paths:
           in: query
           schema:
             type: string
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          description: the key by which you want to order (like title, created_at, etc)
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          description: 'the order which you want to sort by (values: asc, desc)'
       responses:
         '200':
           description: Successful response
@@ -142,14 +162,14 @@ paths:
             schema:
               type: object
               example:
-                title: category 1
+                title: house category 1
                 icon: ''
-                description: description 1
+                description: house description 1
                 order_level: ''
                 parent_id: ''
                 status_id: 1
       security:
-        - noauthAuth: []
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -184,8 +204,8 @@ paths:
               type: object
               example:
                 _method: patch
-                title: category edit
-                description: description edit
+                title: house category edit
+                description: house description edit
                 order_level: ''
                 parent_id: ''
                 status_id: 1
@@ -262,7 +282,7 @@ paths:
               properties:
                 title:
                   type: string
-                  example: feature 1
+                  example: house feature 1
                 icon:
                   type: string
                   format: binary
@@ -306,7 +326,7 @@ paths:
                   example: PUT
                 title:
                   type: string
-                  example: feature edit
+                  example: house feature edit
                 icon:
                   type: string
       security:
@@ -598,8 +618,8 @@ paths:
             schema:
               type: object
               example:
-                title: business 1
-                description: description 1
+                title: business category 1
+                description: business description 1
                 order_level: ''
                 parent_id: ''
                 status_id: 1
@@ -621,7 +641,7 @@ paths:
         - Admin > BusinessCategory
       summary: index - get all category of business
       security:
-        - noauthAuth: []
+        - bearerAuth: []
       responses:
         '200':
           description: Successful response
@@ -1102,7 +1122,7 @@ paths:
             schema:
               type: object
               example:
-                house_category_id: 1
+                house_category_id: 2
                 title: house 1
                 description: description 1
                 address: address 1
@@ -1123,8 +1143,8 @@ paths:
                   - id: 3
                     value: value 3
                 amenity:
-                  - 1
                   - 2
+                  - 3
       security:
         - bearerAuth: []
       parameters:
@@ -1138,7 +1158,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /client/house/{house_id}:
+  /client/house/{slug}:
     post:
       tags:
         - Client > House
@@ -1150,7 +1170,7 @@ paths:
               type: object
               example:
                 _method: put
-                house_category_id: 1
+                house_category_id: 2
                 title: house 1
                 description: description 1
                 address: address 1
@@ -1166,22 +1186,22 @@ paths:
                 feature_image: ''
                 gallery: []
                 feature:
-                  - id: 1
-                    value: value 1
                   - id: 2
                     value: value 2
+                  - id: 3
+                    value: value 3
                 amenity:
-                  - 1
                   - 2
+                  - 3
       security:
         - bearerAuth: []
       parameters:
-        - name: house_id
+        - name: slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
+          example: house-1
       responses:
         '200':
           description: Successful response
@@ -1194,12 +1214,12 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: house_id
+        - name: slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '2'
+          example: house-1
       responses:
         '200':
           description: Successful response
@@ -1217,12 +1237,12 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: house_id
+        - name: slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
+          example: house-1
       responses:
         '200':
           description: Successful response
@@ -1240,6 +1260,16 @@ paths:
           in: query
           schema:
             type: string
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          description: 'the order which you want to sort by (values: asc, desc)'
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          description: the key by which you want to order (like title, created_at, etc)
       responses:
         '200':
           description: Successful response
@@ -1256,7 +1286,7 @@ paths:
             schema:
               type: object
               example:
-                job_category_id: 1
+                job_category_id: 2
                 title: job 1
                 image: ''
                 description: description 1
@@ -1303,12 +1333,22 @@ paths:
           in: query
           schema:
             type: string
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          description: 'the order which you want to sort by (values: asc, desc)'
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          description: the key by which you want to order (like title, created_at, etc)
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /client/job/{job_id}:
+  /client/job/{slug}:
     post:
       tags:
         - Client > Job
@@ -1320,7 +1360,7 @@ paths:
               type: object
               example:
                 _method: patch
-                job_category_id: 1
+                job_category_id: 2
                 title: job edit
                 image: ''
                 description: description edit
@@ -1346,12 +1386,12 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: job_id
+        - name: slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '39'
+          example: job-1-1
       responses:
         '200':
           description: Successful response
@@ -1364,17 +1404,18 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: job_id
+        - name: slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
+          example: job-1-1
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
+  /client/job/{job_id}:
     delete:
       tags:
         - Client > Job
@@ -1385,9 +1426,9 @@ paths:
         - name: job_id
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
+          example: job-edit-1
       responses:
         '200':
           description: Successful response
@@ -1415,7 +1456,7 @@ paths:
                   example: '312113'
                 email:
                   type: string
-                  example: asa@email.comasw
+                  example: asa@email.com
                 banner:
                   type: string
                   format: binary
@@ -1460,7 +1501,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /client/business/{business_id}:
+  /client/business/{slug}:
     post:
       tags:
         - Client > Business
@@ -1482,7 +1523,7 @@ paths:
                   example: '312113'
                 email:
                   type: string
-                  example: adljw@emial.com
+                  example: asa@email.com
                 _method:
                   type: string
                   example: PUT
@@ -1494,12 +1535,12 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: business_id
+        - name: slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
+          example: business-1
       responses:
         '200':
           description: Successful response
@@ -1510,19 +1551,19 @@ paths:
         - Client > Business
       summary: destroy
       security:
-        - noauthAuth: []
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
           schema:
             type: string
           example: application/json
-        - name: business_id
+        - name: slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
+          example: new-businessasdw
       responses:
         '200':
           description: Successful response
@@ -1535,12 +1576,12 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: business_id
+        - name: slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '2'
+          example: business-1
       responses:
         '200':
           description: Successful response
@@ -1668,13 +1709,35 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /client/job-inquiry:
+  /client/my-job-inquiry:
     get:
       tags:
         - Client > JobInquiry
-      summary: index - get all job inquiries
+      summary: get my inquiry for other jobs
       security:
         - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/received-job-inquiry:
+    get:
+      tags:
+        - Client > JobInquiry
+      summary: get inquiry from other user/client on my job
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -1684,7 +1747,7 @@ paths:
     get:
       tags:
         - Client > JobInquiry
-      summary: show - get single job inquiry
+      summary: get single job inquiry
       security:
         - bearerAuth: []
       parameters:
@@ -1694,6 +1757,30 @@ paths:
             type: integer
           required: true
           example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/business/{business_id}:
+    delete:
+      tags:
+        - Client > HouseInquiry
+      summary: destroy Copy
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: business_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1741,13 +1828,35 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /client/house-inquiry:
+  /client/my-house-inquiry:
     get:
       tags:
         - Client > HouseInquiry
-      summary: index - get all house inquiries
+      summary: get my inquiry for other house
       security:
         - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/received-house-inquiry:
+    get:
+      tags:
+        - Client > HouseInquiry
+      summary: get inquiry from other user/client on my house
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -1875,15 +1984,20 @@ paths:
     get:
       tags:
         - Client > Blog
-      summary: index - get all blog
+      summary: index - get my blog
       security:
         - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /client/blog/{blog_id}:
+  /client/blog/{blog_slug}:
     post:
       tags:
         - Client > Blog
@@ -1906,35 +2020,17 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: blog_id
+        - name: blog_slug
           in: path
           schema:
             type: string
           required: true
+          example: blog-edit
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-    delete:
-      tags:
-        - Client > Blog
-      summary: destroy - destroy blog
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: blog_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '1'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /client/blog/{blog_slug}:
     get:
       tags:
         - Client > Blog
@@ -1952,6 +2048,25 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/blog/{blog_id}:
+    delete:
+      tags:
+        - Client > Blog
+      summary: destroy - destroy blog
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: blog_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -2271,7 +2386,44 @@ paths:
         - name: limit
           in: query
           schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business/{client_id}/client:
+    get:
+      tags:
+        - Public > Business
+      summary: get all business by client (no auth required)
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: limit
+          in: query
+          schema:
+            type: string
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          example: desc
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          example: title
+        - name: client_id
+          in: path
+          schema:
             type: integer
+          required: true
           example: '1'
       responses:
         '200':
@@ -2310,6 +2462,30 @@ paths:
           schema:
             type: string
           example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/house-search:
+    get:
+      tags:
+        - Public > House
+      summary: search house
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: q
+          in: query
+          schema:
+            type: string
+          description: search text here
+          example: a
       responses:
         '200':
           description: Successful response
@@ -2355,6 +2531,18 @@ paths:
           in: query
           schema:
             type: string
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          description: 'the order which you want to sort by (values: asc, desc)'
+          example: desc
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          description: the key by which you want to order (like title, created_at, etc)
+          example: title
       responses:
         '200':
           description: Successful response
@@ -2391,6 +2579,30 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/job-search:
+    get:
+      tags:
+        - Public > Job
+      summary: search job
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: q
+          in: query
+          schema:
+            type: string
+          description: search text here
+          example: j
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/job:
     get:
       tags:
@@ -2403,6 +2615,16 @@ paths:
           in: query
           schema:
             type: string
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          description: 'the order which you want to sort by (values: asc, desc)'
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          description: the key by which you want to order (like title, created_at, etc)
       responses:
         '200':
           description: Successful response
@@ -2562,6 +2784,21 @@ paths:
       tags:
         - Public
       summary: homepage data
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/blog:
+    get:
+      tags:
+        - Public
+      summary: get all Blog (no Auth)
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
