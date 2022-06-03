@@ -42,6 +42,7 @@ tags:
   - name: Admin > SiteSetting
   - name: Admin > Blog
   - name: Admin > Newsletter
+  - name: Admin > Fallback Image
   - name: Client
   - name: Client > House
   - name: Client > Job
@@ -140,12 +141,10 @@ paths:
           in: query
           schema:
             type: string
-          description: the key by which you want to order (like title, created_at, etc)
         - name: sort_order
           in: query
           schema:
             type: string
-          description: 'the order which you want to sort by (values: asc, desc)'
       responses:
         '200':
           description: Successful response
@@ -205,6 +204,7 @@ paths:
               example:
                 _method: patch
                 title: house category edit
+                icon: ''
                 description: house description edit
                 order_level: ''
                 parent_id: ''
@@ -619,6 +619,7 @@ paths:
               type: object
               example:
                 title: business category 1
+                icon: ''
                 description: business description 1
                 order_level: ''
                 parent_id: ''
@@ -647,7 +648,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/business-category/1:
+  /admin/business-category/{slug}:
     post:
       tags:
         - Admin > BusinessCategory
@@ -660,12 +661,19 @@ paths:
               example:
                 _method: patch
                 title: category edit
+                icon: ''
                 description: description edit
                 order_level: ''
                 parent_id: ''
                 status_id: 1
       security:
         - bearerAuth: []
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -890,18 +898,34 @@ paths:
             schema:
               type: object
               properties:
-                full_address_1:
-                  type: string
-                  example: ajdlwaj
-                full_address_2:
-                  type: string
-                  example: laskjdw
-                primary_mobile:
-                  type: integer
-                  example: '1231'
-                company_logo:
+                logo:
                   type: string
                   format: binary
+                about:
+                  type: string
+                  example: |-
+                    This is about section
+                    Write anything here
+                facebook_link:
+                  type: string
+                  example: https://facebook.com
+                instagram_link:
+                  type: string
+                  example: https://instagram.com
+                address:
+                  type: string
+                  example: Setopul, Maitidevi
+                phone_number:
+                  type: integer
+                  example: '9806782031'
+                email:
+                  type: string
+                  example: grgbishal350@gmail.com
+                map:
+                  type: string
+                  example: |-
+                    laskdjlwkjakldj
+                     asj d
       responses:
         '200':
           description: Successful response
@@ -1065,6 +1089,87 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/fallback-image:
+    post:
+      tags:
+        - Admin > Fallback Image
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                house_feature_image:
+                  type: string
+                  format: binary
+                business_profile_picture:
+                  type: string
+                  format: binary
+                business_banner:
+                  type: string
+                  format: binary
+                client_profile_picture:
+                  type: string
+                  format: binary
+                job_feature_image:
+                  type: string
+                  format: binary
+                business_category_icon:
+                  type: string
+                  format: binary
+                house_category_icon:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Fallback Image
+      summary: index
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/fallback-image/{key}:
+    get:
+      tags:
+        - Admin > Fallback Image
+      summary: show
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: key
+          in: path
+          schema:
+            type: string
+          required: true
+          example: house_feature_image
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/fallback-image/house_feature_image:
+    delete:
+      tags:
+        - Admin > Fallback Image
+      summary: delete
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/login:
     post:
       tags:
@@ -1118,33 +1223,55 @@ paths:
       summary: store - store house
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                house_category_id: 2
-                title: house 1
-                description: description 1
-                address: address 1
-                available_from: ''
-                expiry_date: '2022-10-10'
-                price: '123456'
-                is_negotiable: 0
-                place_id: ''
-                longitude: ''
-                latitude: ''
-                type: buy
-                status_id: '1'
-                feature_image: ''
-                gallery: []
-                feature:
-                  - id: 2
-                    value: value 2
-                  - id: 3
-                    value: value 3
-                amenity:
-                  - 2
-                  - 3
+              properties:
+                house_category_id:
+                  type: integer
+                  example: '2'
+                title:
+                  type: string
+                  example: house 1
+                description:
+                  type: string
+                  example: description 1
+                address:
+                  type: string
+                  example: address 1
+                available_from:
+                  type: string
+                  example: '2022-10-02'
+                expiry_date:
+                  type: string
+                  example: '2022-10-10'
+                price:
+                  type: integer
+                  example: '123456'
+                is_negotiable:
+                  type: integer
+                  example: '0'
+                place_id:
+                  type: string
+                  example: ' '
+                longitude:
+                  type: string
+                latitude:
+                  type: string
+                type:
+                  type: string
+                  example: buy
+                status_id:
+                  type: integer
+                  example: '1'
+                feature_image:
+                  type: string
+                  format: binary
+                gallery[]:
+                  type: string
+                  format: binary
+                tag[]:
+                  type: string
       security:
         - bearerAuth: []
       parameters:
@@ -1193,24 +1320,9 @@ paths:
                 amenity:
                   - 2
                   - 3
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: slug
-          in: path
-          schema:
-            type: string
-          required: true
-          example: house-1
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    get:
-      tags:
-        - Client > House
-      summary: show - get single house
+                tag:
+                  - test2
+                  - testset3
       security:
         - bearerAuth: []
       parameters:
@@ -1296,7 +1408,7 @@ paths:
                 additional_information: additional informtion
                 address: ''
                 is_offsite: 1
-                is_part_time: 0
+                is_part_time: 1
                 available_from: '2022-01-01'
                 expiry_date: '2022-12-20'
                 experience: 2
@@ -1306,9 +1418,12 @@ paths:
                 salary: 35000
                 is_salary_visible: 1
                 place_id: ''
-                longitude: ''
-                latitude: ''
+                longitude: '20'
+                latitude: '30'
                 status_id: 1
+                tag:
+                  - jobtag1
+                  - jobtag2
       security:
         - bearerAuth: []
       parameters:
@@ -1383,6 +1498,9 @@ paths:
                 longitude: ''
                 latitude: ''
                 status_id: 1
+                tag:
+                  - job_tag1
+                  - job_tag2
       security:
         - bearerAuth: []
       parameters:
@@ -1391,31 +1509,12 @@ paths:
           schema:
             type: string
           required: true
-          example: job-1-1
+          example: job-1-18
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-    get:
-      tags:
-        - Client > Job
-      summary: show - get single job
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: slug
-          in: path
-          schema:
-            type: string
-          required: true
-          example: job-1-1
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /client/job/{job_id}:
     delete:
       tags:
         - Client > Job
@@ -1423,12 +1522,11 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: job_id
+        - name: slug
           in: path
           schema:
             type: string
           required: true
-          example: job-edit-1
       responses:
         '200':
           description: Successful response
@@ -1456,7 +1554,7 @@ paths:
                   example: '312113'
                 email:
                   type: string
-                  example: asa@email.com
+                  example: asasa@email.com
                 banner:
                   type: string
                   format: binary
@@ -1472,6 +1570,9 @@ paths:
                 optional_phone:
                   type: string
                   description: nullable
+                tag[]:
+                  type: string
+                  example: tagbbus1
       security:
         - bearerAuth: []
       parameters:
@@ -1540,7 +1641,7 @@ paths:
           schema:
             type: string
           required: true
-          example: business-1
+          example: new-businessasdw
       responses:
         '200':
           description: Successful response
@@ -1564,24 +1665,6 @@ paths:
             type: string
           required: true
           example: new-businessasdw
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    get:
-      tags:
-        - Client > Business
-      summary: show - get single business
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: slug
-          in: path
-          schema:
-            type: string
-          required: true
-          example: business-1
       responses:
         '200':
           description: Successful response
@@ -1762,11 +1845,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /client/business/{business_id}:
     delete:
       tags:
-        - Client > HouseInquiry
-      summary: destroy Copy
+        - Client > JobInquiry
+      summary: destroy
       security:
         - noauthAuth: []
       parameters:
@@ -1775,12 +1857,11 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: business_id
+        - name: job_inquiry_id
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1875,7 +1956,31 @@ paths:
           schema:
             type: integer
           required: true
-          example: '2'
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/business/{business_id}:
+    delete:
+      tags:
+        - Client > HouseInquiry
+      summary: destroy Copy
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: business_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1974,6 +2079,9 @@ paths:
                   - meta key 1
                   - meta key 2
                 meta_description: blog meta description 1
+                tag:
+                  - tag11
+                  - tag22
       security:
         - bearerAuth: []
       responses:
@@ -2048,6 +2156,7 @@ paths:
           schema:
             type: string
           required: true
+          example: blog-edit
       responses:
         '200':
           description: Successful response
@@ -2064,9 +2173,8 @@ paths:
         - name: blog_id
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
       responses:
         '200':
           description: Successful response
@@ -2369,7 +2477,7 @@ paths:
           schema:
             type: string
           required: true
-          example: full_address_1
+          example: logo
       responses:
         '200':
           description: Successful response
@@ -2444,6 +2552,25 @@ paths:
             type: integer
           required: true
           example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business/{slug}:
+    get:
+      tags:
+        - Public > Business
+      summary: show - get single business
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: business-1
       responses:
         '200':
           description: Successful response
@@ -2567,6 +2694,86 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/house/{client_id}/client:
+    get:
+      tags:
+        - Public > House
+      summary: get all house by client (no auth required)
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: limit
+          in: query
+          schema:
+            type: string
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          example: desc
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          example: title
+        - name: client_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/house-most-popular:
+    get:
+      tags:
+        - Public > House
+      summary: most popular (no auth required) Copy
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '5'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/house/{slug}:
+    get:
+      tags:
+        - Public > House
+      summary: show - get single house
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: house-1-4
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/job-category:
     get:
       tags:
@@ -2663,6 +2870,86 @@ paths:
             type: integer
           required: true
           example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/job/{client_id}/client:
+    get:
+      tags:
+        - Public > Job
+      summary: get all job by client (no auth required)
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: limit
+          in: query
+          schema:
+            type: string
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          example: desc
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          example: title
+        - name: client_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/job-most-popular:
+    get:
+      tags:
+        - Public > Job
+      summary: most popular (no auth required)
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '5'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/job/{slug}:
+    get:
+      tags:
+        - Public > Job
+      summary: show - get single job
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: job-edit
       responses:
         '200':
           description: Successful response
