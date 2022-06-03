@@ -3,7 +3,7 @@
 		"_postman_id": "0ba3eaca-232a-472a-bd67-44aa8f889281",
 		"name": "Phase One",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "16179347"
+		"_exporter_id": "19791325"
 	},
 	"item": [
 		{
@@ -72,6 +72,63 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "change active status",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "value",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/house/:slug/change-active",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"house",
+										":slug",
+										"change-active"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "house-1"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -117,6 +174,63 @@
 										{
 											"key": "active",
 											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change active status Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "value",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/business/:slug/change-active",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business",
+										":slug",
+										"change-active"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "business-1"
 										}
 									]
 								}
@@ -175,6 +289,63 @@
 										{
 											"key": "sort_order",
 											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change active status",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "value",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/job/:slug/change-active",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"job",
+										":slug",
+										"change-active"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "assa"
 										}
 									]
 								}
@@ -1569,6 +1740,63 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "change active status Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "value",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/user/:user_id/change-active",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"user",
+										":user_id",
+										"change-active"
+									],
+									"variable": [
+										{
+											"key": "user_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -2330,7 +2558,7 @@
 									"formdata": [
 										{
 											"key": "house_category_id",
-											"value": "2",
+											"value": "1",
 											"type": "text"
 										},
 										{
@@ -4899,19 +5127,19 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/house/:house_id",
+									"raw": "{{url}}/api/house/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"house",
-										":house_id"
+										":slug"
 									],
 									"variable": [
 										{
-											"key": "house_id",
-											"value": "1"
+											"key": "slug",
+											"value": "house-1"
 										}
 									]
 								}
