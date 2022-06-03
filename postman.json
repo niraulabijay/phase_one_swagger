@@ -3,7 +3,7 @@
 		"_postman_id": "0ba3eaca-232a-472a-bd67-44aa8f889281",
 		"name": "Phase One",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "19791325"
+		"_exporter_id": "16179347"
 	},
 	"item": [
 		{
@@ -425,19 +425,19 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/admin/house-category/:house_category_id",
+									"raw": "{{url}}/admin/house-category/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"house-category",
-										":house_category_id"
+										":slug"
 									],
 									"variable": [
 										{
-											"key": "house_category_id",
-											"value": "1"
+											"key": "slug",
+											"value": "house-category-edit-1"
 										}
 									]
 								}
@@ -470,19 +470,19 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/admin/house-category/:house_category_id",
+									"raw": "{{url}}/admin/house-category/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"house-category",
-										":house_category_id"
+										":slug"
 									],
 									"variable": [
 										{
-											"key": "house_category_id",
-											"value": "1"
+											"key": "slug",
+											"value": "house-category-1"
 										}
 									]
 								}
@@ -558,19 +558,19 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/admin/house-category/:house_category_id",
+									"raw": "{{url}}/admin/house-category/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"house-category",
-										":house_category_id"
+										":slug"
 									],
 									"variable": [
 										{
-											"key": "house_category_id",
-											"value": "2"
+											"key": "slug",
+											"value": "house-category-edit-1"
 										}
 									]
 								}
@@ -1070,13 +1070,39 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"title\": \"category 1\",\n    \"icon\": \"\",\n    \"description\": \"description 1\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status_id\": 1\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": " category 1",
+											"type": "text"
+										},
+										{
+											"key": "icon",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/business fallback.jpg"
+										},
+										{
+											"key": "description\"",
+											"value": " description 1",
+											"type": "text"
+										},
+										{
+											"key": "order_level",
+											"value": " ",
+											"type": "text"
+										},
+										{
+											"key": "parent_id",
+											"value": " ",
+											"type": "text"
+										},
+										{
+											"key": "\"status_id\"",
+											"value": " 1",
+											"type": "text"
 										}
-									}
+									]
 								},
 								"url": {
 									"raw": "{{url}}/admin/job-category",
@@ -1108,7 +1134,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"category edit\",\n    \"icon\": \"\",\n    \"description\": \"description edit\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": 1\n}",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"category-edit\",\n    \"icon\": \"\",\n    \"description\": \"description edit\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1116,19 +1142,19 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/admin/job-category/:job_category_id",
+									"raw": "{{url}}/admin/job-category/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"job-category",
-										":job_category_id"
+										":slug"
 									],
 									"variable": [
 										{
-											"key": "job_category_id",
-											"value": "1"
+											"key": "slug",
+											"value": "category-edit-1"
 										}
 									]
 								}
@@ -1155,19 +1181,19 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/admin/job-category/:job_category_id",
+									"raw": "{{url}}/admin/job-category/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"job-category",
-										":job_category_id"
+										":slug"
 									],
 									"variable": [
 										{
-											"key": "job_category_id",
-											"value": "1"
+											"key": "slug",
+											"value": "category-edit"
 										}
 									]
 								}
@@ -1243,19 +1269,19 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/admin/job-category/:job_category_id",
+									"raw": "{{url}}/admin/job-category/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"job-category",
-										":job_category_id"
+										":slug"
 									],
 									"variable": [
 										{
-											"key": "job_category_id",
-											"value": "2"
+											"key": "slug",
+											"value": "category-edit"
 										}
 									]
 								}
@@ -1324,10 +1350,16 @@
 									]
 								},
 								"method": "POST",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"category edit\",\n    \"icon\": \"\",\n    \"description\": \"description edit\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status_id\": 1\n}",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"category edit asda\",\n    \"icon\": \"\",\n    \"description\": \"description edit\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status_id\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1347,7 +1379,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": null
+											"value": "category-edit"
 										}
 									]
 								}
@@ -1374,19 +1406,19 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/admin/business-category/:business_category_id",
+									"raw": "{{url}}/admin/business-category/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"business-category",
-										":business_category_id"
+										":slug"
 									],
 									"variable": [
 										{
-											"key": "business_category_id",
-											"value": "1"
+											"key": "slug",
+											"value": "category-edit-asda"
 										}
 									]
 								}
@@ -1462,19 +1494,19 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/admin/business-category/:business_category_id",
+									"raw": "{{url}}/admin/business-category/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"business-category",
-										":business_category_id"
+										":slug"
 									],
 									"variable": [
 										{
-											"key": "business_category_id",
-											"value": "1"
+											"key": "slug",
+											"value": "category-edit"
 										}
 									]
 								}
@@ -1718,7 +1750,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/client-list?active=0&limit=",
+									"raw": "{{url}}/admin/client-list?active=&limit=",
 									"host": [
 										"{{url}}"
 									],
@@ -1729,7 +1761,7 @@
 									"query": [
 										{
 											"key": "active",
-											"value": "0",
+											"value": "",
 											"description": "values: 0 or 1, you can leave it empty to return all users instead"
 										},
 										{
@@ -1867,7 +1899,7 @@
 										{
 											"key": "logo",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/memes/262812655_927085991579121_9152495969464832026_n.jpg"
+											"src": "/C:/Users/Leon Schiffer/Downloads/job fallback.jpg"
 										},
 										{
 											"key": "about",
@@ -2563,7 +2595,7 @@
 										},
 										{
 											"key": "title",
-											"value": "house 1",
+											"value": "new house",
 											"type": "text"
 										},
 										{
@@ -2603,17 +2635,17 @@
 										},
 										{
 											"key": "longitude",
-											"value": "",
+											"value": "10",
 											"type": "text"
 										},
 										{
 											"key": "latitude",
-											"value": "",
+											"value": "12",
 											"type": "text"
 										},
 										{
 											"key": "type",
-											"value": "buy",
+											"value": "rent",
 											"type": "text"
 										},
 										{
@@ -2637,7 +2669,12 @@
 										},
 										{
 											"key": "tag[]",
-											"value": "",
+											"value": "test2",
+											"type": "text"
+										},
+										{
+											"key": "tag[]",
+											"value": "testset3",
 											"type": "text"
 										}
 									]
@@ -2672,7 +2709,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"_method\": \"put\",\n    \"house_category_id\": 2,\n    \"title\": \"house 1\",\n    \"description\": \"description 1\",\n    \"address\": \"address 1\",\n    \"available_from\": \"\",\n    \"expiry_date\": \"2022-10-10\",\n    \"price\": \"123456\",\n    \"is_negotiable\": 0,\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"type\": \"buy\",\n    \"status_id\": \"1\",\n    \"feature_image\": \"\",\n    \"gallery\": [],\n    \"feature\": [\n        {\n            \"id\": 2,\n            \"value\": \"value 2\"\n        },\n        {\n            \"id\": 3,\n            \"value\": \"value 3\"\n        }\n    ],\n    \"amenity\": [2, 3],\n    \"tag\": [\"test2\", \"testset3\"]\n} \n",
+									"raw": "{\n    \"_method\": \"put\",\n    \"house_category_id\": 2,\n    \"title\": \"house 1\",\n    \"description\": \"description 1\",\n    \"address\": \"address 1\",\n    \"available_from\": \"\",\n    \"expiry_date\": \"2022-10-10\",\n    \"price\": \"123456\",\n    \"is_negotiable\": 0,\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"type\": \"sell\",\n    \"status_id\": \"1\",\n    \"feature_image\": \"\",\n    \"gallery\": [],\n    \"feature\": [\n        {\n            \"id\": 2,\n            \"value\": \"value 2\"\n        },\n        {\n            \"id\": 3,\n            \"value\": \"value 3\"\n        }\n    ],\n    \"amenity\": [2, 3],\n    \"tag\": [\"test2\", \"testsets3\"]\n} \n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2692,7 +2729,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "house-1"
+											"value": "house-1-1"
 										}
 									]
 								}
@@ -2860,7 +2897,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"job_category_id\": 2,\n    \"title\": \"job edit\",\n    \"image\": \"\",\n    \"description\": \"description edit\",\n    \"skills\": \"skill description edit\",\n    \"benefits\": \"benefit description edit\",\n    \"requirements\": \"requirement description edit\",\n    \"additional_information\": \"additional informtion edit\",\n    \"address\": \"\",\n    \"is_offsite\": 1,\n    \"is_part_time\": 0,\n    \"available_from\": \"2022-01-01\",\n    \"expiry_date\": \"2022-12-20\",\n    \"experience\": 2,\n    \"level\": \"mid-level\",\n    \"salary_type\": \"monthly\",\n    \"is_salary_negotiable\": 1,\n    \"salary\": 35000,\n    \"is_salary_visible\": 1,\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"status_id\": 1,\n    \"tag\": [\"job_tag1\", \"job_tag2\"]\n}",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"job_category_id\": 2,\n    \"title\": \"job edit\",\n    \"image\": \"\",\n    \"description\": \"description edit\",\n    \"skills\": \"skill description edit\",\n    \"benefits\": \"benefit description edit\",\n    \"requirements\": \"requirement description edit\",\n    \"additional_information\": \"additional informtion edit\",\n    \"address\": \"\",\n    \"is_offsite\": 1,\n    \"is_part_time\": 0,\n    \"available_from\": \"2022-01-01\",\n    \"expiry_date\": \"2022-12-20\",\n    \"experience\": 2,\n    \"level\": \"mid-level\",\n    \"salary_type\": \"monthly\",\n    \"is_salary_negotiable\": 1,\n    \"salary\": 35000,\n    \"is_salary_visible\": 1,\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"status_id\": 1,\n    \"tag\": [\"job_tag1\", \"job_tagss2\"]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2880,7 +2917,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "job-1-18"
+											"value": "job-1-16"
 										}
 									]
 								}
@@ -2963,7 +3000,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": null
+											"value": "job-edit"
 										}
 									]
 								}
@@ -3016,28 +3053,23 @@
 										},
 										{
 											"key": "email",
-											"value": "asasa@email.com",
+											"value": "asssasa@email.comsssws",
 											"type": "text"
 										},
 										{
 											"key": "banner",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/memes/250526744_415840220155790_3110015289832680089_n.jpg"
+											"src": []
 										},
 										{
 											"key": "profile_picture",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/memes/259279631_308414554486545_5175553099987225952_n.jpg"
+											"src": []
 										},
 										{
 											"key": "gallery[]",
 											"type": "file",
-											"src": [
-												"/C:/Users/Leon Schiffer/Downloads/memes/263026100_1132944967532671_5128000987904788122_n.jpg",
-												"/C:/Users/Leon Schiffer/Downloads/memes/263128616_245521041011421_630359267388286887_n.jpg",
-												"/C:/Users/Leon Schiffer/Downloads/memes/263219720_1131703340990167_7927478580778440205_n.jpg",
-												"/C:/Users/Leon Schiffer/Downloads/memes/263285461_5010157342341646_5466040800956985301_n.jpg"
-											]
+											"src": []
 										},
 										{
 											"key": "description",
@@ -3054,6 +3086,11 @@
 										{
 											"key": "tag[]",
 											"value": "tagbbus1",
+											"type": "text"
+										},
+										{
+											"key": "tag[]",
+											"value": "tagbusi2",
 											"type": "text"
 										}
 									]
@@ -3107,7 +3144,7 @@
 										},
 										{
 											"key": "phone",
-											"value": "312113",
+											"value": "qewrq23r4qew",
 											"type": "text"
 										},
 										{
@@ -3118,6 +3155,16 @@
 										{
 											"key": "_method",
 											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "tag[]",
+											"value": "tag22",
+											"type": "text"
+										},
+										{
+											"key": "tag[]",
+											"value": "tag43",
 											"type": "text"
 										}
 									]
@@ -4018,7 +4065,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"blog edit\",\n    \"image\": \"\",\n    \"description\": \"blog description edit\",\n    \"meta_title\": \"blog meta title edit\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description edit\"\n}",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"blog edits\",\n    \"image\": \"\",\n    \"description\": \"blog description edit\",\n    \"meta_title\": \"blog meta title edit\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description edit\",\n    \"tag\": [\"blogtag1\", \"blogtag2\"]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4026,19 +4073,19 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/client/blog/:blog_slug",
+									"raw": "{{url}}/client/blog/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"client",
 										"blog",
-										":blog_slug"
+										":slug"
 									],
 									"variable": [
 										{
-											"key": "blog_slug",
-											"value": "blog-edit"
+											"key": "slug",
+											"value": "blog-1-11"
 										}
 									]
 								}
@@ -4065,19 +4112,19 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{url}}/client/blog/:blog_id",
+									"raw": "{{url}}/client/blog/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"client",
 										"blog",
-										":blog_id"
+										":slug"
 									],
 									"variable": [
 										{
-											"key": "blog_id",
-											"value": null
+											"key": "slug",
+											"value": "blog-edits-1"
 										}
 									]
 								}
@@ -4154,19 +4201,19 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/client/blog/:blog_slug",
+									"raw": "{{url}}/client/blog/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"client",
 										"blog",
-										":blog_slug"
+										":slug"
 									],
 									"variable": [
 										{
-											"key": "blog_slug",
-											"value": "blog-edit"
+											"key": "slug",
+											"value": "blog-edits-1"
 										}
 									]
 								}
@@ -4886,19 +4933,19 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/business/:business_id",
+									"raw": "{{url}}/api/business/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"business",
-										":business_id"
+										":slug"
 									],
 									"variable": [
 										{
-											"key": "business_id",
-											"value": "2"
+											"key": "slug",
+											"value": null
 										}
 									]
 								}
@@ -5001,7 +5048,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/house-search?q=a",
+									"raw": "{{url}}/api/house-search?q=&house_category_slug=house-category-1",
 									"host": [
 										"{{url}}"
 									],
@@ -5012,8 +5059,13 @@
 									"query": [
 										{
 											"key": "q",
-											"value": "a",
+											"value": "",
 											"description": "search text here"
+										},
+										{
+											"key": "house_category_slug",
+											"value": "house-category-1",
+											"description": "send house category slugs here in array"
 										}
 									]
 								}
@@ -5083,7 +5135,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/house?limit&sort_order=desc&sort_key=title",
+									"raw": "{{url}}/api/house?limit&sort_key=title&sort_order=desc",
 									"host": [
 										"{{url}}"
 									],
@@ -5097,14 +5149,14 @@
 											"value": null
 										},
 										{
-											"key": "sort_order",
-											"value": "desc",
-											"description": "the order which you want to sort by (values: asc, desc)"
-										},
-										{
 											"key": "sort_key",
 											"value": "title",
 											"description": "the key by which you want to order (like title, created_at, etc)"
+										},
+										{
+											"key": "sort_order",
+											"value": "desc",
+											"description": "the order which you want to sort by (values: asc, desc)"
 										}
 									]
 								}
@@ -5651,6 +5703,52 @@
 										{
 											"key": "slug",
 											"value": "job-edit"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Client",
+					"item": [
+						{
+							"name": "get single client",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/client-list/:user_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"client-list",
+										":user_id"
+									],
+									"variable": [
+										{
+											"key": "user_id",
+											"value": "3"
 										}
 									]
 								}
