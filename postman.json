@@ -437,7 +437,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "house-category-edit-1"
+											"value": "house-category-1"
 										}
 									]
 								}
@@ -482,7 +482,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "house-category-1"
+											"value": "house-category-edit"
 										}
 									]
 								}
@@ -570,7 +570,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "house-category-edit-1"
+											"value": "house-category-1"
 										}
 									]
 								}
@@ -1074,7 +1074,7 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": " category 1",
+											"value": " category 3",
 											"type": "text"
 										},
 										{
@@ -1316,7 +1316,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"title\": \"business category 1\",\n    \"icon\": \"\",\n    \"description\": \"business description 1\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status_id\": 1\n}",
+									"raw": "{\n    \"title\": \"business category 4\",\n    \"icon\": \"\",\n    \"description\": \"business description 1\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status_id\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2860,7 +2860,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"job_category_id\": 2,\n    \"title\": \"job 1\",\n    \"image\": \"\",\n    \"description\": \"description 1\",\n    \"skills\": \"skill description\",\n    \"benefits\": \"benefit description\",\n    \"requirements\": \"requirement description\",\n    \"additional_information\": \"additional informtion\",\n    \"address\": \"\",\n    \"is_offsite\": 1,\n    \"is_part_time\": 1,\n    \"available_from\": \"2022-01-01\",\n    \"expiry_date\": \"2022-12-20\",\n    \"experience\": 2,\n    \"level\": \"mid-level\",\n    \"salary_type\": \"monthly\",\n    \"is_salary_negotiable\": 1,\n    \"salary\": 35000,\n    \"is_salary_visible\": 1,\n    \"place_id\": \"\",\n    \"longitude\": \"20\",\n    \"latitude\": \"30\",\n    \"status_id\": 1,\n    \"tag\": [\"jobtag1\", \"jobtag2\"]\n    \n} ",
+									"raw": "{\n    \"job_category_id\": 2,\n    \"title\": \"job 3\",\n    \"image\": \"\",\n    \"description\": \"description 1\",\n    \"skills\": \"skill description\",\n    \"benefits\": \"benefit description\",\n    \"requirements\": \"requirement description\",\n    \"additional_information\": \"additional informtion\",\n    \"address\": \"\",\n    \"is_offsite\": 1,\n    \"is_part_time\": 1,\n    \"available_from\": \"2022-01-01\",\n    \"expiry_date\": \"2022-12-20\",\n    \"experience\": 2,\n    \"level\": \"mid-level\",\n    \"salary_type\": \"monthly\",\n    \"is_salary_negotiable\": 1,\n    \"salary\": 35000,\n    \"is_salary_visible\": 1,\n    \"place_id\": \"\",\n    \"longitude\": \"20\",\n    \"latitude\": \"30\",\n    \"status_id\": 1,\n    \"tag\": [\"jobtag1\", \"jobtag2\"]\n    \n} ",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3038,12 +3038,12 @@
 									"formdata": [
 										{
 											"key": "business_category_id",
-											"value": "1",
+											"value": "4",
 											"type": "text"
 										},
 										{
 											"key": "title",
-											"value": "business 1",
+											"value": "business 5",
 											"type": "text"
 										},
 										{
@@ -3053,7 +3053,7 @@
 										},
 										{
 											"key": "email",
-											"value": "asssasa@email.comsssws",
+											"value": "asd@email.comsssws",
 											"type": "text"
 										},
 										{
@@ -3962,6 +3962,12 @@
 											"value": "this is my bio",
 											"description": "nullable",
 											"type": "text"
+										},
+										{
+											"key": "language",
+											"value": "english, nepali",
+											"description": "nullable",
+											"type": "text"
 										}
 									]
 								},
@@ -4085,7 +4091,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "blog-1-11"
+											"value": "blog-edits"
 										}
 									]
 								}
@@ -4124,7 +4130,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "blog-edits-1"
+											"value": "blog-edits"
 										}
 									]
 								}
@@ -4213,7 +4219,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "blog-edits-1"
+											"value": "blog-edits"
 										}
 									]
 								}
@@ -4986,6 +4992,50 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "search job",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/business-search?business_category_slug=&q=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business-search"
+									],
+									"query": [
+										{
+											"key": "business_category_slug",
+											"value": ""
+										},
+										{
+											"key": "q",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -5048,7 +5098,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/house-search?q=&house_category_slug=house-category-1",
+									"raw": "{{url}}/api/house-search?q=&house_category_slug=&min_price=&max_price=",
 									"host": [
 										"{{url}}"
 									],
@@ -5064,8 +5114,16 @@
 										},
 										{
 											"key": "house_category_slug",
-											"value": "house-category-1",
-											"description": "send house category slugs here in array"
+											"value": "",
+											"description": "send a house category slug here"
+										},
+										{
+											"key": "min_price",
+											"value": ""
+										},
+										{
+											"key": "max_price",
+											"value": ""
 										}
 									]
 								}
@@ -5559,7 +5617,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/job-search?q=j",
+									"raw": "{{url}}/api/job-search?q=&job_category_slug=&min_salary=&max_salary=",
 									"host": [
 										"{{url}}"
 									],
@@ -5570,8 +5628,20 @@
 									"query": [
 										{
 											"key": "q",
-											"value": "j",
+											"value": "",
 											"description": "search text here"
+										},
+										{
+											"key": "job_category_slug",
+											"value": ""
+										},
+										{
+											"key": "min_salary",
+											"value": ""
+										},
+										{
+											"key": "max_salary",
+											"value": ""
 										}
 									]
 								}

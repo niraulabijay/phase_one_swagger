@@ -326,7 +326,7 @@ paths:
           schema:
             type: string
           required: true
-          example: house-category-edit-1
+          example: house-category-1
       responses:
         '200':
           description: Successful response
@@ -349,7 +349,7 @@ paths:
           schema:
             type: string
           required: true
-          example: house-category-1
+          example: house-category-edit
       responses:
         '200':
           description: Successful response
@@ -372,7 +372,7 @@ paths:
           schema:
             type: string
           required: true
-          example: house-category-edit-1
+          example: house-category-1
       responses:
         '200':
           description: Successful response
@@ -621,7 +621,7 @@ paths:
               properties:
                 title:
                   type: string
-                  example: ' category 1'
+                  example: ' category 3'
                 icon:
                   type: string
                   format: binary
@@ -739,7 +739,7 @@ paths:
             schema:
               type: object
               example:
-                title: business category 1
+                title: business category 4
                 icon: ''
                 description: business description 1
                 order_level: ''
@@ -1563,7 +1563,7 @@ paths:
               type: object
               example:
                 job_category_id: 2
-                title: job 1
+                title: job 3
                 image: ''
                 description: description 1
                 skills: skill description
@@ -1710,16 +1710,16 @@ paths:
               properties:
                 business_category_id:
                   type: integer
-                  example: '1'
+                  example: '4'
                 title:
                   type: string
-                  example: business 1
+                  example: business 5
                 phone:
                   type: integer
                   example: '312113'
                 email:
                   type: string
-                  example: asssasa@email.comsssws
+                  example: asd@email.comsssws
                 banner:
                   type: string
                   format: binary
@@ -2204,6 +2204,10 @@ paths:
                   type: string
                   description: nullable
                   example: this is my bio
+                language:
+                  type: string
+                  description: nullable
+                  example: english, nepali
       security:
         - bearerAuth: []
       parameters:
@@ -2304,7 +2308,7 @@ paths:
           schema:
             type: string
           required: true
-          example: blog-1-11
+          example: blog-edits
       responses:
         '200':
           description: Successful response
@@ -2322,7 +2326,7 @@ paths:
           schema:
             type: string
           required: true
-          example: blog-edits-1
+          example: blog-edits
       responses:
         '200':
           description: Successful response
@@ -2345,7 +2349,7 @@ paths:
           schema:
             type: string
           required: true
-          example: blog-edits-1
+          example: blog-edits
       responses:
         '200':
           description: Successful response
@@ -2728,6 +2732,32 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/business-search:
+    get:
+      tags:
+        - Public > Business
+      summary: search job
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: business_category_slug
+          in: query
+          schema:
+            type: string
+        - name: q
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/house-category:
     get:
       tags:
@@ -2768,8 +2798,15 @@ paths:
           in: query
           schema:
             type: string
-          description: send house category slugs here in array
-          example: house-category-1
+          description: send a house category slug here
+        - name: min_price
+          in: query
+          schema:
+            type: string
+        - name: max_price
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -2942,7 +2979,18 @@ paths:
           schema:
             type: string
           description: search text here
-          example: j
+        - name: job_category_slug
+          in: query
+          schema:
+            type: string
+        - name: min_salary
+          in: query
+          schema:
+            type: string
+        - name: max_salary
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
