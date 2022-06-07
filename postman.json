@@ -379,13 +379,54 @@
 									}
 								],
 								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"title\": \"house category 1\",\n    \"icon\": \"\",\n    \"description\": \"house description 1\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status_id\": 1\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "asldkjw",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "asjdhw",
+											"type": "text"
+										},
+										{
+											"key": "order_level",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "parent_id",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "status_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "meta_title",
+											"value": "title",
+											"type": "text"
+										},
+										{
+											"key": "meta_description",
+											"value": " description",
+											"type": "text"
+										},
+										{
+											"key": "meta_keyword",
+											"value": " keyword",
+											"type": "text"
+										},
+										{
+											"key": "icon",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/job fallback.jpg"
 										}
-									}
+									]
 								},
 								"url": {
 									"raw": "{{url}}/admin/house-category",
@@ -416,13 +457,54 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"house category edit\",\n    \"icon\": \"\",\n    \"description\": \"house description edit\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status_id\": 1\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "asldkjw edited",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "asjdhw",
+											"type": "text"
+										},
+										{
+											"key": "order_level",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "parent_id",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "status_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "meta_title",
+											"value": "title edited",
+											"type": "text"
+										},
+										{
+											"key": "meta_description",
+											"value": " description edited",
+											"type": "text"
+										},
+										{
+											"key": "meta_keyword",
+											"value": " keyword edited",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
 										}
-									}
+									]
 								},
 								"url": {
 									"raw": "{{url}}/admin/house-category/:slug",
@@ -437,7 +519,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "house-category-1"
+											"value": "asldkjw-edited"
 										}
 									]
 								}
@@ -1078,11 +1160,6 @@
 											"type": "text"
 										},
 										{
-											"key": "icon",
-											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/business fallback.jpg"
-										},
-										{
 											"key": "description\"",
 											"value": " description 1",
 											"type": "text"
@@ -1098,9 +1175,29 @@
 											"type": "text"
 										},
 										{
-											"key": "\"status_id\"",
+											"key": "status_id",
 											"value": " 1",
 											"type": "text"
+										},
+										{
+											"key": "meta_title",
+											"value": " this is a meta title",
+											"type": "text"
+										},
+										{
+											"key": "meta_description",
+											"value": " This is a meta description",
+											"type": "text"
+										},
+										{
+											"key": "meta_keyword",
+											"value": " This is a meta keyword",
+											"type": "text"
+										},
+										{
+											"key": "icon",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/business fallback.jpg"
 										}
 									]
 								},
@@ -1133,13 +1230,54 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"category-edit\",\n    \"icon\": \"\",\n    \"description\": \"description edit\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status\": 1\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": " category 3",
+											"type": "text"
+										},
+										{
+											"key": "description\"",
+											"value": " description 1",
+											"type": "text"
+										},
+										{
+											"key": "order_level",
+											"value": " ",
+											"type": "text"
+										},
+										{
+											"key": "parent_id",
+											"value": " ",
+											"type": "text"
+										},
+										{
+											"key": "status_id",
+											"value": " 1",
+											"type": "text"
+										},
+										{
+											"key": "meta_title",
+											"value": "title edited",
+											"type": "text"
+										},
+										{
+											"key": "meta_description",
+											"value": " description edited",
+											"type": "text"
+										},
+										{
+											"key": "meta_keyword",
+											"value": " keyword edited",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
 										}
-									}
+									]
 								},
 								"url": {
 									"raw": "{{url}}/admin/job-category/:slug",
@@ -1154,7 +1292,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "category-edit-1"
+											"value": "category-3-5"
 										}
 									]
 								}
@@ -1315,13 +1453,59 @@
 									}
 								],
 								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"title\": \"business category 4\",\n    \"icon\": \"\",\n    \"description\": \"business description 1\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status_id\": 1\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": " asjdwlk",
+											"type": "text"
+										},
+										{
+											"key": "icon",
+											"value": " ",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": " dlajwkljad",
+											"type": "text"
+										},
+										{
+											"key": "order_level",
+											"value": " 1",
+											"type": "text"
+										},
+										{
+											"key": "parent_id",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "status_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "meta_title",
+											"value": " meta title",
+											"type": "text"
+										},
+										{
+											"key": "meta_description",
+											"value": "meta description",
+											"type": "text"
+										},
+										{
+											"key": "meta_keyword",
+											"value": "meta_keyword",
+											"type": "text"
+										},
+										{
+											"key": "icon",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/business fallback.jpg"
 										}
-									}
+									]
 								},
 								"url": {
 									"raw": "{{url}}/admin/business-category",
@@ -1358,13 +1542,59 @@
 									}
 								],
 								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"category edit asda\",\n    \"icon\": \"\",\n    \"description\": \"description edit\",\n    \"order_level\": \"\",\n    \"parent_id\": \"\",\n    \"status_id\": 1\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": " asjdwlk",
+											"type": "text"
+										},
+										{
+											"key": "icon",
+											"value": " ",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": " dlajwkljad",
+											"type": "text"
+										},
+										{
+											"key": "order_level",
+											"value": " 1",
+											"type": "text"
+										},
+										{
+											"key": "parent_id",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "status_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "meta_title",
+											"value": " meta title edit",
+											"type": "text"
+										},
+										{
+											"key": "meta_description",
+											"value": "meta description edit",
+											"type": "text"
+										},
+										{
+											"key": "meta_keyword",
+											"value": "meta_keyword edit",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
 										}
-									}
+									]
 								},
 								"url": {
 									"raw": "{{url}}/admin/business-category/:slug",
@@ -1379,7 +1609,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "category-edit"
+											"value": "asjdwlk"
 										}
 									]
 								}
@@ -1544,18 +1774,18 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": "title 1",
+											"value": "title 2",
 											"type": "text"
 										},
 										{
 											"key": "ad_category",
-											"value": "Homepage",
+											"value": "Job Page",
 											"type": "text"
 										},
 										{
 											"key": "image",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/User-Profile-PNG.png"
+											"src": "/C:/Users/Leon Schiffer/Downloads/job fallback.jpg"
 										}
 									]
 								},
@@ -1567,6 +1797,106 @@
 									"path": [
 										"admin",
 										"ad"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/ad/:category/:title",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ad",
+										":category",
+										":title"
+									],
+									"variable": [
+										{
+											"key": "category",
+											"value": "Homepage"
+										},
+										{
+											"key": "title",
+											"value": "title 1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/ad?ad_category=Homepage",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ad"
+									],
+									"query": [
+										{
+											"key": "ad_category",
+											"value": "Homepage"
+										}
 									]
 								}
 							},
@@ -1598,7 +1928,7 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": "title 1 edited",
+											"value": "search ad",
 											"type": "text"
 										},
 										{
@@ -1614,7 +1944,7 @@
 										{
 											"key": "image",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/277991288_1941080382766230_1979025273366638522_n.jpg"
+											"src": "/C:/Users/Leon Schiffer/Downloads/house fallback.jpg"
 										}
 									]
 								},
@@ -1631,7 +1961,7 @@
 									"variable": [
 										{
 											"key": "ad_id",
-											"value": "3"
+											"value": "1"
 										}
 									]
 								}
@@ -1652,7 +1982,13 @@
 									]
 								},
 								"method": "DELETE",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"body": {
 									"mode": "formdata",
 									"formdata": []
@@ -1670,7 +2006,7 @@
 									"variable": [
 										{
 											"key": "ad_id",
-											"value": "5"
+											"value": "1"
 										}
 									]
 								}
@@ -1897,44 +2233,24 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "logo",
+											"key": "full_address_1",
+											"value": "asd",
+											"type": "text"
+										},
+										{
+											"key": "full_address_2",
+											"value": "fgh",
+											"type": "text"
+										},
+										{
+											"key": "primary_mobile",
+											"value": "1234",
+											"type": "text"
+										},
+										{
+											"key": "company_logo",
 											"type": "file",
 											"src": "/C:/Users/Leon Schiffer/Downloads/job fallback.jpg"
-										},
-										{
-											"key": "about",
-											"value": "This is about section\nWrite anything here",
-											"type": "text"
-										},
-										{
-											"key": "facebook_link",
-											"value": "https://facebook.com",
-											"type": "text"
-										},
-										{
-											"key": "instagram_link",
-											"value": "https://instagram.com",
-											"type": "text"
-										},
-										{
-											"key": "address",
-											"value": "Setopul, Maitidevi",
-											"type": "text"
-										},
-										{
-											"key": "phone_number",
-											"value": "9806782031",
-											"type": "text"
-										},
-										{
-											"key": "email",
-											"value": "grgbishal350@gmail.com",
-											"type": "text"
-										},
-										{
-											"key": "map",
-											"value": "laskdjlwkjakldj\n asj d",
-											"type": "text"
 										}
 									]
 								},
@@ -2484,6 +2800,321 @@
 					]
 				},
 				{
+					"name": "Promoted Content",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/promoted-content?active=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"promoted-content"
+									],
+									"query": [
+										{
+											"key": "active",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/promoted-content/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"promoted-content",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "promoted-content-2-edit"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Promoted Content 3",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Description 3",
+											"type": "text"
+										},
+										{
+											"key": "link",
+											"value": "link 3",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/house fallback.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/promoted-content",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"promoted-content"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Promoted Content 2 edit",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Description 2 edit",
+											"type": "text"
+										},
+										{
+											"key": "link",
+											"value": "link 2 edit",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/business fallback.jpg",
+											"disabled": true
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/promoted-content/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"promoted-content",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "promoted-content-2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change active status",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										},
+										{
+											"key": "value",
+											"value": "0",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/promoted-content/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"promoted-content",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "promoted-content-2-edit"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/promoted-content/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"promoted-content",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "promoted-content-2-edit"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Dashboard",
+					"item": [
+						{
+							"name": "get dashboard data",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/dashboard",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"dashboard"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "login",
 					"request": {
 						"method": "POST",
@@ -2656,16 +3287,12 @@
 										{
 											"key": "feature_image",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/memes/261734489_10159672452874886_5687370738635405381_n.jpg"
+											"src": []
 										},
 										{
 											"key": "gallery[]",
 											"type": "file",
-											"src": [
-												"/C:/Users/Leon Schiffer/Downloads/memes/3008924_01171de4a5d31he9.jpg",
-												"/C:/Users/Leon Schiffer/Downloads/memes/131570361_313309517098809_3198858527293260316_n.jpg",
-												"/C:/Users/Leon Schiffer/Downloads/memes/250526744_415840220155790_3110015289832680089_n.jpg"
-											]
+											"src": []
 										},
 										{
 											"key": "tag[]",
@@ -2675,6 +3302,16 @@
 										{
 											"key": "tag[]",
 											"value": "testset3",
+											"type": "text"
+										},
+										{
+											"key": "feature[1][id]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "feature[1][value]",
+											"value": "2asdfasdfasdf",
 											"type": "text"
 										}
 									]
@@ -2709,7 +3346,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"_method\": \"put\",\n    \"house_category_id\": 2,\n    \"title\": \"house 1\",\n    \"description\": \"description 1\",\n    \"address\": \"address 1\",\n    \"available_from\": \"\",\n    \"expiry_date\": \"2022-10-10\",\n    \"price\": \"123456\",\n    \"is_negotiable\": 0,\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"type\": \"sell\",\n    \"status_id\": \"1\",\n    \"feature_image\": \"\",\n    \"gallery\": [],\n    \"feature\": [\n        {\n            \"id\": 2,\n            \"value\": \"value 2\"\n        },\n        {\n            \"id\": 3,\n            \"value\": \"value 3\"\n        }\n    ],\n    \"amenity\": [2, 3],\n    \"tag\": [\"test2\", \"testsets3\"]\n} \n",
+									"raw": "{\n    \"_method\": \"put\",\n    \"house_category_id\": 2,\n    \"title\": \"house 1\",\n    \"description\": \"description 1\",\n    \"address\": \"address 1\",\n    \"available_from\": \"\",\n    \"expiry_date\": \"2022-10-10\",\n    \"price\": \"123456\",\n    \"is_negotiable\": 0,\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"type\": \"sell\",\n    \"status_id\": \"1\",\n    \"feature_image\": \"\",\n    \"gallery\": [],\n    \"feature\": [\n        {\n            \"id\": 2,\n            \"value\": \"value 2\"\n        },\n        {\n            \"id\": 3,\n            \"value\": \"value 3\"\n        }\n    ],\n    \"amenity\": [2, 3],\n    \"tag\": [\"test2\", \"testsets3\"],\n    \"gallery_delete_id\": [8]\n} \n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2729,7 +3366,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "house-1-1"
+											"value": "new-house-2"
 										}
 									]
 								}
@@ -4492,6 +5129,67 @@
 					]
 				},
 				{
+					"name": "Affiliate",
+					"item": [
+						{
+							"name": "referral_url",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/referral-url",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"referral-url"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "my-affiliate",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/my-affiliate",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"my-affiliate"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "login",
 					"request": {
 						"method": "POST",
@@ -4546,7 +5244,7 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "user@user.com",
+									"value": "qwse@qwe.coms",
 									"type": "text"
 								},
 								{
@@ -4562,13 +5260,24 @@
 							]
 						},
 						"url": {
-							"raw": "{{url}}/api/register",
+							"raw": "http://127.0.0.1:8000/api/register?ref=d3248463-f87e-4a51-a0ad-87602414fe8b",
+							"protocol": "http",
 							"host": [
-								"{{url}}"
+								"127",
+								"0",
+								"0",
+								"1"
 							],
+							"port": "8000",
 							"path": [
 								"api",
 								"register"
+							],
+							"query": [
+								{
+									"key": "ref",
+									"value": "d3248463-f87e-4a51-a0ad-87602414fe8b"
+								}
 							]
 						}
 					},
@@ -5828,6 +6537,163 @@
 					]
 				},
 				{
+					"name": "Promoted Content",
+					"item": [
+						{
+							"name": "get active list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/promoted-content-active",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"promoted-content-active"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single active only",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/promoted-content/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"promoted-content",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "promoted-content-2-edit"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ad",
+					"item": [
+						{
+							"name": "show",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/ad/:category/:title",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"ad",
+										":category",
+										":title"
+									],
+									"variable": [
+										{
+											"key": "category",
+											"value": "Homepage"
+										},
+										{
+											"key": "title",
+											"value": "search ad"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/ad",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"ad"
+									],
+									"query": [
+										{
+											"key": "ad_category",
+											"value": "Job%20Page",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "get all feature (no auth required)",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -6076,6 +6942,31 @@
 								{
 									"key": "limit",
 									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/user-detail/:user_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user-detail",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "2"
 								}
 							]
 						}
