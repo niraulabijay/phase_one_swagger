@@ -46,6 +46,7 @@ tags:
   - name: Admin > Fallback Image
   - name: Admin > Promoted Content
   - name: Admin > Dashboard
+  - name: Admin > Business Review
   - name: Client
   - name: Client > House
   - name: Client > Job
@@ -1268,6 +1269,7 @@ paths:
                   - meta key 1
                   - meta key 2
                 meta_description: blog meta description 1
+                status_id: 1
       security:
         - bearerAuth: []
       responses:
@@ -1306,6 +1308,7 @@ paths:
                   - meta key 1
                   - meta key 2
                 meta_description: blog meta description edit
+                status_id: 1
       security:
         - bearerAuth: []
       parameters:
@@ -1608,6 +1611,59 @@ paths:
       summary: get dashboard data
       security:
         - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/all-business-review:
+    get:
+      tags:
+        - Admin > Business Review
+      summary: all review
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '2'
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          description: 'the order which you want to sort by (values: asc, desc)'
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          description: the key by which you want to order (like title, created_at, etc)
+        - name: flag
+          in: query
+          schema:
+            type: integer
+          description: set 1 to get flagged review
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/delete-business-review/{review_id}:
+    get:
+      tags:
+        - Admin > Business Review
+      summary: delete review
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: review_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '3'
       responses:
         '200':
           description: Successful response
@@ -2009,7 +2065,7 @@ paths:
                   example: '312113'
                 email:
                   type: string
-                  example: asd@email.comsssws
+                  example: asd@email.com
                 banner:
                   type: string
                   format: binary
@@ -2544,6 +2600,7 @@ paths:
                 tag:
                   - tag11
                   - tag22
+                status_id: 1
       security:
         - bearerAuth: []
       responses:
@@ -2590,6 +2647,7 @@ paths:
                 tag:
                   - blogtag1
                   - blogtag2
+                status_id: 1
       security:
         - bearerAuth: []
       parameters:
@@ -2671,6 +2729,81 @@ paths:
             type: integer
           required: true
           example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/my-business-review:
+    get:
+      tags:
+        - Client > Business Review
+      summary: my all review
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          description: 'the order which you want to sort by (values: asc, desc)'
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          description: the key by which you want to order (like title, created_at, etc)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/business-review:
+    get:
+      tags:
+        - Client > Business Review
+      summary: all review on my business
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          description: 'the order which you want to sort by (values: asc, desc)'
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          description: the key by which you want to order (like title, created_at, etc)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/flag-business-review/{business_review_id}:
+    post:
+      tags:
+        - Client > Business Review
+      summary: flag review business
+      requestBody:
+        content: {}
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: business_review_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -3111,8 +3244,9 @@ paths:
         - name: q
           in: query
           schema:
-            type: string
+            type: integer
           description: search text here
+          example: '2'
         - name: house_category_slug
           in: query
           schema:
@@ -3126,6 +3260,16 @@ paths:
           in: query
           schema:
             type: string
+        - name: longitude
+          in: query
+          schema:
+            type: number
+          example: '85.336738'
+        - name: latitude
+          in: query
+          schema:
+            type: number
+          example: '27.698218'
       responses:
         '200':
           description: Successful response

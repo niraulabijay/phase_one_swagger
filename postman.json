@@ -2289,7 +2289,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"title\": \"blog 1\",\n    \"image\": \"\",\n    \"description\": \"blog description 1\",\n    \"meta_title\": \"blog meta title 1\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description 1\"\n}",
+									"raw": "{\n    \"title\": \"blog 1\",\n    \"image\": \"\",\n    \"description\": \"blog description 1\",\n    \"meta_title\": \"blog meta title 1\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description 1\",\n    \"status_id\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2326,7 +2326,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"blog edit\",\n    \"image\": \"\",\n    \"description\": \"blog description edit\",\n    \"meta_title\": \"blog meta title edit\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description edit\"\n}",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"blog edit\",\n    \"image\": \"\",\n    \"description\": \"blog description edit\",\n    \"meta_title\": \"blog meta title edit\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description edit\",\n    \"status_id\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2592,22 +2592,22 @@
 										{
 											"key": "house_feature_image",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/house fallback.jpg"
+											"src": []
 										},
 										{
 											"key": "business_profile_picture",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/business fallback.jpg"
+											"src": []
 										},
 										{
 											"key": "business_banner",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/business fallback.jpg"
+											"src": []
 										},
 										{
 											"key": "client_profile_picture",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/User-Profile-PNG.png"
+											"src": []
 										},
 										{
 											"key": "job_feature_image",
@@ -2617,12 +2617,12 @@
 										{
 											"key": "business_category_icon",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/house fallback.jpg"
+											"src": []
 										},
 										{
 											"key": "house_category_icon",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/house fallback.jpg"
+											"src": []
 										}
 									]
 								},
@@ -3115,6 +3115,95 @@
 					]
 				},
 				{
+					"name": "Business Review",
+					"item": [
+						{
+							"name": "all review",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/all-business-review?limit=2&sort_order&sort_key&flag=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"all-business-review"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "2"
+										},
+										{
+											"key": "sort_order",
+											"value": null,
+											"description": "the order which you want to sort by (values: asc, desc)"
+										},
+										{
+											"key": "sort_key",
+											"value": null,
+											"description": "the key by which you want to order (like title, created_at, etc)"
+										},
+										{
+											"key": "flag",
+											"value": "1",
+											"description": "set 1 to get flagged review"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete review",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/delete-business-review/:review_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"delete-business-review",
+										":review_id"
+									],
+									"variable": [
+										{
+											"key": "review_id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "login",
 					"request": {
 						"method": "POST",
@@ -3287,7 +3376,7 @@
 										{
 											"key": "feature_image",
 											"type": "file",
-											"src": []
+											"src": "/C:/Users/Leon Schiffer/Downloads/main_banner.jpg"
 										},
 										{
 											"key": "gallery[]",
@@ -3690,7 +3779,7 @@
 										},
 										{
 											"key": "email",
-											"value": "asd@email.comsssws",
+											"value": "asd@email.com",
 											"type": "text"
 										},
 										{
@@ -4671,7 +4760,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"title\": \"blog 1\",\n    \"image\": \"\",\n    \"description\": \"blog description 1\",\n    \"meta_title\": \"blog meta title 1\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description 1\",\n    \"tag\": [\"tag11\", \"tag22\"]\n}",
+									"raw": "{\n    \"title\": \"blog 1\",\n    \"image\": \"\",\n    \"description\": \"blog description 1\",\n    \"meta_title\": \"blog meta title 1\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description 1\",\n    \"tag\": [\"tag11\", \"tag22\"],\n    \"status_id\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4708,7 +4797,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"blog edits\",\n    \"image\": \"\",\n    \"description\": \"blog description edit\",\n    \"meta_title\": \"blog meta title edit\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description edit\",\n    \"tag\": [\"blogtag1\", \"blogtag2\"]\n}",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"blog edits\",\n    \"image\": \"\",\n    \"description\": \"blog description edit\",\n    \"meta_title\": \"blog meta title edit\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description edit\",\n    \"tag\": [\"blogtag1\", \"blogtag2\"],\n    \"status_id\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4912,6 +5001,129 @@
 										{
 											"key": "business_id",
 											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "my all review",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/my-business-review?limit=&sort_order&sort_key",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"my-business-review"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": ""
+										},
+										{
+											"key": "sort_order",
+											"value": null,
+											"description": "the order which you want to sort by (values: asc, desc)"
+										},
+										{
+											"key": "sort_key",
+											"value": null,
+											"description": "the key by which you want to order (like title, created_at, etc)"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "all review on my business",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/business-review?limit=&sort_order&sort_key",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"business-review"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": ""
+										},
+										{
+											"key": "sort_order",
+											"value": null,
+											"description": "the order which you want to sort by (values: asc, desc)"
+										},
+										{
+											"key": "sort_key",
+											"value": null,
+											"description": "the key by which you want to order (like title, created_at, etc)"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "flag review business",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/client/flag-business-review/:business_review_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"flag-business-review",
+										":business_review_id"
+									],
+									"variable": [
+										{
+											"key": "business_review_id",
+											"value": "2"
 										}
 									]
 								}
@@ -5807,7 +6019,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/house-search?q=&house_category_slug=&min_price=&max_price=",
+									"raw": "{{url}}/api/house-search?q=2&house_category_slug=&min_price=&max_price=&longitude=85.336738&latitude=27.698218",
 									"host": [
 										"{{url}}"
 									],
@@ -5818,7 +6030,7 @@
 									"query": [
 										{
 											"key": "q",
-											"value": "",
+											"value": "2",
 											"description": "search text here"
 										},
 										{
@@ -5833,6 +6045,14 @@
 										{
 											"key": "max_price",
 											"value": ""
+										},
+										{
+											"key": "longitude",
+											"value": "85.336738"
+										},
+										{
+											"key": "latitude",
+											"value": "27.698218"
 										}
 									]
 								}
