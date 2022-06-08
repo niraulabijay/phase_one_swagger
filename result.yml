@@ -1269,6 +1269,9 @@ paths:
                   - meta key 1
                   - meta key 2
                 meta_description: blog meta description 1
+                tag:
+                  - tag 1
+                  - tag 2
                 status_id: 1
       security:
         - bearerAuth: []
@@ -1308,6 +1311,9 @@ paths:
                   - meta key 1
                   - meta key 2
                 meta_description: blog meta description edit
+                tag:
+                  - tag 1
+                  - tag 2
                 status_id: 1
       security:
         - bearerAuth: []
@@ -1904,36 +1910,81 @@ paths:
       summary: store -store job
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                job_category_id: 2
-                title: job 3
-                image: ''
-                description: description 1
-                skills: skill description
-                benefits: benefit description
-                requirements: requirement description
-                additional_information: additional informtion
-                address: ''
-                is_offsite: 1
-                is_part_time: 1
-                available_from: '2022-01-01'
-                expiry_date: '2022-12-20'
-                experience: 2
-                level: mid-level
-                salary_type: monthly
-                is_salary_negotiable: 1
-                salary: 35000
-                is_salary_visible: 1
-                place_id: ''
-                longitude: '20'
-                latitude: '30'
-                status_id: 1
-                tag:
-                  - jobtag1
-                  - jobtag2
+              properties:
+                job_category_id:
+                  type: string
+                  example: ' 3'
+                title:
+                  type: string
+                  example: ' job 3'
+                description:
+                  type: string
+                  example: ' description 1'
+                skills:
+                  type: string
+                  example: ' skill description'
+                benefits:
+                  type: string
+                  example: ' benefit description'
+                requirements:
+                  type: string
+                  example: ' requirement description'
+                additional_information:
+                  type: string
+                  example: ' additional informtion'
+                address:
+                  type: string
+                  example: ' '
+                is_offsite:
+                  type: string
+                  example: ' 1'
+                is_part_time:
+                  type: string
+                  example: ' 1'
+                available_from:
+                  type: string
+                  example: ' 2022-01-01'
+                expiry_date:
+                  type: string
+                  example: ' 2022-12-20'
+                experience:
+                  type: string
+                  example: ' 2'
+                level:
+                  type: string
+                  example: ' mid-level'
+                salary_type:
+                  type: string
+                  example: ' monthly'
+                is_salary_negotiable:
+                  type: string
+                  example: ' 1'
+                salary:
+                  type: string
+                  example: ' 35000'
+                is_salary_visible:
+                  type: string
+                  example: ' 1'
+                place_id:
+                  type: string
+                longitude:
+                  type: string
+                  example: ' 20'
+                latitude:
+                  type: string
+                  example: ' 30'
+                status_id:
+                  type: string
+                  example: ' 1'
+                tag[]:
+                  type: string
+                  example: jobtag1
+                feature_image:
+                  type: string
+                  format: binary
       security:
         - bearerAuth: []
       parameters:
@@ -3244,9 +3295,9 @@ paths:
         - name: q
           in: query
           schema:
-            type: integer
+            type: string
           description: search text here
-          example: '2'
+          example: h
         - name: house_category_slug
           in: query
           schema:
@@ -3270,6 +3321,11 @@ paths:
           schema:
             type: number
           example: '27.698218'
+        - name: radius
+          in: query
+          schema:
+            type: integer
+          example: '3'
       responses:
         '200':
           description: Successful response

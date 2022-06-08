@@ -2289,7 +2289,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"title\": \"blog 1\",\n    \"image\": \"\",\n    \"description\": \"blog description 1\",\n    \"meta_title\": \"blog meta title 1\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description 1\",\n    \"status_id\": 1\n}",
+									"raw": "{\n    \"title\": \"blog 1\",\n    \"image\": \"\",\n    \"description\": \"blog description 1\",\n    \"meta_title\": \"blog meta title 1\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description 1\",\n    \"tag\": [\"tag 1\", \"tag 2\"],\n    \"status_id\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2326,7 +2326,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"blog edit\",\n    \"image\": \"\",\n    \"description\": \"blog description edit\",\n    \"meta_title\": \"blog meta title edit\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description edit\",\n    \"status_id\": 1\n}",
+									"raw": "{\n    \"_method\": \"patch\",\n    \"title\": \"blog edit\",\n    \"image\": \"\",\n    \"description\": \"blog description edit\",\n    \"meta_title\": \"blog meta title edit\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description edit\",\n    \"tag\": [\"tag 1\", \"tag 2\"],\n    \"status_id\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3585,13 +3585,129 @@
 									}
 								],
 								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"job_category_id\": 2,\n    \"title\": \"job 3\",\n    \"image\": \"\",\n    \"description\": \"description 1\",\n    \"skills\": \"skill description\",\n    \"benefits\": \"benefit description\",\n    \"requirements\": \"requirement description\",\n    \"additional_information\": \"additional informtion\",\n    \"address\": \"\",\n    \"is_offsite\": 1,\n    \"is_part_time\": 1,\n    \"available_from\": \"2022-01-01\",\n    \"expiry_date\": \"2022-12-20\",\n    \"experience\": 2,\n    \"level\": \"mid-level\",\n    \"salary_type\": \"monthly\",\n    \"is_salary_negotiable\": 1,\n    \"salary\": 35000,\n    \"is_salary_visible\": 1,\n    \"place_id\": \"\",\n    \"longitude\": \"20\",\n    \"latitude\": \"30\",\n    \"status_id\": 1,\n    \"tag\": [\"jobtag1\", \"jobtag2\"]\n    \n} ",
-									"options": {
-										"raw": {
-											"language": "json"
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "job_category_id",
+											"value": " 3",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": " job 3",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": " description 1",
+											"type": "text"
+										},
+										{
+											"key": "skills",
+											"value": " skill description",
+											"type": "text"
+										},
+										{
+											"key": "benefits",
+											"value": " benefit description",
+											"type": "text"
+										},
+										{
+											"key": "requirements",
+											"value": " requirement description",
+											"type": "text"
+										},
+										{
+											"key": "additional_information",
+											"value": " additional informtion",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": " ",
+											"type": "text"
+										},
+										{
+											"key": "is_offsite",
+											"value": " 1",
+											"type": "text"
+										},
+										{
+											"key": "is_part_time",
+											"value": " 1",
+											"type": "text"
+										},
+										{
+											"key": "available_from",
+											"value": " 2022-01-01",
+											"type": "text"
+										},
+										{
+											"key": "expiry_date",
+											"value": " 2022-12-20",
+											"type": "text"
+										},
+										{
+											"key": "experience",
+											"value": " 2",
+											"type": "text"
+										},
+										{
+											"key": "level",
+											"value": " mid-level",
+											"type": "text"
+										},
+										{
+											"key": "salary_type",
+											"value": " monthly",
+											"type": "text"
+										},
+										{
+											"key": "is_salary_negotiable",
+											"value": " 1",
+											"type": "text"
+										},
+										{
+											"key": "salary",
+											"value": " 35000",
+											"type": "text"
+										},
+										{
+											"key": "is_salary_visible",
+											"value": " 1",
+											"type": "text"
+										},
+										{
+											"key": "place_id",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "longitude",
+											"value": " 20",
+											"type": "text"
+										},
+										{
+											"key": "latitude",
+											"value": " 30",
+											"type": "text"
+										},
+										{
+											"key": "status_id",
+											"value": " 1",
+											"type": "text"
+										},
+										{
+											"key": "tag[]",
+											"value": "jobtag1",
+											"type": "text"
+										},
+										{
+											"key": "feature_image",
+											"type": "file",
+											"src": []
 										}
-									}
+									]
 								},
 								"url": {
 									"raw": "{{url}}/client/job",
@@ -6019,7 +6135,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/house-search?q=2&house_category_slug=&min_price=&max_price=&longitude=85.336738&latitude=27.698218",
+									"raw": "{{url}}/api/house-search?q=h&house_category_slug=&min_price=&max_price=&longitude=85.336738&latitude=27.698218&radius=3",
 									"host": [
 										"{{url}}"
 									],
@@ -6030,7 +6146,7 @@
 									"query": [
 										{
 											"key": "q",
-											"value": "2",
+											"value": "h",
 											"description": "search text here"
 										},
 										{
@@ -6053,6 +6169,10 @@
 										{
 											"key": "latitude",
 											"value": "27.698218"
+										},
+										{
+											"key": "radius",
+											"value": "3"
 										}
 									]
 								}
