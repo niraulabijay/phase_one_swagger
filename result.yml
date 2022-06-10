@@ -796,7 +796,7 @@ paths:
           schema:
             type: string
           required: true
-          example: category-edit
+          example: category-3
       responses:
         '200':
           description: Successful response
@@ -2282,11 +2282,16 @@ paths:
   /api/business-category/{business_category_id}:
     get:
       tags:
-        - Public > Business
-      summary: get single business category (no auth required)
+        - Client > Business Category
+      summary: show- No auth required
       security:
-        - bearerAuth: []
+        - noauthAuth: []
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: business_category_id
           in: path
           schema:
@@ -3188,6 +3193,25 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/business-category/{business_category_slug}:
+    get:
+      tags:
+        - Public > Business
+      summary: get single business category (no auth required)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: business_category_slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: asjdwlk
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/business:
     get:
       tags:
@@ -3247,16 +3271,15 @@ paths:
     get:
       tags:
         - Public > Business
-      summary: show - get single business
+      summary: get single business (no auth requried)
       security:
-        - bearerAuth: []
+        - noauthAuth: []
       parameters:
         - name: slug
           in: path
           schema:
             type: string
           required: true
-          example: business-1
       responses:
         '200':
           description: Successful response
@@ -3373,7 +3396,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/house-category/{house_category_id}:
+  /api/house-category/{house_category_slug}:
     get:
       tags:
         - Public > House
@@ -3386,11 +3409,12 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: house_category_id
+        - name: house_category_slug
           in: path
           schema:
             type: string
           required: true
+          example: asldkjw-1
       responses:
         '200':
           description: Successful response
@@ -3434,16 +3458,16 @@ paths:
     get:
       tags:
         - Public > House
-      summary: show - get single house
+      summary: get single house (no auth requried)
       security:
-        - bearerAuth: []
+        - noauthAuth: []
       parameters:
         - name: slug
           in: path
           schema:
             type: string
           required: true
-          example: house-1-4
+          example: new-house-1
       responses:
         '200':
           description: Successful response
@@ -3599,7 +3623,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/job/{job_id}:
+  /api/job/{job_slug}:
     get:
       tags:
         - Public > Job
@@ -3607,18 +3631,17 @@ paths:
       security:
         - noauthAuth: []
       parameters:
-        - name: job_id
+        - name: job_slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /api/job-category/{job_category_id}:
+  /api/job-category/{job_category_slug}:
     get:
       tags:
         - Public > Job
@@ -3626,12 +3649,12 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: job_category_id
+        - name: job_category_slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
+          example: '->only(''index'',''show'')'
       responses:
         '200':
           description: Successful response
@@ -3693,25 +3716,6 @@ paths:
           schema:
             type: integer
           example: '5'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/job/{slug}:
-    get:
-      tags:
-        - Public > Job
-      summary: show - get single job
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: slug
-          in: path
-          schema:
-            type: string
-          required: true
-          example: job-edit
       responses:
         '200':
           description: Successful response
@@ -3833,18 +3837,17 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/house-feature/{house_feature_id}:
+  /api/house-feature/{house_feature_slug}:
     get:
       tags:
         - Public
       summary: get single feature (no auth required) Copy
       parameters:
-        - name: house_feature_id
+        - name: house_feature_slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '2'
       responses:
         '200':
           description: Successful response

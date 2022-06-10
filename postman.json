@@ -1419,7 +1419,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "category-edit"
+											"value": "category-3"
 										}
 									]
 								}
@@ -5955,19 +5955,19 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/business-category/:business_category_id",
+									"raw": "{{url}}/api/business-category/:business_category_slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"business-category",
-										":business_category_id"
+										":business_category_slug"
 									],
 									"variable": [
 										{
-											"key": "business_category_id",
-											"value": "1"
+											"key": "business_category_slug",
+											"value": "asjdwlk"
 										}
 									]
 								}
@@ -6093,41 +6093,6 @@
 										{
 											"key": "slug",
 											"value": null
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show - get single business",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{client_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/api/business/:slug",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"business",
-										":slug"
-									],
-									"variable": [
-										{
-											"key": "slug",
-											"value": "business-1"
 										}
 									]
 								}
@@ -6317,19 +6282,19 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/house-category/:house_category_id",
+									"raw": "{{url}}/api/house-category/:house_category_slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"house-category",
-										":house_category_id"
+										":house_category_slug"
 									],
 									"variable": [
 										{
-											"key": "house_category_id",
-											"value": null
+											"key": "house_category_slug",
+											"value": "asldkjw-1"
 										}
 									]
 								}
@@ -6414,7 +6379,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "house-1"
+											"value": "new-house-1"
 										}
 									]
 								}
@@ -6511,41 +6476,6 @@
 										{
 											"key": "limit",
 											"value": "5"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show - get single house",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{client_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/api/house/:slug",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"house",
-										":slug"
-									],
-									"variable": [
-										{
-											"key": "slug",
-											"value": "house-1-4"
 										}
 									]
 								}
@@ -6699,19 +6629,19 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/job/:job_id",
+									"raw": "{{url}}/api/job/:job_slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"job",
-										":job_id"
+										":job_slug"
 									],
 									"variable": [
 										{
-											"key": "job_id",
-											"value": "1"
+											"key": "job_slug",
+											"value": null
 										}
 									]
 								}
@@ -6741,19 +6671,19 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/job-category/:job_category_id",
+									"raw": "{{url}}/api/job-category/:job_category_slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"job-category",
-										":job_category_id"
+										":job_category_slug"
 									],
 									"variable": [
 										{
-											"key": "job_category_id",
-											"value": "1"
+											"key": "job_category_slug",
+											"value": "->only('index','show')"
 										}
 									]
 								}
@@ -6915,41 +6845,6 @@
 										{
 											"key": "limit",
 											"value": "5"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "show - get single job",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{client_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/api/job/:slug",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"job",
-										":slug"
-									],
-									"variable": [
-										{
-											"key": "slug",
-											"value": "job-edit"
 										}
 									]
 								}
@@ -7199,19 +7094,19 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "{{url}}/api/house-feature/:house_feature_id",
+							"raw": "{{url}}/api/house-feature/:house_feature_slug",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"house-feature",
-								":house_feature_id"
+								":house_feature_slug"
 							],
 							"variable": [
 								{
-									"key": "house_feature_id",
-									"value": "2"
+									"key": "house_feature_slug",
+									"value": null
 								}
 							]
 						}
