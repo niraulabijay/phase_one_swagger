@@ -1785,7 +1785,12 @@
 										{
 											"key": "image",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/job fallback.jpg"
+											"src": "/C:/Users/Leon Schiffer/Downloads/memes/3008924_01171de4a5d31he9.jpg"
+										},
+										{
+											"key": "link",
+											"value": "http:hellowold.com",
+											"type": "text"
 										}
 									]
 								},
@@ -1884,7 +1889,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/admin/ad?ad_category=Homepage",
+									"raw": "{{url}}/admin/ad?ad_category=",
 									"host": [
 										"{{url}}"
 									],
@@ -1895,7 +1900,7 @@
 									"query": [
 										{
 											"key": "ad_category",
-											"value": "Homepage"
+											"value": ""
 										}
 									]
 								}
@@ -1928,7 +1933,7 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": "search ad",
+											"value": "Tempora voluptatem",
 											"type": "text"
 										},
 										{
@@ -1944,7 +1949,13 @@
 										{
 											"key": "image",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/house fallback.jpg"
+											"src": [],
+											"disabled": true
+										},
+										{
+											"key": "link",
+											"value": "https://helloworld.com",
+											"type": "text"
 										}
 									]
 								},
@@ -3434,13 +3445,113 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"_method\": \"put\",\n    \"house_category_id\": 2,\n    \"title\": \"house 1\",\n    \"description\": \"description 1\",\n    \"address\": \"address 1\",\n    \"available_from\": \"\",\n    \"expiry_date\": \"2022-10-10\",\n    \"price\": \"123456\",\n    \"is_negotiable\": 0,\n    \"place_id\": \"\",\n    \"longitude\": \"\",\n    \"latitude\": \"\",\n    \"type\": \"sell\",\n    \"status_id\": \"1\",\n    \"feature_image\": \"\",\n    \"gallery\": [],\n    \"feature\": [\n        {\n            \"id\": 2,\n            \"value\": \"value 2\"\n        },\n        {\n            \"id\": 3,\n            \"value\": \"value 3\"\n        }\n    ],\n    \"amenity\": [2, 3],\n    \"tag\": [\"test2\", \"testsets3\"],\n    \"gallery_delete_id\": [8]\n} \n",
-									"options": {
-										"raw": {
-											"language": "json"
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "house_category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "house-1",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "description 1",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "address 1",
+											"type": "text"
+										},
+										{
+											"key": "available_from",
+											"value": "2022-10-02",
+											"type": "text"
+										},
+										{
+											"key": "expiry_date",
+											"value": "2022-10-10",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "is_negotiable",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "place_id",
+											"value": " ",
+											"type": "text"
+										},
+										{
+											"key": "longitude",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "latitude",
+											"value": "12",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "rent",
+											"type": "text"
+										},
+										{
+											"key": "status_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "tag[]",
+											"value": "test2",
+											"type": "text"
+										},
+										{
+											"key": "tag[]",
+											"value": "testset3",
+											"type": "text"
+										},
+										{
+											"key": "feature[1][id]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "feature[1][value]",
+											"value": "2asdfasdfasdf",
+											"type": "text"
+										},
+										{
+											"key": "feature_image",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/memes/3008924_01171de4a5d31he9.jpg"
+										},
+										{
+											"key": "gallery[]",
+											"type": "file",
+											"src": [
+												"/C:/Users/Leon Schiffer/Downloads/memes/264294975_10161980790181840_4437987403086242168_n.jpg",
+												"/C:/Users/Leon Schiffer/Downloads/memes/264307419_2975470996051262_3760500807519246352_n.jpg",
+												"/C:/Users/Leon Schiffer/Downloads/memes/264596291_4665854223499769_7783542825758836681_n.jpg"
+											]
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
 										}
-									}
+									]
 								},
 								"url": {
 									"raw": "{{url}}/client/house/:slug",
@@ -3455,7 +3566,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "new-house-2"
+											"value": "house-1"
 										}
 									]
 								}
@@ -3895,23 +4006,27 @@
 										},
 										{
 											"key": "email",
-											"value": "asd@email.com",
+											"value": "asdw@email.com",
 											"type": "text"
 										},
 										{
 											"key": "banner",
 											"type": "file",
-											"src": []
+											"src": "/C:/Users/Leon Schiffer/Downloads/job fallback.jpg"
 										},
 										{
 											"key": "profile_picture",
 											"type": "file",
-											"src": []
+											"src": "/C:/Users/Leon Schiffer/Downloads/main_banner.jpg"
 										},
 										{
 											"key": "gallery[]",
 											"type": "file",
-											"src": []
+											"src": [
+												"/C:/Users/Leon Schiffer/Downloads/memes/131570361_313309517098809_3198858527293260316_n.jpg",
+												"/C:/Users/Leon Schiffer/Downloads/memes/250526744_415840220155790_3110015289832680089_n.jpg",
+												"/C:/Users/Leon Schiffer/Downloads/memes/259279631_308414554486545_5175553099987225952_n.jpg"
+											]
 										},
 										{
 											"key": "description",
@@ -5572,7 +5687,7 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "qwse@qwe.coms",
+									"value": "user@user.com",
 									"type": "text"
 								},
 								{
@@ -5588,24 +5703,13 @@
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/register?ref=d3248463-f87e-4a51-a0ad-87602414fe8b",
-							"protocol": "http",
+							"raw": "{{url}}/api/register",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"register"
-							],
-							"query": [
-								{
-									"key": "ref",
-									"value": "d3248463-f87e-4a51-a0ad-87602414fe8b"
-								}
 							]
 						}
 					},
@@ -6031,7 +6135,7 @@
 							"response": []
 						},
 						{
-							"name": "search job",
+							"name": "search business",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -6052,7 +6156,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/business-search?business_category_slug=&q=",
+									"raw": "{{url}}/api/business-search?business_category_slug=&q=&longitude=85.336738&latitude=27.698218&radius=6",
 									"host": [
 										"{{url}}"
 									],
@@ -6068,6 +6172,18 @@
 										{
 											"key": "q",
 											"value": ""
+										},
+										{
+											"key": "longitude",
+											"value": "85.336738"
+										},
+										{
+											"key": "latitude",
+											"value": "27.698218"
+										},
+										{
+											"key": "radius",
+											"value": "6"
 										}
 									]
 								}
@@ -6666,7 +6782,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/job-search?q=&job_category_slug=&min_salary=&max_salary=",
+									"raw": "{{url}}/api/job-search?q=&job_category_slug=&min_salary=&max_salary=&longitude=85.336738&latitude=27.698218&radius=2",
 									"host": [
 										"{{url}}"
 									],
@@ -6691,6 +6807,18 @@
 										{
 											"key": "max_salary",
 											"value": ""
+										},
+										{
+											"key": "longitude",
+											"value": "85.336738"
+										},
+										{
+											"key": "latitude",
+											"value": "27.698218"
+										},
+										{
+											"key": "radius",
+											"value": "2"
 										}
 									]
 								}
