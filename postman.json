@@ -7586,7 +7586,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/user-detail/:slug?limit=4",
+							"raw": "{{url}}/api/user-detail/:slug?limit=4222",
 							"host": [
 								"{{url}}"
 							],
@@ -7598,7 +7598,7 @@
 							"query": [
 								{
 									"key": "limit",
-									"value": "4"
+									"value": "4222"
 								}
 							],
 							"variable": [

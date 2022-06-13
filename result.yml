@@ -4109,7 +4109,7 @@ paths:
           in: query
           schema:
             type: integer
-          example: '4'
+          example: '4222'
         - name: slug
           in: path
           schema:
