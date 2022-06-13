@@ -43,6 +43,9 @@ tags:
   - name: Admin > Blog
   - name: Admin > Newsletter
   - name: Admin > Fallback Image
+  - name: Admin > Promoted Content
+  - name: Admin > Dashboard
+  - name: Admin > Business Review
   - name: Client
   - name: Client > House
   - name: Client > Job
@@ -57,18 +60,22 @@ tags:
   - name: Client > Business Review
   - name: Client > House Review
   - name: Client > Saved job
+  - name: Client > Affiliate
   - name: Public
   - name: Public > News Letter
   - name: Public > SiteSetting
   - name: Public > Business
   - name: Public > House
   - name: Public > Job
+  - name: Public > Client
+  - name: Public > Promoted Content
+  - name: Public > Ad
 paths:
   /admin/house:
     get:
       tags:
         - Admin > House
-      summary: get all house (no auth required) Copy
+      summary: get all house
       security:
         - bearerAuth: []
       parameters:
@@ -265,16 +272,36 @@ paths:
       summary: store - store category of house
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                title: house category 1
-                icon: ''
-                description: house description 1
-                order_level: ''
-                parent_id: ''
-                status_id: 1
+              properties:
+                title:
+                  type: string
+                  example: asldkjw
+                description:
+                  type: string
+                  example: asjdhw
+                order_level:
+                  type: integer
+                  example: '1'
+                parent_id:
+                  type: string
+                status_id:
+                  type: integer
+                  example: '1'
+                meta_title:
+                  type: string
+                  example: title
+                meta_description:
+                  type: string
+                  example: ' description'
+                meta_keyword:
+                  type: string
+                  example: ' keyword'
+                icon:
+                  type: string
+                  format: binary
       security:
         - bearerAuth: []
       parameters:
@@ -294,38 +321,62 @@ paths:
       summary: index - get all category of house
       security:
         - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /admin/house-category/{house_category_id}:
+  /admin/house-category/{slug}:
     post:
       tags:
         - Admin > HouseCategory
       summary: update - update category of house
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                _method: patch
-                title: house category edit
-                icon: ''
-                description: house description edit
-                order_level: ''
-                parent_id: ''
-                status_id: 1
+              properties:
+                title:
+                  type: string
+                  example: asldkjw edited
+                description:
+                  type: string
+                  example: asjdhw
+                order_level:
+                  type: integer
+                  example: '1'
+                parent_id:
+                  type: string
+                status_id:
+                  type: integer
+                  example: '1'
+                meta_title:
+                  type: string
+                  example: title edited
+                meta_description:
+                  type: string
+                  example: ' description edited'
+                meta_keyword:
+                  type: string
+                  example: ' keyword edited'
+                _method:
+                  type: string
+                  example: PUT
       security:
         - bearerAuth: []
       parameters:
-        - name: house_category_id
+        - name: slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
+          example: asldkjw-edited
       responses:
         '200':
           description: Successful response
@@ -343,12 +394,12 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: house_category_id
+        - name: slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
+          example: house-category-edit
       responses:
         '200':
           description: Successful response
@@ -366,12 +417,12 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: house_category_id
+        - name: slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '2'
+          example: house-category-1
       responses:
         '200':
           description: Successful response
@@ -614,16 +665,37 @@ paths:
       summary: store - store category of job
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                title: category 1
-                icon: ''
-                description: description 1
-                order_level: ''
-                parent_id: ''
-                status_id: 1
+              properties:
+                title:
+                  type: string
+                  example: ' category 3'
+                description":
+                  type: string
+                  example: ' description 1'
+                order_level:
+                  type: string
+                  example: ' '
+                parent_id:
+                  type: string
+                  example: ' '
+                status_id:
+                  type: string
+                  example: ' 1'
+                meta_title:
+                  type: string
+                  example: ' this is a meta title'
+                meta_description:
+                  type: string
+                  example: ' This is a meta description'
+                meta_keyword:
+                  type: string
+                  example: ' This is a meta keyword'
+                icon:
+                  type: string
+                  format: binary
       security:
         - bearerAuth: []
       responses:
@@ -637,38 +709,64 @@ paths:
       summary: index - get all category of job
       security:
         - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
+          description: nullable
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /admin/job-category/{job_category_id}:
+  /admin/job-category/{slug}:
     post:
       tags:
         - Admin > JobCategory
       summary: update - update category of job
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                _method: patch
-                title: category edit
-                icon: ''
-                description: description edit
-                order_level: ''
-                parent_id: ''
-                status: 1
+              properties:
+                title:
+                  type: string
+                  example: ' category 3'
+                description":
+                  type: string
+                  example: ' description 1'
+                order_level:
+                  type: string
+                  example: ' '
+                parent_id:
+                  type: string
+                  example: ' '
+                status_id:
+                  type: string
+                  example: ' 1'
+                meta_title:
+                  type: string
+                  example: title edited
+                meta_description:
+                  type: string
+                  example: ' description edited'
+                meta_keyword:
+                  type: string
+                  example: ' keyword edited'
+                _method:
+                  type: string
+                  example: PUT
       security:
         - bearerAuth: []
       parameters:
-        - name: job_category_id
+        - name: slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
+          example: category-3-5
       responses:
         '200':
           description: Successful response
@@ -681,12 +779,12 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: job_category_id
+        - name: slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
+          example: category-edit
       responses:
         '200':
           description: Successful response
@@ -704,12 +802,12 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: job_category_id
+        - name: slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '2'
+          example: category-3
       responses:
         '200':
           description: Successful response
@@ -722,16 +820,36 @@ paths:
       summary: store - store category of business
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                title: business category 1
-                icon: ''
-                description: business description 1
-                order_level: ''
-                parent_id: ''
-                status_id: 1
+              properties:
+                title:
+                  type: string
+                  example: ' asjdwlk'
+                icon:
+                  type: string
+                  format: binary
+                description:
+                  type: string
+                  example: ' dlajwkljad'
+                order_level:
+                  type: string
+                  example: ' 1'
+                parent_id:
+                  type: string
+                status_id:
+                  type: integer
+                  example: '1'
+                meta_title:
+                  type: string
+                  example: ' meta title'
+                meta_description:
+                  type: string
+                  example: meta description
+                meta_keyword:
+                  type: string
+                  example: meta_keyword
       security:
         - bearerAuth: []
       parameters:
@@ -751,6 +869,11 @@ paths:
       summary: index - get all category of business
       security:
         - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -763,17 +886,62 @@ paths:
       summary: update - update category of business
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                _method: patch
-                title: category edit
-                icon: ''
-                description: description edit
-                order_level: ''
-                parent_id: ''
-                status_id: 1
+              properties:
+                title:
+                  type: string
+                  example: ' asjdwlk'
+                icon:
+                  type: string
+                  example: ' '
+                description:
+                  type: string
+                  example: ' dlajwkljad'
+                order_level:
+                  type: string
+                  example: ' 1'
+                parent_id:
+                  type: string
+                status_id:
+                  type: integer
+                  example: '1'
+                meta_title:
+                  type: string
+                  example: ' meta title edit'
+                meta_description:
+                  type: string
+                  example: meta description edit
+                meta_keyword:
+                  type: string
+                  example: meta_keyword edit
+                _method:
+                  type: string
+                  example: put
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: asjdwlk
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > BusinessCategory
+      summary: destroy - delete single category of business
       security:
         - bearerAuth: []
       parameters:
@@ -782,25 +950,7 @@ paths:
           schema:
             type: string
           required: true
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/business-category/{business_category_id}:
-    delete:
-      tags:
-        - Admin > BusinessCategory
-      summary: destroy - delete single category of business
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: business_category_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '1'
+          example: category-edit-asda
       responses:
         '200':
           description: Successful response
@@ -818,12 +968,12 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: business_category_id
+        - name: slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
+          example: category-edit
       responses:
         '200':
           description: Successful response
@@ -842,13 +992,16 @@ paths:
               properties:
                 title:
                   type: string
-                  example: title 1
+                  example: title 2
                 ad_category:
                   type: string
-                  example: Homepage
+                  example: Job Page
                 image:
                   type: string
                   format: binary
+                link:
+                  type: string
+                  example: http:hellowold.com
       security:
         - bearerAuth: []
       parameters:
@@ -857,6 +1010,57 @@ paths:
           schema:
             type: string
           example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Ads
+      summary: index
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ad_category
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/ad/{category}/{title}:
+    get:
+      tags:
+        - Admin > Ads
+      summary: show
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: category
+          in: path
+          schema:
+            type: string
+          required: true
+          example: Homepage
+        - name: title
+          in: path
+          schema:
+            type: string
+          required: true
+          example: title 1
       responses:
         '200':
           description: Successful response
@@ -875,7 +1079,7 @@ paths:
               properties:
                 title:
                   type: string
-                  example: title 1 edited
+                  example: Tempora voluptatem
                 ad_category:
                   type: string
                   example: Homepage
@@ -885,6 +1089,9 @@ paths:
                 image:
                   type: string
                   format: binary
+                link:
+                  type: string
+                  example: https://helloworld.com
       security:
         - bearerAuth: []
       parameters:
@@ -898,7 +1105,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '3'
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -911,12 +1118,17 @@ paths:
       security:
         - bearerAuth: []
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: ad_id
           in: path
           schema:
             type: integer
           required: true
-          example: '5'
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -956,9 +1168,8 @@ paths:
         - name: active
           in: query
           schema:
-            type: integer
+            type: string
           description: 'values: 0 or 1, you can leave it empty to return all users instead'
-          example: '0'
         - name: limit
           in: query
           schema:
@@ -1042,34 +1253,18 @@ paths:
             schema:
               type: object
               properties:
-                logo:
+                full_address_1:
+                  type: string
+                  example: asd
+                full_address_2:
+                  type: string
+                  example: fgh
+                primary_mobile:
+                  type: integer
+                  example: '1234'
+                company_logo:
                   type: string
                   format: binary
-                about:
-                  type: string
-                  example: |-
-                    This is about section
-                    Write anything here
-                facebook_link:
-                  type: string
-                  example: https://facebook.com
-                instagram_link:
-                  type: string
-                  example: https://instagram.com
-                address:
-                  type: string
-                  example: Setopul, Maitidevi
-                phone_number:
-                  type: integer
-                  example: '9806782031'
-                email:
-                  type: string
-                  example: grgbishal350@gmail.com
-                map:
-                  type: string
-                  example: |-
-                    laskdjlwkjakldj
-                     asj d
       responses:
         '200':
           description: Successful response
@@ -1094,6 +1289,10 @@ paths:
                   - meta key 1
                   - meta key 2
                 meta_description: blog meta description 1
+                tag:
+                  - tag 1
+                  - tag 2
+                status_id: 1
       security:
         - bearerAuth: []
       responses:
@@ -1132,6 +1331,10 @@ paths:
                   - meta key 1
                   - meta key 2
                 meta_description: blog meta description edit
+                tag:
+                  - tag 1
+                  - tag 2
+                status_id: 1
       security:
         - bearerAuth: []
       parameters:
@@ -1314,6 +1517,184 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/promoted-content:
+    get:
+      tags:
+        - Admin > Promoted Content
+      summary: index
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: active
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Promoted Content
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: Promoted Content 3
+                description:
+                  type: string
+                  example: Description 3
+                link:
+                  type: string
+                  example: link 3
+                image:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/promoted-content/{slug}:
+    get:
+      tags:
+        - Admin > Promoted Content
+      summary: show
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: promoted-content-2-edit
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Promoted Content
+      summary: change active status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                _method:
+                  type: string
+                  example: patch
+                value:
+                  type: integer
+                  example: '0'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: promoted-content-2-edit
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Promoted Content
+      summary: delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: promoted-content-2-edit
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/dashboard:
+    get:
+      tags:
+        - Admin > Dashboard
+      summary: get dashboard data
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/all-business-review:
+    get:
+      tags:
+        - Admin > Business Review
+      summary: all review
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '2'
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          description: 'the order which you want to sort by (values: asc, desc)'
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          description: the key by which you want to order (like title, created_at, etc)
+        - name: flag
+          in: query
+          schema:
+            type: integer
+          description: set 1 to get flagged review
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/delete-business-review/{review_id}:
+    get:
+      tags:
+        - Admin > Business Review
+      summary: delete review
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: review_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '3'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/login:
     post:
       tags:
@@ -1376,7 +1757,7 @@ paths:
                   example: '1'
                 title:
                   type: string
-                  example: house 1
+                  example: new house
                 description:
                   type: string
                   example: description 1
@@ -1399,12 +1780,14 @@ paths:
                   type: string
                   example: ' '
                 longitude:
-                  type: string
+                  type: integer
+                  example: '10'
                 latitude:
-                  type: string
+                  type: integer
+                  example: '12'
                 type:
                   type: string
-                  example: buy
+                  example: rent
                 status_id:
                   type: integer
                   example: '1'
@@ -1416,6 +1799,13 @@ paths:
                   format: binary
                 tag[]:
                   type: string
+                  example: testset3
+                feature[1][id]:
+                  type: integer
+                  example: '1'
+                feature[1][value]:
+                  type: string
+                  example: 2asdfasdfasdf
       security:
         - bearerAuth: []
       parameters:
@@ -1436,37 +1826,67 @@ paths:
       summary: update - update house
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                _method: put
-                house_category_id: 2
-                title: house 1
-                description: description 1
-                address: address 1
-                available_from: ''
-                expiry_date: '2022-10-10'
-                price: '123456'
-                is_negotiable: 0
-                place_id: ''
-                longitude: ''
-                latitude: ''
-                type: buy
-                status_id: '1'
-                feature_image: ''
-                gallery: []
-                feature:
-                  - id: 2
-                    value: value 2
-                  - id: 3
-                    value: value 3
-                amenity:
-                  - 2
-                  - 3
-                tag:
-                  - test2
-                  - testset3
+              properties:
+                house_category_id:
+                  type: integer
+                  example: '1'
+                title:
+                  type: string
+                  example: house-1
+                description:
+                  type: string
+                  example: description 1
+                address:
+                  type: string
+                  example: address 1
+                available_from:
+                  type: string
+                  example: '2022-10-02'
+                expiry_date:
+                  type: string
+                  example: '2022-10-10'
+                price:
+                  type: integer
+                  example: '123456'
+                is_negotiable:
+                  type: integer
+                  example: '0'
+                place_id:
+                  type: string
+                  example: ' '
+                longitude:
+                  type: integer
+                  example: '10'
+                latitude:
+                  type: integer
+                  example: '12'
+                type:
+                  type: string
+                  example: rent
+                status_id:
+                  type: integer
+                  example: '1'
+                tag[]:
+                  type: string
+                  example: testset3
+                feature[1][id]:
+                  type: integer
+                  example: '1'
+                feature[1][value]:
+                  type: string
+                  example: 2asdfasdfasdf
+                feature_image:
+                  type: string
+                  format: binary
+                gallery[]:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: PUT
       security:
         - bearerAuth: []
       parameters:
@@ -1538,36 +1958,81 @@ paths:
       summary: store -store job
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                job_category_id: 2
-                title: job 1
-                image: ''
-                description: description 1
-                skills: skill description
-                benefits: benefit description
-                requirements: requirement description
-                additional_information: additional informtion
-                address: ''
-                is_offsite: 1
-                is_part_time: 1
-                available_from: '2022-01-01'
-                expiry_date: '2022-12-20'
-                experience: 2
-                level: mid-level
-                salary_type: monthly
-                is_salary_negotiable: 1
-                salary: 35000
-                is_salary_visible: 1
-                place_id: ''
-                longitude: '20'
-                latitude: '30'
-                status_id: 1
-                tag:
-                  - jobtag1
-                  - jobtag2
+              properties:
+                job_category_id:
+                  type: string
+                  example: ' 1'
+                title:
+                  type: string
+                  example: ' job 3'
+                description:
+                  type: string
+                  example: ' description 1'
+                skills:
+                  type: string
+                  example: ' skill description'
+                benefits:
+                  type: string
+                  example: ' benefit description'
+                requirements:
+                  type: string
+                  example: ' requirement description'
+                additional_information:
+                  type: string
+                  example: ' additional informtion'
+                address:
+                  type: string
+                  example: ' '
+                is_offsite:
+                  type: string
+                  example: ' 1'
+                is_part_time:
+                  type: string
+                  example: ' 1'
+                available_from:
+                  type: string
+                  example: ' 2022-01-01'
+                expiry_date:
+                  type: string
+                  example: ' 2022-12-20'
+                experience:
+                  type: string
+                  example: ' 2'
+                level:
+                  type: string
+                  example: ' mid-level'
+                salary_type:
+                  type: string
+                  example: ' monthly'
+                is_salary_negotiable:
+                  type: string
+                  example: ' 1'
+                salary:
+                  type: string
+                  example: ' 35000'
+                is_salary_visible:
+                  type: string
+                  example: ' 1'
+                place_id:
+                  type: string
+                longitude:
+                  type: string
+                  example: ' 20'
+                latitude:
+                  type: string
+                  example: ' 30'
+                status_id:
+                  type: string
+                  example: ' 1'
+                tag[]:
+                  type: string
+                  example: jobtag1
+                feature_image:
+                  type: string
+                  format: binary
       security:
         - bearerAuth: []
       parameters:
@@ -1644,7 +2109,7 @@ paths:
                 status_id: 1
                 tag:
                   - job_tag1
-                  - job_tag2
+                  - job_tagss2
       security:
         - bearerAuth: []
       parameters:
@@ -1653,7 +2118,7 @@ paths:
           schema:
             type: string
           required: true
-          example: job-1-18
+          example: job-1-16
       responses:
         '200':
           description: Successful response
@@ -1671,6 +2136,7 @@ paths:
           schema:
             type: string
           required: true
+          example: job-edit
       responses:
         '200':
           description: Successful response
@@ -1689,16 +2155,16 @@ paths:
               properties:
                 business_category_id:
                   type: integer
-                  example: '1'
+                  example: '4'
                 title:
                   type: string
-                  example: business 1
+                  example: business 5
                 phone:
                   type: integer
                   example: '312113'
                 email:
                   type: string
-                  example: asasa@email.com
+                  example: asdw@email.com
                 banner:
                   type: string
                   format: binary
@@ -1716,7 +2182,7 @@ paths:
                   description: nullable
                 tag[]:
                   type: string
-                  example: tagbbus1
+                  example: tagbusi2
       security:
         - bearerAuth: []
       parameters:
@@ -1764,14 +2230,17 @@ paths:
                   type: string
                   example: New Businessasdw
                 phone:
-                  type: integer
-                  example: '312113'
+                  type: string
+                  example: qewrq23r4qew
                 email:
                   type: string
                   example: asa@email.com
                 _method:
                   type: string
                   example: PUT
+                tag[]:
+                  type: string
+                  example: tag43
       security:
         - bearerAuth: []
       parameters:
@@ -1821,6 +2290,12 @@ paths:
       summary: get all business category (no auth required)
       security:
         - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
+          description: nullable
       responses:
         '200':
           description: Successful response
@@ -1829,11 +2304,16 @@ paths:
   /api/business-category/{business_category_id}:
     get:
       tags:
-        - Public > Business
-      summary: get single business category (no auth required)
+        - Client > Business Category
+      summary: show- No auth required
       security:
-        - bearerAuth: []
+        - noauthAuth: []
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: business_category_id
           in: path
           schema:
@@ -2180,6 +2660,10 @@ paths:
                   type: string
                   description: nullable
                   example: this is my bio
+                language:
+                  type: string
+                  description: nullable
+                  example: english, nepali
       security:
         - bearerAuth: []
       parameters:
@@ -2226,6 +2710,7 @@ paths:
                 tag:
                   - tag11
                   - tag22
+                status_id: 1
       security:
         - bearerAuth: []
       responses:
@@ -2249,7 +2734,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /client/blog/{blog_slug}:
+  /client/blog/{slug}:
     post:
       tags:
         - Client > Blog
@@ -2261,7 +2746,7 @@ paths:
               type: object
               example:
                 _method: patch
-                title: blog edit
+                title: blog edits
                 image: ''
                 description: blog description edit
                 meta_title: blog meta title edit
@@ -2269,15 +2754,37 @@ paths:
                   - meta key 1
                   - meta key 2
                 meta_description: blog meta description edit
+                tag:
+                  - blogtag1
+                  - blogtag2
+                status_id: 1
       security:
         - bearerAuth: []
       parameters:
-        - name: blog_slug
+        - name: slug
           in: path
           schema:
             type: string
           required: true
-          example: blog-edit
+          example: blog-edits
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Client > Blog
+      summary: destroy - destroy blog
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: blog-edits
       responses:
         '200':
           description: Successful response
@@ -2295,30 +2802,12 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: blog_slug
+        - name: slug
           in: path
           schema:
             type: string
           required: true
-          example: blog-edit
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /client/blog/{blog_id}:
-    delete:
-      tags:
-        - Client > Blog
-      summary: destroy - destroy blog
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: blog_id
-          in: path
-          schema:
-            type: string
-          required: true
+          example: blog-edits
       responses:
         '200':
           description: Successful response
@@ -2350,6 +2839,81 @@ paths:
             type: integer
           required: true
           example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/my-business-review:
+    get:
+      tags:
+        - Client > Business Review
+      summary: my all review
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          description: 'the order which you want to sort by (values: asc, desc)'
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          description: the key by which you want to order (like title, created_at, etc)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/business-review:
+    get:
+      tags:
+        - Client > Business Review
+      summary: all review on my business
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          description: 'the order which you want to sort by (values: asc, desc)'
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          description: the key by which you want to order (like title, created_at, etc)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/flag-business-review/{business_review_id}:
+    post:
+      tags:
+        - Client > Business Review
+      summary: flag review business
+      requestBody:
+        content: {}
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: business_review_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -2461,6 +3025,30 @@ paths:
             type: integer
           required: true
           example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/referral-url:
+    get:
+      tags:
+        - Client > Affiliate
+      summary: referral_url
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/my-affiliate:
+    get:
+      tags:
+        - Client > Affiliate
+      summary: my-affiliate
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Successful response
@@ -2627,6 +3215,25 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/business-category/{business_category_slug}:
+    get:
+      tags:
+        - Public > Business
+      summary: get single business category (no auth required)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: business_category_slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: asjdwlk
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/business:
     get:
       tags:
@@ -2682,7 +3289,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/business/{business_id}:
+  /api/business/{slug}:
     get:
       tags:
         - Public > Business
@@ -2690,31 +3297,62 @@ paths:
       security:
         - noauthAuth: []
       parameters:
-        - name: business_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '2'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/business/{slug}:
-    get:
-      tags:
-        - Public > Business
-      summary: show - get single business
-      security:
-        - bearerAuth: []
-      parameters:
         - name: slug
           in: path
           schema:
             type: string
           required: true
-          example: business-1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business-search:
+    get:
+      tags:
+        - Public > Business
+      summary: search business
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: business_category_slug
+          in: query
+          schema:
+            type: string
+        - name: q
+          in: query
+          schema:
+            type: string
+        - name: longitude
+          in: query
+          schema:
+            type: number
+          example: '85.336738'
+        - name: latitude
+          in: query
+          schema:
+            type: number
+          example: '27.698218'
+        - name: radius
+          in: query
+          schema:
+            type: integer
+          example: '6'
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          example: title
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          example: desc
       responses:
         '200':
           description: Successful response
@@ -2733,6 +3371,11 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: limit
+          in: query
+          schema:
+            type: string
+          description: nullable
       responses:
         '200':
           description: Successful response
@@ -2756,13 +3399,54 @@ paths:
           schema:
             type: string
           description: search text here
-          example: a
+        - name: house_category_slug
+          in: query
+          schema:
+            type: string
+          description: send a house category slug here
+        - name: min_price
+          in: query
+          schema:
+            type: string
+        - name: max_price
+          in: query
+          schema:
+            type: string
+        - name: longitude
+          in: query
+          schema:
+            type: string
+        - name: latitude
+          in: query
+          schema:
+            type: string
+        - name: radius
+          in: query
+          schema:
+            type: integer
+          example: '3'
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          example: title
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          example: asc
+        - name: negotiable
+          in: query
+          schema:
+            type: integer
+          description: 'values: 0, 1 or empty'
+          example: '0'
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /api/house-category/{house_category_id}:
+  /api/house-category/{house_category_slug}:
     get:
       tags:
         - Public > House
@@ -2775,11 +3459,12 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: house_category_id
+        - name: house_category_slug
           in: path
           schema:
             type: string
           required: true
+          example: asldkjw-1
       responses:
         '200':
           description: Successful response
@@ -2802,18 +3487,18 @@ paths:
           in: query
           schema:
             type: string
-        - name: sort_order
-          in: query
-          schema:
-            type: string
-          description: 'the order which you want to sort by (values: asc, desc)'
-          example: desc
         - name: sort_key
           in: query
           schema:
             type: string
           description: the key by which you want to order (like title, created_at, etc)
           example: title
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          description: 'the order which you want to sort by (values: asc, desc)'
+          example: desc
       responses:
         '200':
           description: Successful response
@@ -2823,16 +3508,16 @@ paths:
     get:
       tags:
         - Public > House
-      summary: show - get single house
+      summary: get single house (no auth requried)
       security:
-        - bearerAuth: []
+        - noauthAuth: []
       parameters:
         - name: slug
           in: path
           schema:
             type: string
           required: true
-          example: house-1-4
+          example: new-house-1
       responses:
         '200':
           description: Successful response
@@ -2906,6 +3591,12 @@ paths:
       summary: get all job category (no auth required)
       security:
         - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
+          description: nullable
       responses:
         '200':
           description: Successful response
@@ -2928,8 +3619,53 @@ paths:
           in: query
           schema:
             type: string
-          description: search text here
-          example: j
+        - name: job_category_slug
+          in: query
+          schema:
+            type: string
+        - name: min_salary
+          in: query
+          schema:
+            type: string
+        - name: max_salary
+          in: query
+          schema:
+            type: string
+        - name: longitude
+          in: query
+          schema:
+            type: string
+        - name: latitude
+          in: query
+          schema:
+            type: string
+        - name: radius
+          in: query
+          schema:
+            type: integer
+          example: '2'
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          example: title
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          example: desc
+        - name: offsite
+          in: query
+          schema:
+            type: integer
+          description: 'values: 0, 1 or empty'
+          example: '1'
+        - name: part_time
+          in: query
+          schema:
+            type: integer
+          description: 'values: 0, 1 or empty'
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -2962,7 +3698,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/job/{job_id}:
+  /api/job/{job_slug}:
     get:
       tags:
         - Public > Job
@@ -2970,18 +3706,17 @@ paths:
       security:
         - noauthAuth: []
       parameters:
-        - name: job_id
+        - name: job_slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /api/job-category/{job_category_id}:
+  /api/job-category/{job_category_slug}:
     get:
       tags:
         - Public > Job
@@ -2989,12 +3724,12 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: job_category_id
+        - name: job_category_slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
+          example: category-3
       responses:
         '200':
           description: Successful response
@@ -3061,20 +3796,107 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/job/{slug}:
+  /api/client-list/{user_id}:
     get:
       tags:
-        - Public > Job
-      summary: show - get single job
+        - Public > Client
+      summary: get single client
       security:
         - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '3'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/promoted-content-active:
+    get:
+      tags:
+        - Public > Promoted Content
+      summary: get active list
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/promoted-content/{slug}:
+    get:
+      tags:
+        - Public > Promoted Content
+      summary: get single active only
+      security:
+        - noauthAuth: []
       parameters:
         - name: slug
           in: path
           schema:
             type: string
           required: true
-          example: job-edit
+          example: promoted-content-2-edit
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/ad/{category}/{title}:
+    get:
+      tags:
+        - Public > Ad
+      summary: show
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: category
+          in: path
+          schema:
+            type: string
+          required: true
+          example: Homepage
+        - name: title
+          in: path
+          schema:
+            type: string
+          required: true
+          example: search ad
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/ad:
+    get:
+      tags:
+        - Public
+      summary: get ads by category
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ad_category
+          in: query
+          schema:
+            type: string
+          example: homepage
       responses:
         '200':
           description: Successful response
@@ -3090,18 +3912,17 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/house-feature/{house_feature_id}:
+  /api/house-feature/{house_feature_slug}:
     get:
       tags:
         - Public
       summary: get single feature (no auth required) Copy
       parameters:
-        - name: house_feature_id
+        - name: house_feature_slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '2'
       responses:
         '200':
           description: Successful response
@@ -3129,29 +3950,6 @@ paths:
             type: integer
           required: true
           example: '1'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/ad:
-    get:
-      tags:
-        - Public
-      summary: get ads by category
-      security:
-        - noauthAuth: []
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-        - name: ad_category
-          in: query
-          schema:
-            type: string
-          example: homepage
       responses:
         '200':
           description: Successful response
@@ -3211,6 +4009,23 @@ paths:
           in: query
           schema:
             type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/user-detail/{slug}:
+    get:
+      tags:
+        - Public
+      summary: get user detail
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: fullname-1
       responses:
         '200':
           description: Successful response
