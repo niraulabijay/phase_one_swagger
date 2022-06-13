@@ -1277,22 +1277,34 @@ paths:
       summary: store - store blog
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
-              example:
-                title: blog 1
-                image: ''
-                description: blog description 1
-                meta_title: blog meta title 1
-                meta_key:
-                  - meta key 1
-                  - meta key 2
-                meta_description: blog meta description 1
-                tag:
-                  - tag 1
-                  - tag 2
-                status_id: 1
+              properties:
+                title:
+                  type: string
+                  example: ' blog 1'
+                image:
+                  type: string
+                  format: binary
+                description:
+                  type: string
+                  example: ' blog description 1'
+                meta_title:
+                  type: string
+                  example: ' blog meta title 1'
+                meta_key[]:
+                  type: string
+                  example: meta key 2
+                meta_description:
+                  type: string
+                  example: ' blog meta description 1'
+                tag[]:
+                  type: string
+                  example: tag 2
+                status_id:
+                  type: string
+                  example: ' 1'
       security:
         - bearerAuth: []
       responses:
@@ -1362,6 +1374,37 @@ paths:
             type: integer
           required: true
           example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/blog/{slug}/change-active:
+    post:
+      tags:
+        - Admin > Blog
+      summary: change active status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                _method:
+                  type: string
+                  example: patch
+                value:
+                  type: integer
+                  example: '0'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: hello-edited-blog
       responses:
         '200':
           description: Successful response
@@ -2807,7 +2850,38 @@ paths:
           schema:
             type: string
           required: true
-          example: blog-edits
+          example: blog-1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /client/blog/{slug}/change-active:
+    post:
+      tags:
+        - Client > Blog
+      summary: change active status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                _method:
+                  type: string
+                  example: patch
+                value:
+                  type: integer
+                  example: '1'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: blog-1
       responses:
         '200':
           description: Successful response
@@ -3438,9 +3512,8 @@ paths:
         - name: negotiable
           in: query
           schema:
-            type: integer
+            type: string
           description: 'values: 0, 1 or empty'
-          example: '0'
       responses:
         '200':
           description: Successful response
@@ -3584,6 +3657,30 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/house-similar/{house_slug}:
+    get:
+      tags:
+        - Public > House
+      summary: similar (no auth)
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: house_slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: new-house-1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/job-category:
     get:
       tags:
@@ -3654,18 +3751,6 @@ paths:
           schema:
             type: string
           example: desc
-        - name: offsite
-          in: query
-          schema:
-            type: integer
-          description: 'values: 0, 1 or empty'
-          example: '1'
-        - name: part_time
-          in: query
-          schema:
-            type: integer
-          description: 'values: 0, 1 or empty'
-          example: '0'
       responses:
         '200':
           description: Successful response
@@ -4020,6 +4105,11 @@ paths:
         - Public
       summary: get user detail
       parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '4'
         - name: slug
           in: path
           schema:
