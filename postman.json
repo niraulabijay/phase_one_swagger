@@ -13,7 +13,7 @@
 					"name": "House",
 					"item": [
 						{
-							"name": "get all house (no auth required) Copy",
+							"name": "get all house",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -424,7 +424,7 @@
 										{
 											"key": "icon",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/job fallback.jpg"
+											"src": "/home/user--49/Pictures/1554105.jpg"
 										}
 									]
 								},
@@ -599,13 +599,19 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/admin/house-category",
+									"raw": "{{url}}/admin/house-category?limit=",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"house-category"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -1366,13 +1372,20 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/admin/job-category",
+									"raw": "{{url}}/admin/job-category?limit=",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"job-category"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "",
+											"description": "nullable"
+										}
 									]
 								}
 							},
@@ -1683,13 +1696,19 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/admin/business-category",
+									"raw": "{{url}}/admin/business-category?limit=",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"business-category"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -3700,7 +3719,7 @@
 									"formdata": [
 										{
 											"key": "job_category_id",
-											"value": " 3",
+											"value": " 1",
 											"type": "text"
 										},
 										{
@@ -5920,13 +5939,20 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/business-category",
+									"raw": "{{url}}/api/business-category?limit=",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"business-category"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "",
+											"description": "nullable"
+										}
 									]
 								}
 							},
@@ -6121,7 +6147,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/business-search?business_category_slug=&q=&longitude=85.336738&latitude=27.698218&radius=6",
+									"raw": "{{url}}/api/business-search?business_category_slug=&q=&radius=6&sort_key=title&sort_order=desc",
 									"host": [
 										"{{url}}"
 									],
@@ -6140,15 +6166,25 @@
 										},
 										{
 											"key": "longitude",
-											"value": "85.336738"
+											"value": "85.336738",
+											"disabled": true
 										},
 										{
 											"key": "latitude",
-											"value": "27.698218"
+											"value": "27.698218",
+											"disabled": true
 										},
 										{
 											"key": "radius",
 											"value": "6"
+										},
+										{
+											"key": "sort_key",
+											"value": "title"
+										},
+										{
+											"key": "sort_order",
+											"value": "desc"
 										}
 									]
 								}
@@ -6182,13 +6218,20 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/house-category",
+									"raw": "{{url}}/api/house-category?limit=",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"house-category"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "",
+											"description": "nullable"
+										}
 									]
 								}
 							},
@@ -6216,7 +6259,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/house-search?q=h&house_category_slug=&min_price=&max_price=&longitude=85.336738&latitude=27.698218&radius=3",
+									"raw": "{{url}}/api/house-search?q=&house_category_slug=&min_price=&max_price=&longitude=&latitude=&radius=3&sort_key=title&sort_order=asc",
 									"host": [
 										"{{url}}"
 									],
@@ -6227,7 +6270,7 @@
 									"query": [
 										{
 											"key": "q",
-											"value": "h",
+											"value": "",
 											"description": "search text here"
 										},
 										{
@@ -6245,15 +6288,23 @@
 										},
 										{
 											"key": "longitude",
-											"value": "85.336738"
+											"value": ""
 										},
 										{
 											"key": "latitude",
-											"value": "27.698218"
+											"value": ""
 										},
 										{
 											"key": "radius",
 											"value": "3"
+										},
+										{
+											"key": "sort_key",
+											"value": "title"
+										},
+										{
+											"key": "sort_order",
+											"value": "asc"
 										}
 									]
 								}
@@ -6510,13 +6561,20 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/job-category",
+									"raw": "{{url}}/api/job-category?limit=",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"job-category"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "",
+											"description": "nullable"
+										}
 									]
 								}
 							},
@@ -6683,7 +6741,7 @@
 									"variable": [
 										{
 											"key": "job_category_slug",
-											"value": "->only('index','show')"
+											"value": "category-3"
 										}
 									]
 								}
@@ -6712,7 +6770,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/job-search?q=&job_category_slug=&min_salary=&max_salary=&longitude=85.336738&latitude=27.698218&radius=2",
+									"raw": "{{url}}/api/job-search?q=&job_category_slug=&min_salary=&max_salary=&longitude=&latitude=&radius=2",
 									"host": [
 										"{{url}}"
 									],
@@ -6740,15 +6798,25 @@
 										},
 										{
 											"key": "longitude",
-											"value": "85.336738"
+											"value": ""
 										},
 										{
 											"key": "latitude",
-											"value": "27.698218"
+											"value": ""
 										},
 										{
 											"key": "radius",
 											"value": "2"
+										},
+										{
+											"key": "sort_key",
+											"value": "title",
+											"disabled": true
+										},
+										{
+											"key": "sort_order",
+											"value": "desc",
+											"disabled": true
 										}
 									]
 								}
@@ -7317,19 +7385,19 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/user-detail/:user_id",
+							"raw": "{{url}}/api/user-detail/:slug",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"user-detail",
-								":user_id"
+								":slug"
 							],
 							"variable": [
 								{
-									"key": "user_id",
-									"value": "2"
+									"key": "slug",
+									"value": "fullname-1"
 								}
 							]
 						}

@@ -75,7 +75,7 @@ paths:
     get:
       tags:
         - Admin > House
-      summary: get all house (no auth required) Copy
+      summary: get all house
       security:
         - bearerAuth: []
       parameters:
@@ -321,6 +321,11 @@ paths:
       summary: index - get all category of house
       security:
         - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -704,6 +709,12 @@ paths:
       summary: index - get all category of job
       security:
         - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
+          description: nullable
       responses:
         '200':
           description: Successful response
@@ -858,6 +869,11 @@ paths:
       summary: index - get all category of business
       security:
         - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -1948,7 +1964,7 @@ paths:
               properties:
                 job_category_id:
                   type: string
-                  example: ' 3'
+                  example: ' 1'
                 title:
                   type: string
                   example: ' job 3'
@@ -2274,6 +2290,12 @@ paths:
       summary: get all business category (no auth required)
       security:
         - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
+          description: nullable
       responses:
         '200':
           description: Successful response
@@ -3306,21 +3328,21 @@ paths:
           in: query
           schema:
             type: string
-        - name: longitude
-          in: query
-          schema:
-            type: number
-          example: '85.336738'
-        - name: latitude
-          in: query
-          schema:
-            type: number
-          example: '27.698218'
         - name: radius
           in: query
           schema:
             type: integer
           example: '6'
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          example: title
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          example: desc
       responses:
         '200':
           description: Successful response
@@ -3339,6 +3361,11 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: limit
+          in: query
+          schema:
+            type: string
+          description: nullable
       responses:
         '200':
           description: Successful response
@@ -3362,7 +3389,6 @@ paths:
           schema:
             type: string
           description: search text here
-          example: h
         - name: house_category_slug
           in: query
           schema:
@@ -3379,18 +3405,26 @@ paths:
         - name: longitude
           in: query
           schema:
-            type: number
-          example: '85.336738'
+            type: string
         - name: latitude
           in: query
           schema:
-            type: number
-          example: '27.698218'
+            type: string
         - name: radius
           in: query
           schema:
             type: integer
           example: '3'
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          example: title
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          example: asc
       responses:
         '200':
           description: Successful response
@@ -3541,6 +3575,12 @@ paths:
       summary: get all job category (no auth required)
       security:
         - bearerAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: string
+          description: nullable
       responses:
         '200':
           description: Successful response
@@ -3579,13 +3619,11 @@ paths:
         - name: longitude
           in: query
           schema:
-            type: number
-          example: '85.336738'
+            type: string
         - name: latitude
           in: query
           schema:
-            type: number
-          example: '27.698218'
+            type: string
         - name: radius
           in: query
           schema:
@@ -3654,7 +3692,7 @@ paths:
           schema:
             type: string
           required: true
-          example: '->only(''index'',''show'')'
+          example: category-3
       responses:
         '200':
           description: Successful response
@@ -3939,18 +3977,18 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/user-detail/{user_id}:
+  /api/user-detail/{slug}:
     get:
       tags:
         - Public
       summary: get user detail
       parameters:
-        - name: user_id
+        - name: slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '2'
+          example: fullname-1
       responses:
         '200':
           description: Successful response
