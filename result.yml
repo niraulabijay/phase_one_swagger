@@ -3328,6 +3328,16 @@ paths:
           in: query
           schema:
             type: string
+        - name: longitude
+          in: query
+          schema:
+            type: number
+          example: '85.336738'
+        - name: latitude
+          in: query
+          schema:
+            type: number
+          example: '27.698218'
         - name: radius
           in: query
           schema:
@@ -3425,6 +3435,12 @@ paths:
           schema:
             type: string
           example: asc
+        - name: negotiable
+          in: query
+          schema:
+            type: integer
+          description: 'values: 0, 1 or empty'
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -3603,7 +3619,6 @@ paths:
           in: query
           schema:
             type: string
-          description: search text here
         - name: job_category_slug
           in: query
           schema:
@@ -3629,6 +3644,28 @@ paths:
           schema:
             type: integer
           example: '2'
+        - name: sort_key
+          in: query
+          schema:
+            type: string
+          example: title
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+          example: desc
+        - name: offsite
+          in: query
+          schema:
+            type: integer
+          description: 'values: 0, 1 or empty'
+          example: '1'
+        - name: part_time
+          in: query
+          schema:
+            type: integer
+          description: 'values: 0, 1 or empty'
+          example: '0'
       responses:
         '200':
           description: Successful response

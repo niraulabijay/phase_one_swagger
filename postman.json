@@ -6147,7 +6147,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/business-search?business_category_slug=&q=&radius=6&sort_key=title&sort_order=desc",
+									"raw": "{{url}}/api/business-search?business_category_slug=&q=&longitude=85.336738&latitude=27.698218&radius=6&sort_key=title&sort_order=desc",
 									"host": [
 										"{{url}}"
 									],
@@ -6166,13 +6166,11 @@
 										},
 										{
 											"key": "longitude",
-											"value": "85.336738",
-											"disabled": true
+											"value": "85.336738"
 										},
 										{
 											"key": "latitude",
-											"value": "27.698218",
-											"disabled": true
+											"value": "27.698218"
 										},
 										{
 											"key": "radius",
@@ -6259,7 +6257,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/house-search?q=&house_category_slug=&min_price=&max_price=&longitude=&latitude=&radius=3&sort_key=title&sort_order=asc",
+									"raw": "{{url}}/api/house-search?q=&house_category_slug=&min_price=&max_price=&longitude=&latitude=&radius=3&sort_key=title&sort_order=asc&negotiable=0",
 									"host": [
 										"{{url}}"
 									],
@@ -6305,6 +6303,11 @@
 										{
 											"key": "sort_order",
 											"value": "asc"
+										},
+										{
+											"key": "negotiable",
+											"value": "0",
+											"description": "values: 0, 1 or empty"
 										}
 									]
 								}
@@ -6770,7 +6773,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/job-search?q=&job_category_slug=&min_salary=&max_salary=&longitude=&latitude=&radius=2",
+									"raw": "{{url}}/api/job-search?q=&job_category_slug=&min_salary=&max_salary=&longitude=&latitude=&radius=2&sort_key=title&sort_order=desc&offsite=1&part_time=0",
 									"host": [
 										"{{url}}"
 									],
@@ -6781,8 +6784,7 @@
 									"query": [
 										{
 											"key": "q",
-											"value": "",
-											"description": "search text here"
+											"value": ""
 										},
 										{
 											"key": "job_category_slug",
@@ -6810,13 +6812,21 @@
 										},
 										{
 											"key": "sort_key",
-											"value": "title",
-											"disabled": true
+											"value": "title"
 										},
 										{
 											"key": "sort_order",
-											"value": "desc",
-											"disabled": true
+											"value": "desc"
+										},
+										{
+											"key": "offsite",
+											"value": "1",
+											"description": "values: 0, 1 or empty"
+										},
+										{
+											"key": "part_time",
+											"value": "0",
+											"description": "values: 0, 1 or empty"
 										}
 									]
 								}
