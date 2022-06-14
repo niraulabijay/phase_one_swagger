@@ -2719,7 +2719,7 @@
 										{
 											"key": "house_feature_image",
 											"type": "file",
-											"src": []
+											"src": "/C:/Users/Leon Schiffer/Downloads/memes/3008924_01171de4a5d31he9.jpg"
 										},
 										{
 											"key": "business_profile_picture",
@@ -2739,7 +2739,7 @@
 										{
 											"key": "job_feature_image",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/job fallback.jpg"
+											"src": []
 										},
 										{
 											"key": "business_category_icon",
@@ -2911,14 +2911,20 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/fallback-image/house_feature_image",
+									"raw": "{{url}}/admin/fallback-image/:key",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"fallback-image",
-										"house_feature_image"
+										":key"
+									],
+									"variable": [
+										{
+											"key": "key",
+											"value": "house_feature_image"
+										}
 									]
 								}
 							},
@@ -3087,8 +3093,7 @@
 										{
 											"key": "image",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/business fallback.jpg",
-											"disabled": true
+											"src": []
 										},
 										{
 											"key": "_method",
@@ -3110,7 +3115,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "promoted-content-2"
+											"value": "promoted-content-2-edit"
 										}
 									]
 								}
@@ -3142,20 +3147,21 @@
 										},
 										{
 											"key": "value",
-											"value": "0",
+											"value": "1",
 											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/promoted-content/:slug",
+									"raw": "{{url}}/admin/promoted-content/:slug/change-active",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"promoted-content",
-										":slug"
+										":slug",
+										"change-active"
 									],
 									"variable": [
 										{
@@ -6343,47 +6349,6 @@
 					"name": "House",
 					"item": [
 						{
-							"name": "get all house category (no auth required)",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/api/house-category?limit=",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"house-category"
-									],
-									"query": [
-										{
-											"key": "limit",
-											"value": "",
-											"description": "nullable"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "search house",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -6456,6 +6421,47 @@
 											"key": "negotiable",
 											"value": "",
 											"description": "values: 0, 1 or empty"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all house category (no auth required)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/house-category?limit=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"house-category"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "",
+											"description": "nullable"
 										}
 									]
 								}
@@ -7114,6 +7120,53 @@
 										{
 											"key": "limit",
 											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "similar (no auth)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/job-similar/:job_slug?limit=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"job-similar",
+										":job_slug"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "2"
+										}
+									],
+									"variable": [
+										{
+											"key": "job_slug",
+											"value": "job-3"
 										}
 									]
 								}

@@ -1548,13 +1548,19 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/fallback-image/house_feature_image:
     delete:
       tags:
         - Admin > Fallback Image
       summary: delete
       security:
         - bearerAuth: []
+      parameters:
+        - name: key
+          in: path
+          schema:
+            type: string
+          required: true
+          example: house_feature_image
       responses:
         '200':
           description: Successful response
@@ -1628,19 +1634,28 @@ paths:
     post:
       tags:
         - Admin > Promoted Content
-      summary: change active status
+      summary: update
       requestBody:
         content:
           multipart/form-data:
             schema:
               type: object
               properties:
+                title:
+                  type: string
+                  example: Promoted Content 2 edit
+                description:
+                  type: string
+                  example: Description 2 edit
+                link:
+                  type: string
+                  example: link 2 edit
+                image:
+                  type: string
+                  format: binary
                 _method:
                   type: string
-                  example: patch
-                value:
-                  type: integer
-                  example: '0'
+                  example: put
       security:
         - bearerAuth: []
       parameters:
@@ -1659,6 +1674,37 @@ paths:
       tags:
         - Admin > Promoted Content
       summary: delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: promoted-content-2-edit
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/promoted-content/{slug}/change-active:
+    post:
+      tags:
+        - Admin > Promoted Content
+      summary: change active status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                _method:
+                  type: string
+                  example: patch
+                value:
+                  type: integer
+                  example: '1'
       security:
         - bearerAuth: []
       parameters:
@@ -3432,29 +3478,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/house-category:
-    get:
-      tags:
-        - Public > House
-      summary: get all house category (no auth required)
-      security:
-        - noauthAuth: []
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-        - name: limit
-          in: query
-          schema:
-            type: string
-          description: nullable
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /api/house-search:
     get:
       tags:
@@ -3514,6 +3537,29 @@ paths:
           schema:
             type: string
           description: 'values: 0, 1 or empty'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/house-category:
+    get:
+      tags:
+        - Public > House
+      summary: get all house category (no auth required)
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: limit
+          in: query
+          schema:
+            type: string
+          description: nullable
       responses:
         '200':
           description: Successful response
@@ -3876,6 +3922,35 @@ paths:
           schema:
             type: integer
           example: '5'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/job-similar/{job_slug}:
+    get:
+      tags:
+        - Public > Job
+      summary: similar (no auth)
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: limit
+          in: query
+          schema:
+            type: integer
+          example: '2'
+        - name: job_slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: job-3
       responses:
         '200':
           description: Successful response
