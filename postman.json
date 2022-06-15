@@ -2318,13 +2318,59 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"title\": \"blog 1\",\n    \"image\": \"\",\n    \"description\": \"blog description 1\",\n    \"meta_title\": \"blog meta title 1\",\n    \"meta_key\": [\"meta key 1\", \"meta key 2\"],\n    \"meta_description\": \"blog meta description 1\",\n    \"tag\": [\"tag 1\", \"tag 2\"],\n    \"status_id\": 1\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": " blog 1",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/memes/3008924_01171de4a5d31he9.jpg"
+										},
+										{
+											"key": "description",
+											"value": " blog description 1",
+											"type": "text"
+										},
+										{
+											"key": "meta_title",
+											"value": " blog meta title 1",
+											"type": "text"
+										},
+										{
+											"key": "meta_key[]",
+											"value": "meta key 1",
+											"type": "text"
+										},
+										{
+											"key": "meta_key[]",
+											"value": "meta key 2",
+											"type": "text"
+										},
+										{
+											"key": "meta_description",
+											"value": " blog meta description 1",
+											"type": "text"
+										},
+										{
+											"key": "tag[]",
+											"value": "tag 1",
+											"type": "text"
+										},
+										{
+											"key": "tag[]",
+											"value": "tag 2",
+											"type": "text"
+										},
+										{
+											"key": "status_id",
+											"value": " 1",
+											"type": "text"
 										}
-									}
+									]
 								},
 								"url": {
 									"raw": "{{url}}/admin/blog",
@@ -2377,6 +2423,57 @@
 										{
 											"key": "blog_id",
 											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change active status",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										},
+										{
+											"key": "value",
+											"value": "0",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/blog/:slug/change-active",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"blog",
+										":slug",
+										"change-active"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "hello-edited-blog"
 										}
 									]
 								}
@@ -2622,7 +2719,7 @@
 										{
 											"key": "house_feature_image",
 											"type": "file",
-											"src": []
+											"src": "/C:/Users/Leon Schiffer/Downloads/memes/3008924_01171de4a5d31he9.jpg"
 										},
 										{
 											"key": "business_profile_picture",
@@ -2642,7 +2739,7 @@
 										{
 											"key": "job_feature_image",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/job fallback.jpg"
+											"src": []
 										},
 										{
 											"key": "business_category_icon",
@@ -2814,14 +2911,20 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/fallback-image/house_feature_image",
+									"raw": "{{url}}/admin/fallback-image/:key",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"fallback-image",
-										"house_feature_image"
+										":key"
+									],
+									"variable": [
+										{
+											"key": "key",
+											"value": "house_feature_image"
+										}
 									]
 								}
 							},
@@ -2990,8 +3093,7 @@
 										{
 											"key": "image",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/business fallback.jpg",
-											"disabled": true
+											"src": []
 										},
 										{
 											"key": "_method",
@@ -3013,7 +3115,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "promoted-content-2"
+											"value": "promoted-content-2-edit"
 										}
 									]
 								}
@@ -3045,20 +3147,21 @@
 										},
 										{
 											"key": "value",
-											"value": "0",
+											"value": "1",
 											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/promoted-content/:slug",
+									"raw": "{{url}}/admin/promoted-content/:slug/change-active",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"promoted-content",
-										":slug"
+										":slug",
+										"change-active"
 									],
 									"variable": [
 										{
@@ -5195,7 +5298,58 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "blog-edits"
+											"value": "blog-1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change active status",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{client_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										},
+										{
+											"key": "value",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/client/blog/:slug/change-active",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"client",
+										"blog",
+										":slug",
+										"change-active"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "blog-1"
 										}
 									]
 								}
@@ -6195,47 +6349,6 @@
 					"name": "House",
 					"item": [
 						{
-							"name": "get all house category (no auth required)",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
-								"url": {
-									"raw": "{{url}}/api/house-category?limit=",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"house-category"
-									],
-									"query": [
-										{
-											"key": "limit",
-											"value": "",
-											"description": "nullable"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "search house",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -6257,7 +6370,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/house-search?q=&house_category_slug=&min_price=&max_price=&longitude=&latitude=&radius=3&sort_key=title&sort_order=asc&negotiable=0",
+									"raw": "{{url}}/api/house-search?q=&house_category_slug=&min_price=&max_price=&longitude=&latitude=&radius=3&sort_key=title&sort_order=asc&negotiable=",
 									"host": [
 										"{{url}}"
 									],
@@ -6306,8 +6419,49 @@
 										},
 										{
 											"key": "negotiable",
-											"value": "0",
+											"value": "",
 											"description": "values: 0, 1 or empty"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all house category (no auth required)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/house-category?limit=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"house-category"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "",
+											"description": "nullable"
 										}
 									]
 								}
@@ -6530,6 +6684,47 @@
 										{
 											"key": "limit",
 											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "similar (no auth)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/house-similar/:house_slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"house-similar",
+										":house_slug"
+									],
+									"variable": [
+										{
+											"key": "house_slug",
+											"value": "new-house-1"
 										}
 									]
 								}
@@ -6773,7 +6968,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/job-search?q=&job_category_slug=&min_salary=&max_salary=&longitude=&latitude=&radius=2&sort_key=title&sort_order=desc&offsite=1&part_time=0",
+									"raw": "{{url}}/api/job-search?q=&job_category_slug=&min_salary=&max_salary=&longitude=&latitude=&radius=2&sort_key=title&sort_order=desc",
 									"host": [
 										"{{url}}"
 									],
@@ -6821,12 +7016,14 @@
 										{
 											"key": "offsite",
 											"value": "1",
-											"description": "values: 0, 1 or empty"
+											"description": "values: 0, 1 or empty",
+											"disabled": true
 										},
 										{
 											"key": "part_time",
 											"value": "0",
-											"description": "values: 0, 1 or empty"
+											"description": "values: 0, 1 or empty",
+											"disabled": true
 										}
 									]
 								}
@@ -6923,6 +7120,53 @@
 										{
 											"key": "limit",
 											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "similar (no auth)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/job-similar/:job_slug?limit=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"job-similar",
+										":job_slug"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "2"
+										}
+									],
+									"variable": [
+										{
+											"key": "job_slug",
+											"value": "job-3"
 										}
 									]
 								}
@@ -7032,7 +7276,7 @@
 					"name": "Ad",
 					"item": [
 						{
-							"name": "show",
+							"name": "get ad by category and title",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -7113,7 +7357,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/ad",
+									"raw": "{{url}}/api/ad?ad_category=Job%20Page",
 									"host": [
 										"{{url}}"
 									],
@@ -7124,8 +7368,48 @@
 									"query": [
 										{
 											"key": "ad_category",
-											"value": "Job%20Page",
-											"disabled": true
+											"value": "Job%20Page"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get ads",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/ad?ad_category=homepage",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"ad"
+									],
+									"query": [
+										{
+											"key": "ad_category",
+											"value": "homepage",
+											"description": "use this parameter to filter by category"
 										}
 									]
 								}
@@ -7249,46 +7533,6 @@
 					"response": []
 				},
 				{
-					"name": "get ads by category",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "{{url}}/api/ad?ad_category=homepage",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"ad"
-							],
-							"query": [
-								{
-									"key": "ad_category",
-									"value": "homepage"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "get single ad",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -7395,7 +7639,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/user-detail/:slug",
+							"raw": "{{url}}/api/user-detail/:slug?limit=4222",
 							"host": [
 								"{{url}}"
 							],
@@ -7403,6 +7647,12 @@
 								"api",
 								"user-detail",
 								":slug"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "4222"
+								}
 							],
 							"variable": [
 								{
