@@ -3,7 +3,7 @@
 		"_postman_id": "0ba3eaca-232a-472a-bd67-44aa8f889281",
 		"name": "Phase One",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "16179347"
+		"_exporter_id": "19791325"
 	},
 	"item": [
 		{
@@ -7276,7 +7276,7 @@
 					"name": "Ad",
 					"item": [
 						{
-							"name": "show",
+							"name": "get ad by category and title",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -7357,7 +7357,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/ad",
+									"raw": "{{url}}/api/ad?ad_category=Job%20Page",
 									"host": [
 										"{{url}}"
 									],
@@ -7368,8 +7368,48 @@
 									"query": [
 										{
 											"key": "ad_category",
-											"value": "Job%20Page",
-											"disabled": true
+											"value": "Job%20Page"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get ads",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/ad?ad_category=homepage",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"ad"
+									],
+									"query": [
+										{
+											"key": "ad_category",
+											"value": "homepage",
+											"description": "use this parameter to filter by category"
 										}
 									]
 								}
@@ -7486,46 +7526,6 @@
 								{
 									"key": "house_amenity_id",
 									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get ads by category",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "{{url}}/api/ad?ad_category=homepage",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"ad"
-							],
-							"query": [
-								{
-									"key": "ad_category",
-									"value": "homepage"
 								}
 							]
 						}

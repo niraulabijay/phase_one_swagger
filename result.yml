@@ -4013,7 +4013,7 @@ paths:
     get:
       tags:
         - Public > Ad
-      summary: show
+      summary: get ad by category and title
       security:
         - bearerAuth: []
       parameters:
@@ -4042,8 +4042,8 @@ paths:
   /api/ad:
     get:
       tags:
-        - Public
-      summary: get ads by category
+        - Public > Ad
+      summary: get ads
       security:
         - noauthAuth: []
       parameters:
@@ -4056,6 +4056,7 @@ paths:
           in: query
           schema:
             type: string
+          description: use this parameter to filter by category
           example: homepage
       responses:
         '200':
