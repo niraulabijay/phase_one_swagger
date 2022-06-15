@@ -3337,6 +3337,186 @@
 					]
 				},
 				{
+					"name": "Banner",
+					"item": [
+						{
+							"name": "all",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/banner",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"banner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single banner by key",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/banner/:key",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"banner",
+										":key"
+									],
+									"variable": [
+										{
+											"key": "key",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "key",
+											"value": "search",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/memes/262812655_927085991579121_9152495969464832026_n.jpg"
+										},
+										{
+											"key": "link",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/banner",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"banner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/banner/:key",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"banner",
+										":key"
+									],
+									"variable": [
+										{
+											"key": "key",
+											"value": "search"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "login",
 					"request": {
 						"method": "POST",
@@ -7410,6 +7590,86 @@
 											"key": "ad_category",
 											"value": "homepage",
 											"description": "use this parameter to filter by category"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Banner",
+					"item": [
+						{
+							"name": "all",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/banner",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"banner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single banner by key",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/banner/:key",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"banner",
+										":key"
+									],
+									"variable": [
+										{
+											"key": "key",
+											"value": "search"
 										}
 									]
 								}
