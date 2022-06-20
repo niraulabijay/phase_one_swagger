@@ -3327,7 +3327,187 @@
 									"variable": [
 										{
 											"key": "review_id",
-											"value": "3"
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Banner",
+					"item": [
+						{
+							"name": "all",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/banner",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"banner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single banner by key",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/banner/:key",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"banner",
+										":key"
+									],
+									"variable": [
+										{
+											"key": "key",
+											"value": "asd"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "key",
+											"value": "asd",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Leon Schiffer/Downloads/memes/262812655_927085991579121_9152495969464832026_n.jpg"
+										},
+										{
+											"key": "link",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/banner",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"banner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/banner/:key",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"banner",
+										":key"
+									],
+									"variable": [
+										{
+											"key": "key",
+											"value": "asd"
 										}
 									]
 								}
@@ -5369,7 +5549,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{client_token}}",
+											"value": "{{client_token_2}}",
 											"type": "string"
 										}
 									]
@@ -5392,19 +5572,19 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/client/business-review/:business_id",
+									"raw": "{{url}}/client/business-review/:business_slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"client",
 										"business-review",
-										":business_id"
+										":business_slug"
 									],
 									"variable": [
 										{
-											"key": "business_id",
-											"value": "1"
+											"key": "business_slug",
+											"value": "business-5"
 										}
 									]
 								}
@@ -5527,7 +5707,7 @@
 									"variable": [
 										{
 											"key": "business_review_id",
-											"value": "2"
+											"value": "1"
 										}
 									]
 								}
@@ -5826,7 +6006,7 @@
 								},
 								{
 									"key": "password",
-									"value": "1234",
+									"value": "P@ssw0rd",
 									"type": "text"
 								}
 							]
@@ -5860,12 +6040,12 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "user@user.com",
+									"value": "tomnjerry8963@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "1234",
+									"value": "P@ssw0rd",
 									"type": "text"
 								},
 								{
@@ -6272,7 +6452,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": null
+											"value": "business-5"
 										}
 									]
 								}
@@ -7276,7 +7456,7 @@
 					"name": "Ad",
 					"item": [
 						{
-							"name": "show",
+							"name": "get ad by category and title",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -7357,7 +7537,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/ad",
+									"raw": "{{url}}/api/ad?ad_category=Job%20Page",
 									"host": [
 										"{{url}}"
 									],
@@ -7368,8 +7548,128 @@
 									"query": [
 										{
 											"key": "ad_category",
-											"value": "Job%20Page",
-											"disabled": true
+											"value": "Job%20Page"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get ads",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/ad?ad_category=homepage",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"ad"
+									],
+									"query": [
+										{
+											"key": "ad_category",
+											"value": "homepage",
+											"description": "use this parameter to filter by category"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Banner",
+					"item": [
+						{
+							"name": "all",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/banner",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"banner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single banner by key",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/banner/:key",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"banner",
+										":key"
+									],
+									"variable": [
+										{
+											"key": "key",
+											"value": "search"
 										}
 									]
 								}
@@ -7493,46 +7793,6 @@
 					"response": []
 				},
 				{
-					"name": "get ads by category",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "{{url}}/api/ad?ad_category=homepage",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"ad"
-							],
-							"query": [
-								{
-									"key": "ad_category",
-									"value": "homepage"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "get single ad",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -7634,6 +7894,47 @@
 					"response": []
 				},
 				{
+					"name": "show - get single blog (no Auth)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/blog/:slug",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"blog",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "blog-1-1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "get user detail",
 					"request": {
 						"method": "GET",
@@ -7658,6 +7959,79 @@
 								{
 									"key": "slug",
 									"value": "fullname-1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "password reset email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "tomnjerry8963@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/password-reset-email",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"password-reset-email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "password reset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "password",
+									"value": "P@ssw0rd",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "P@ssw0rd",
+									"type": "text"
+								},
+								{
+									"key": "token",
+									"value": "0fT6B8qJVB5G6SKkqAl5U7niWB0GM2zOU0jNpctdztZXu01OqIcI4jAJ1X9U4VFL",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/password-reset",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"password-reset"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "0fT6B8qJVB5G6SKkqAl5U7niWB0GM2zOU0jNpctdztZXu01OqIcI4jAJ1X9U4VFL",
+									"disabled": true
 								}
 							]
 						}

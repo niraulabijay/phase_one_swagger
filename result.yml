@@ -46,6 +46,7 @@ tags:
   - name: Admin > Promoted Content
   - name: Admin > Dashboard
   - name: Admin > Business Review
+  - name: Admin > Banner
   - name: Client
   - name: Client > House
   - name: Client > Job
@@ -70,6 +71,7 @@ tags:
   - name: Public > Client
   - name: Public > Promoted Content
   - name: Public > Ad
+  - name: Public > Banner
 paths:
   /admin/house:
     get:
@@ -1778,7 +1780,105 @@ paths:
           schema:
             type: integer
           required: true
-          example: '3'
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/banner:
+    get:
+      tags:
+        - Admin > Banner
+      summary: all
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Banner
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                key:
+                  type: string
+                  example: asd
+                description:
+                  type: string
+                image:
+                  type: string
+                  format: binary
+                link:
+                  type: string
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/banner/{key}:
+    get:
+      tags:
+        - Admin > Banner
+      summary: get single banner by key
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: key
+          in: path
+          schema:
+            type: string
+          required: true
+          example: asd
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Banner
+      summary: delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: key
+          in: path
+          schema:
+            type: string
+          required: true
+          example: asd
       responses:
         '200':
           description: Successful response
@@ -2933,7 +3033,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /client/business-review/{business_id}:
+  /client/business-review/{business_slug}:
     post:
       tags:
         - Client > Business Review
@@ -2953,12 +3053,12 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: business_id
+        - name: business_slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
+          example: business-5
       responses:
         '200':
           description: Successful response
@@ -3033,7 +3133,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '2'
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -3189,8 +3289,8 @@ paths:
                   type: string
                   example: user@user.com
                 password:
-                  type: integer
-                  example: '1234'
+                  type: string
+                  example: P@ssw0rd
       parameters:
         - name: Accept
           in: header
@@ -3215,10 +3315,10 @@ paths:
               properties:
                 email:
                   type: string
-                  example: user@user.com
+                  example: tomnjerry8963@gmail.com
                 password:
-                  type: integer
-                  example: '1234'
+                  type: string
+                  example: P@ssw0rd
                 name:
                   type: string
                   example: hello world
@@ -3422,6 +3522,7 @@ paths:
           schema:
             type: string
           required: true
+          example: business-5
       responses:
         '200':
           description: Successful response
@@ -4013,7 +4114,7 @@ paths:
     get:
       tags:
         - Public > Ad
-      summary: show
+      summary: get ad by category and title
       security:
         - bearerAuth: []
       parameters:
@@ -4042,8 +4143,8 @@ paths:
   /api/ad:
     get:
       tags:
-        - Public
-      summary: get ads by category
+        - Public > Ad
+      summary: get ads
       security:
         - noauthAuth: []
       parameters:
@@ -4056,7 +4157,50 @@ paths:
           in: query
           schema:
             type: string
+          description: use this parameter to filter by category
           example: homepage
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/banner:
+    get:
+      tags:
+        - Public > Banner
+      summary: all
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/banner/{key}:
+    get:
+      tags:
+        - Public > Banner
+      summary: get single banner by key
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: key
+          in: path
+          schema:
+            type: string
+          required: true
+          example: search
       responses:
         '200':
           description: Successful response
@@ -4174,6 +4318,30 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/blog/{slug}:
+    get:
+      tags:
+        - Public
+      summary: show - get single blog (no Auth)
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: blog-1-1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/user-detail/{slug}:
     get:
       tags:
@@ -4191,6 +4359,51 @@ paths:
             type: string
           required: true
           example: fullname-1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/password-reset-email:
+    post:
+      tags:
+        - Public
+      summary: password reset email
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: tomnjerry8963@gmail.com
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/password-reset:
+    post:
+      tags:
+        - Public
+      summary: password reset
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  example: P@ssw0rd
+                password_confirmation:
+                  type: string
+                  example: P@ssw0rd
+                token:
+                  type: string
+                  example: >-
+                    0fT6B8qJVB5G6SKkqAl5U7niWB0GM2zOU0jNpctdztZXu01OqIcI4jAJ1X9U4VFL
       responses:
         '200':
           description: Successful response
