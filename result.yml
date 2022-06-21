@@ -3517,6 +3517,12 @@ paths:
       security:
         - noauthAuth: []
       parameters:
+        - name: review_limit
+          in: query
+          schema:
+            type: integer
+          description: nullable
+          example: '2'
         - name: slug
           in: path
           schema:

@@ -5549,7 +5549,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{client_token_2}}",
+											"value": "{{client_token}}",
 											"type": "string"
 										}
 									]
@@ -6440,7 +6440,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/business/:slug",
+									"raw": "{{url}}/api/business/:slug?review_limit=2",
 									"host": [
 										"{{url}}"
 									],
@@ -6448,6 +6448,13 @@
 										"api",
 										"business",
 										":slug"
+									],
+									"query": [
+										{
+											"key": "review_limit",
+											"value": "2",
+											"description": "nullable"
+										}
 									],
 									"variable": [
 										{
