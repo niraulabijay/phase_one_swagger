@@ -72,6 +72,7 @@ tags:
   - name: Public > Promoted Content
   - name: Public > Ad
   - name: Public > Banner
+  - name: Public > Social Auth
 paths:
   /admin/house:
     get:
@@ -127,7 +128,7 @@ paths:
                   type: string
                   example: patch
       security:
-        - bearerAuth: []
+        - noauthAuth: []
       parameters:
         - name: Accept
           in: header
@@ -280,7 +281,7 @@ paths:
               properties:
                 title:
                   type: string
-                  example: asldkjw
+                  example: qwe qwe
                 description:
                   type: string
                   example: asjdhw
@@ -298,9 +299,9 @@ paths:
                 meta_description:
                   type: string
                   example: ' description'
-                meta_keyword:
+                meta_keyword[]:
                   type: string
-                  example: ' keyword'
+                  example: keyword2
                 icon:
                   type: string
                   format: binary
@@ -849,7 +850,7 @@ paths:
                 meta_description:
                   type: string
                   example: meta description
-                meta_keyword:
+                meta_keyword[]:
                   type: string
                   example: meta_keyword
       security:
@@ -1775,6 +1776,11 @@ paths:
       security:
         - bearerAuth: []
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: review_id
           in: path
           schema:
@@ -1987,8 +1993,8 @@ paths:
                   type: string
                   format: binary
                 tag[]:
-                  type: string
-                  example: testset3
+                  type: integer
+                  example: '3'
                 feature[1][id]:
                   type: integer
                   example: '1'
@@ -2560,7 +2566,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /client/job-inquiry/{job_id}:
+  /client/job-inquiry/{job_slug}:
     post:
       tags:
         - Client > JobInquiry
@@ -2594,12 +2600,12 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: job_id
+        - name: job_slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '2'
+          example: job-3
       responses:
         '200':
           description: Successful response
@@ -2614,6 +2620,10 @@ paths:
         - bearerAuth: []
       parameters:
         - name: limit
+          in: query
+          schema:
+            type: string
+        - name: job_slug
           in: query
           schema:
             type: string
@@ -2643,7 +2653,7 @@ paths:
     get:
       tags:
         - Client > JobInquiry
-      summary: get single job inquiry
+      summary: get single job-inquiry
       security:
         - bearerAuth: []
       parameters:
@@ -2680,7 +2690,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /client/house-inquiry/{house_id}:
+  /client/house-inquiry/{house_slug}:
     post:
       tags:
         - Client > HouseInquiry
@@ -2711,12 +2721,12 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: house_id
+        - name: house_slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
+          example: new-house
       responses:
         '200':
           description: Successful response
@@ -2731,6 +2741,10 @@ paths:
         - bearerAuth: []
       parameters:
         - name: limit
+          in: query
+          schema:
+            type: string
+        - name: house_slug
           in: query
           schema:
             type: string
@@ -2751,6 +2765,10 @@ paths:
           in: query
           schema:
             type: string
+        - name: house_slug
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -2760,7 +2778,7 @@ paths:
     get:
       tags:
         - Client > HouseInquiry
-      summary: show - get single job inquiry
+      summary: get single job inquiry
       security:
         - bearerAuth: []
       parameters:
@@ -2828,11 +2846,9 @@ paths:
                 location:
                   type: string
                   description: nullable
-                  example: location 1
                 mobile:
-                  type: integer
+                  type: string
                   description: nullable
-                  example: '9876543210'
                 gender:
                   type: string
                   description: nullable
@@ -3058,7 +3074,7 @@ paths:
           schema:
             type: string
           required: true
-          example: business-5
+          example: business-1
       responses:
         '200':
           description: Successful response
@@ -3128,6 +3144,11 @@ paths:
       security:
         - bearerAuth: []
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: business_review_id
           in: path
           schema:
@@ -3287,7 +3308,7 @@ paths:
               properties:
                 email:
                   type: string
-                  example: user@user.com
+                  example: client2@gmail.com
                 password:
                   type: string
                   example: P@ssw0rd
@@ -3315,10 +3336,10 @@ paths:
               properties:
                 email:
                   type: string
-                  example: tomnjerry8963@gmail.com
+                  example: leon.schiffer360@gmail.com
                 password:
                   type: string
-                  example: P@ssw0rd
+                  example: Asd@360
                 name:
                   type: string
                   example: hello world
@@ -3690,7 +3711,7 @@ paths:
           schema:
             type: string
           required: true
-          example: asldkjw-1
+          example: sunt-ullam-eveniet
       responses:
         '200':
           description: Successful response
@@ -3743,7 +3764,7 @@ paths:
           schema:
             type: string
           required: true
-          example: new-house-1
+          example: house-category-1
       responses:
         '200':
           description: Successful response
@@ -3967,7 +3988,7 @@ paths:
           schema:
             type: string
           required: true
-          example: category-3
+          example: category-1
       responses:
         '200':
           description: Successful response
@@ -4212,6 +4233,35 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/sign-in/social:
+    post:
+      tags:
+        - Public > Social Auth
+      summary: social login
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                provider:
+                  type: string
+                  example: google
+                token:
+                  type: string
+                  example: >-
+                    ya29.a0ARrdaM_0igAg9Tjsop2B68SD7rs_wE18Rf2tcjZ8GtIeYEHh3xAi0nJL-62IMcyNGunbfdtZvBuV1QbJJAT4H6f5UFsvsJMUB21w6wOiaEqA2JAr2vn_CYSuMLQA0twOoafRWHZssv_OE4mtFvHd2SW0EEwOit4
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/house-feature:
     get:
       tags:
@@ -4410,6 +4460,36 @@ paths:
                   type: string
                   example: >-
                     0fT6B8qJVB5G6SKkqAl5U7niWB0GM2zOU0jNpctdztZXu01OqIcI4jAJ1X9U4VFL
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/job-category-tree:
+    get:
+      tags:
+        - Public
+      summary: job category tree with item count
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/house-category-tree:
+    get:
+      tags:
+        - Public
+      summary: house category tree with item count
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business-category-tree:
+    get:
+      tags:
+        - Public
+      summary: business category tree with item count
       responses:
         '200':
           description: Successful response

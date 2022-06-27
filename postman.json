@@ -23,7 +23,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{admin_token}}",
+											"value": "{{client_token}}",
 											"type": "string"
 										}
 									]
@@ -77,14 +77,7 @@
 							"name": "change active status",
 							"request": {
 								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{admin_token}}",
-											"type": "string"
-										}
-									]
+									"type": "noauth"
 								},
 								"method": "POST",
 								"header": [
@@ -383,7 +376,7 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": "asldkjw",
+											"value": "qwe qwe",
 											"type": "text"
 										},
 										{
@@ -417,14 +410,19 @@
 											"type": "text"
 										},
 										{
-											"key": "meta_keyword",
-											"value": " keyword",
+											"key": "meta_keyword[]",
+											"value": "keyword1",
+											"type": "text"
+										},
+										{
+											"key": "meta_keyword[]",
+											"value": "keyword2",
 											"type": "text"
 										},
 										{
 											"key": "icon",
 											"type": "file",
-											"src": "/home/user--49/Pictures/1554105.jpg"
+											"src": "/home/user--49/Pictures/Black.png"
 										}
 									]
 								},
@@ -1509,14 +1507,14 @@
 											"type": "text"
 										},
 										{
-											"key": "meta_keyword",
+											"key": "meta_keyword[]",
 											"value": "meta_keyword",
 											"type": "text"
 										},
 										{
 											"key": "icon",
 											"type": "file",
-											"src": "/C:/Users/Leon Schiffer/Downloads/business fallback.jpg"
+											"src": "/home/user--49/Pictures/dash-taran.jpg"
 										}
 									]
 								},
@@ -3313,7 +3311,13 @@
 									]
 								},
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
 									"raw": "{{url}}/admin/delete-business-review/:review_id",
 									"host": [
@@ -3347,7 +3351,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{admin_token}}",
+											"value": "{{client_token}}",
 											"type": "string"
 										}
 									]
@@ -3698,12 +3702,12 @@
 										},
 										{
 											"key": "tag[]",
-											"value": "test2",
+											"value": "1",
 											"type": "text"
 										},
 										{
 											"key": "tag[]",
-											"value": "testset3",
+											"value": "2",
 											"type": "text"
 										},
 										{
@@ -3714,6 +3718,11 @@
 										{
 											"key": "feature[1][value]",
 											"value": "2asdfasdfasdf",
+											"type": "text"
+										},
+										{
+											"key": "tag[]",
+											"value": "3",
 											"type": "text"
 										}
 									]
@@ -4704,7 +4713,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{client_token}}",
+											"value": "{{client_token_2}}",
 											"type": "string"
 										}
 									]
@@ -4743,24 +4752,24 @@
 										{
 											"key": "resume",
 											"type": "file",
-											"src": "/home/user--49/Pictures/Black.png"
+											"src": "/home/user--49/Pictures/converse-women-s-t-shirt-black-577192-A.jpg"
 										}
 									]
 								},
 								"url": {
-									"raw": "{{url}}/client/job-inquiry/:job_id",
+									"raw": "{{url}}/client/job-inquiry/:job_slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"client",
 										"job-inquiry",
-										":job_id"
+										":job_slug"
 									],
 									"variable": [
 										{
-											"key": "job_id",
-											"value": "2"
+											"key": "job_slug",
+											"value": "job-3"
 										}
 									]
 								}
@@ -4790,7 +4799,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/client/my-job-inquiry?limit=",
+									"raw": "{{url}}/client/my-job-inquiry?limit=&job_slug=",
 									"host": [
 										"{{url}}"
 									],
@@ -4801,6 +4810,10 @@
 									"query": [
 										{
 											"key": "limit",
+											"value": ""
+										},
+										{
+											"key": "job_slug",
 											"value": ""
 										}
 									]
@@ -4843,7 +4856,7 @@
 							"response": []
 						},
 						{
-							"name": "get single job inquiry",
+							"name": "get single job-inquiry",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -4967,19 +4980,19 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/client/house-inquiry/:house_id",
+									"raw": "{{url}}/client/house-inquiry/:house_slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"client",
 										"house-inquiry",
-										":house_id"
+										":house_slug"
 									],
 									"variable": [
 										{
-											"key": "house_id",
-											"value": "1"
+											"key": "house_slug",
+											"value": "new-house"
 										}
 									]
 								}
@@ -5009,7 +5022,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/client/my-house-inquiry?limit=",
+									"raw": "{{url}}/client/my-house-inquiry?limit=&house_slug",
 									"host": [
 										"{{url}}"
 									],
@@ -5021,6 +5034,10 @@
 										{
 											"key": "limit",
 											"value": ""
+										},
+										{
+											"key": "house_slug",
+											"value": null
 										}
 									]
 								}
@@ -5043,7 +5060,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/client/received-house-inquiry?limit=",
+									"raw": "{{url}}/client/received-house-inquiry?limit=&house_slug",
 									"host": [
 										"{{url}}"
 									],
@@ -5055,6 +5072,10 @@
 										{
 											"key": "limit",
 											"value": ""
+										},
+										{
+											"key": "house_slug",
+											"value": null
 										}
 									]
 								}
@@ -5062,7 +5083,7 @@
 							"response": []
 						},
 						{
-							"name": "show - get single job inquiry",
+							"name": "get single job inquiry",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -5184,17 +5205,17 @@
 										{
 											"key": "image",
 											"type": "file",
-											"src": "/home/user--49/Pictures/vianet.png"
+											"src": "/C:/Users/Leon Schiffer/Downloads/memes/3008924_01171de4a5d31he9.jpg"
 										},
 										{
 											"key": "location",
-											"value": "location 1",
+											"value": "",
 											"description": "nullable",
 											"type": "text"
 										},
 										{
 											"key": "mobile",
-											"value": "9876543210",
+											"value": "",
 											"description": "nullable",
 											"type": "text"
 										},
@@ -5584,7 +5605,7 @@
 									"variable": [
 										{
 											"key": "business_slug",
-											"value": "business-5"
+											"value": "business-1"
 										}
 									]
 								}
@@ -5693,7 +5714,13 @@
 									]
 								},
 								"method": "POST",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
 									"raw": "{{url}}/client/flag-business-review/:business_review_id",
 									"host": [
@@ -6001,7 +6028,7 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "user@user.com",
+									"value": "client2@gmail.com",
 									"type": "text"
 								},
 								{
@@ -6040,12 +6067,12 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "tomnjerry8963@gmail.com",
+									"value": "leon.schiffer360@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "P@ssw0rd",
+									"value": "Asd@360",
 									"type": "text"
 								},
 								{
@@ -6689,7 +6716,7 @@
 									"variable": [
 										{
 											"key": "house_category_slug",
-											"value": "asldkjw-1"
+											"value": "sunt-ullam-eveniet"
 										}
 									]
 								}
@@ -6774,7 +6801,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "new-house-1"
+											"value": "house-category-1"
 										}
 									]
 								}
@@ -7126,7 +7153,7 @@
 									"variable": [
 										{
 											"key": "job_category_slug",
-											"value": "category-3"
+											"value": "category-1"
 										}
 									]
 								}
@@ -7686,6 +7713,51 @@
 					]
 				},
 				{
+					"name": "Social Auth",
+					"item": [
+						{
+							"name": "social login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "provider",
+											"value": "google",
+											"type": "text"
+										},
+										{
+											"key": "token",
+											"value": "ya29.a0ARrdaM_0igAg9Tjsop2B68SD7rs_wE18Rf2tcjZ8GtIeYEHh3xAi0nJL-62IMcyNGunbfdtZvBuV1QbJJAT4H6f5UFsvsJMUB21w6wOiaEqA2JAr2vn_CYSuMLQA0twOoafRWHZssv_OE4mtFvHd2SW0EEwOit4",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/sign-in/social",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"sign-in",
+										"social"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "get all feature (no auth required)",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -8040,6 +8112,60 @@
 									"value": "0fT6B8qJVB5G6SKkqAl5U7niWB0GM2zOU0jNpctdztZXu01OqIcI4jAJ1X9U4VFL",
 									"disabled": true
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "job category tree with item count",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/job-category-tree",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"job-category-tree"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "house category tree with item count",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/house-category-tree",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"house-category-tree"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "business category tree with item count",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/business-category-tree",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"business-category-tree"
 							]
 						}
 					},
