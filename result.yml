@@ -1905,8 +1905,8 @@ paths:
                   type: string
                   example: admin@admin.com
                 password:
-                  type: integer
-                  example: '1234'
+                  type: string
+                  example: Asd@360
       parameters:
         - name: Accept
           in: header
@@ -2394,7 +2394,7 @@ paths:
     get:
       tags:
         - Client > Business
-      summary: get my single business
+      summary: index - get my businesses
       security:
         - bearerAuth: []
       parameters:
@@ -2881,6 +2881,10 @@ paths:
                   type: integer
                   description: 'nullable, default 0, values: 0, 1'
                   example: '1'
+                looking:
+                  type: string
+                  description: nullable
+                  example: asdf
       security:
         - bearerAuth: []
       parameters:
@@ -2936,7 +2940,7 @@ paths:
                   example: blog meta description 1
                 tag[]:
                   type: string
-                  example: tag 2
+                  example: TAGGG2
                 status_id:
                   type: integer
                   example: '1'
@@ -3153,6 +3157,12 @@ paths:
           schema:
             type: string
           description: the key by which you want to order (like title, created_at, etc)
+        - name: slug
+          in: query
+          schema:
+            type: string
+          description: nullable
+          example: sasas
       responses:
         '200':
           description: Successful response
@@ -3332,10 +3342,10 @@ paths:
               properties:
                 email:
                   type: string
-                  example: tomnjerry8963@gmail.com
+                  example: qwe@gmail.com
                 password:
                   type: string
-                  example: P@ssw0rd
+                  example: Asd@360
       parameters:
         - name: Accept
           in: header

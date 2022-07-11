@@ -3550,7 +3550,7 @@
 								},
 								{
 									"key": "password",
-									"value": "1234",
+									"value": "Asd@360",
 									"type": "text"
 								}
 							]
@@ -4136,7 +4136,7 @@
 										{
 											"key": "feature_image",
 											"type": "file",
-											"src": []
+											"src": "/home/user--49/Pictures/Screenshot from 2022-07-08 12-20-03.png"
 										}
 									]
 								},
@@ -4513,40 +4513,6 @@
 						},
 						{
 							"name": "index - get my businesses",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{client_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/client/business?limit=",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"client",
-										"business"
-									],
-									"query": [
-										{
-											"key": "limit",
-											"value": ""
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get my single business",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -5309,6 +5275,12 @@
 											"value": "1",
 											"description": "nullable, default 0, values: 0, 1",
 											"type": "text"
+										},
+										{
+											"key": "looking",
+											"value": "asdf",
+											"description": "nullable",
+											"type": "text"
 										}
 									]
 								},
@@ -5384,7 +5356,7 @@
 										{
 											"key": "image",
 											"type": "file",
-											"src": "/home/user--49/Pictures/tomnjerry.jpeg"
+											"src": "/home/user--49/Pictures/Screenshot from 2022-07-01 10-59-26.png"
 										},
 										{
 											"key": "description",
@@ -5413,12 +5385,12 @@
 										},
 										{
 											"key": "tag[]",
-											"value": "tag 1",
+											"value": "TAGGG1",
 											"type": "text"
 										},
 										{
 											"key": "tag[]",
-											"value": "tag 2",
+											"value": "TAGGG2",
 											"type": "text"
 										},
 										{
@@ -5779,7 +5751,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/client/business-review?limit=&sort_order&sort_key",
+									"raw": "{{url}}/client/business-review?limit=&sort_order&sort_key&slug=sasas",
 									"host": [
 										"{{url}}"
 									],
@@ -5801,6 +5773,11 @@
 											"key": "sort_key",
 											"value": null,
 											"description": "the key by which you want to order (like title, created_at, etc)"
+										},
+										{
+											"key": "slug",
+											"value": "sasas",
+											"description": "nullable"
 										}
 									]
 								}
@@ -6135,12 +6112,12 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "tomnjerry8963@gmail.com",
+									"value": "qwe@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "P@ssw0rd",
+									"value": "Asd@360",
 									"type": "text"
 								}
 							]
